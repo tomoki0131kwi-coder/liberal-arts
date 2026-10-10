@@ -1,0 +1,19 @@
+{
+  "name": "教養日めくり",
+  "short_name": "教養日めくり",
+  "description": "十の分野・全300回の教養読み物から、毎日一枚。原典と出典つき。",
+  "lang": "ja",
+  "id": "./",
+  "start_url": "./#today",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef0eb",
+  "theme_color": "#eef0eb",
+  "categories": ["education", "books"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
