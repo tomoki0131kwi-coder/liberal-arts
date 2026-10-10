@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const ROOT = __dirname;
-const ORDER = ["phil", "hist", "sci", "soc", "art", "lit", "math", "drink", "eng"];
+const ORDER = ["phil", "hist", "sci", "soc", "art", "lit", "math", "drink", "eng", "bio"];
 const dataDir = path.join(ROOT, "src/data");
 const files = fs.readdirSync(dataDir).filter(f => f.endsWith(".js"))
   .sort((a, b) => ORDER.indexOf(a.split("-")[0]) - ORDER.indexOf(b.split("-")[0]) || a.localeCompare(b));
