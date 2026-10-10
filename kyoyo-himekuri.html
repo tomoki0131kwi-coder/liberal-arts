@@ -87,12 +87,20 @@ aside { display: grid; gap: 20px; position: sticky; top: calc(env(safe-area-inse
 .daynum { font-family: var(--f-display); font-weight: 900; font-size: 6rem; line-height: 1; color: var(--fc); font-variant-numeric: tabular-nums; }
 .daynum.small { font-size: 1.9rem; line-height: 1.25; }
 .dayrow { display: flex; align-items: center; gap: 12px; }
-.youbi { font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border: 2px solid var(--fc); color: var(--fc); border-radius: 50%; flex: none; }
+.youbi { font-family: var(--f-display); font-weight: 700; font-size: 1.25rem; line-height: 1; width: 2.6rem; height: 2.6rem; box-sizing: border-box; display: grid; place-items: center; border: 2px solid var(--fc); color: var(--fc); border-radius: 50%; flex: none; }
 .fieldname { font-weight: 700; font-size: 1rem; line-height: 1.5; }
 .fieldname span { display: block; font-weight: 400; font-size: .78rem; color: var(--ink-2); }
 .sheet-note { font-size: .8rem; color: var(--ink-2); border-top: 1px solid var(--rule); margin-top: 10px; padding-top: 8px; }
 
 .panel h3 { font-family: var(--f-body); font-size: .75rem; letter-spacing: .12em; color: var(--ink-2); font-weight: 500; margin-bottom: 8px; }
+details.panel { border-top: 1px solid var(--rule); padding-top: 8px; }
+details.panel > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: .75rem; letter-spacing: .12em; color: var(--ink-2); font-weight: 500; padding-block: 4px; }
+details.panel > summary::-webkit-details-marker { display: none; }
+details.panel > summary::after { content: "＋"; font-family: var(--f-mono); letter-spacing: 0; }
+details.panel[open] > summary::after { content: "－"; }
+details.panel > summary .peek { font-family: var(--f-mono); letter-spacing: 0; color: var(--ink); margin-left: auto; margin-right: 8px; }
+details.panel[open] > summary .peek { display: none; }
+details.panel > div { margin-top: 8px; }
 .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .stat { background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 8px 12px; }
 .stat b { font-family: var(--f-mono); font-size: 1.35rem; font-variant-numeric: tabular-nums; display: block; line-height: 1.3; }
@@ -4412,6 +4420,7 @@ store.days ||= [];      // 読了した日付の一覧（連続日数用）
 store.notes ||= {};     // id -> メモ
 store.picks ||= {};     // 日付 -> 今日の一枚の id
 store.round ||= [];     // 今の巡回で既に選ばれた id
+store.fold ||= {};      // 折り畳み欄の開閉
 
 /* ───── 今日の一枚：重複なしのランダム ─────
    全回を固定の乱数で並べ替えた順列を一つ用意し、日数に応じた位置から順に、
@@ -4477,20 +4486,20 @@ function sidebar(L, mode) {
       </div>
       <p class="sheet-note">${note}</p>
     </div></div>
-    <div class="panel">
-      <h3>あなたの記録（この端末）</h3>
+    <details class="panel" data-fold="stats"${store.fold.stats ? " open" : ""}>
+      <summary>あなたの記録（この端末）<span class="peek">${doneCount()} / ${N}</span></summary>
       <div class="stats">
         <div class="stat"><b>${streak()}</b><span>連続日数</span></div>
         <div class="stat"><b>${doneCount()} / ${N}</b><span>読み終えた回</span></div>
       </div>
-    </div>
-    <div class="panel">
-      <h3>分野ごとの読了</h3>
+    </details>
+    <details class="panel" data-fold="fields"${store.fold.fields ? " open" : ""}>
+      <summary>分野ごとの読了</summary>
       <div class="fbars">${ORDER.map(f => {
         const all = LESSONS.filter(l => l.field === f), dn = all.filter(l => store.done[l.id]).length;
         return `<div class="fbar" style="--fc:var(${FIELDS[f].c})"><span>${FIELDS[f].name}</span><span class="track"><i style="width:${all.length ? dn / all.length * 100 : 0}%"></i></span><span class="n">${dn}/${all.length}</span></div>`;
       }).join("")}</div>
-    </div>`;
+    </details>`;
 }
 
 /* ───── 読み物 ───── */
@@ -4693,6 +4702,7 @@ function route(keepScroll) {
   } else {
     setField(L.field);
     $("view").innerHTML = `<div class="layout"><aside>${sidebar(L, mode)}</aside><main>${lessonHTML(L, mode)}</main></div>`;
+    document.querySelectorAll("details[data-fold]").forEach(d => d.addEventListener("toggle", () => { store.fold[d.dataset.fold] = d.open; save(); }));
     wireLesson(L);
   }
   if (!keepScroll) window.scrollTo(0, 0);
