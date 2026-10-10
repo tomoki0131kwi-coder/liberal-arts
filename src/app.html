@@ -1,0 +1,595 @@
+<title>教養日めくり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: 「今日の一枚」は日めくり暦の一枚（左）＋読み物（右）。「書架」は分野ごとの色帯をもつ背表紙カードの棚。分野の色は七曜（月火水木金土日）に由来 */
+:root {
+  --paper: #eef0eb;
+  --sheet: #f9faf7;
+  --ink: #1c222c;
+  --ink-2: #4b5462;
+  --rule: #d3d8d0;
+  --ai: #2b4a78;
+  --ai-soft: #dfe6f1;
+  --good: #2f6b45;
+  --good-soft: #dcebe0;
+  --bad: #9a3324;
+  --bad-soft: #f3dfda;
+  --c-phil: #5d6b85;
+  --c-hist: #b2452f;
+  --c-sci: #1f6f8b;
+  --c-soc: #3e7a3f;
+  --c-art: #a07818;
+  --c-lit: #8a5a3b;
+  --c-math: #c0602a;
+  --fc: var(--c-phil);
+  --f-display: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #13161b; --sheet: #1b1f26; --ink: #e5e8e2; --ink-2: #a8afb9; --rule: #2e343d;
+    --ai: #8fb0e3; --ai-soft: #233149; --good: #7fc392; --good-soft: #1f3327; --bad: #ec8f7d; --bad-soft: #3d2420;
+    --c-phil: #a3b0c9; --c-hist: #e88a72; --c-sci: #6fbfd8; --c-soc: #8cc78a; --c-art: #e0bb5c; --c-lit: #d1a07f; --c-math: #f0a170;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #13161b; --sheet: #1b1f26; --ink: #e5e8e2; --ink-2: #a8afb9; --rule: #2e343d;
+  --ai: #8fb0e3; --ai-soft: #233149; --good: #7fc392; --good-soft: #1f3327; --bad: #ec8f7d; --bad-soft: #3d2420;
+  --c-phil: #a3b0c9; --c-hist: #e88a72; --c-sci: #6fbfd8; --c-soc: #8cc78a; --c-art: #e0bb5c; --c-lit: #d1a07f; --c-math: #f0a170;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.9;
+  padding-inline: 16px; padding-block: 20px 64px;
+}
+.wrap { max-width: 1120px; margin-inline: auto; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.35; margin: 0; }
+p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+
+/* masthead */
+.mast { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+.brand { font-family: var(--f-display); font-weight: 900; font-size: 1.5rem; letter-spacing: .08em; }
+.brand small { font-family: var(--f-body); font-weight: 400; font-size: .8rem; letter-spacing: .04em; color: var(--ink-2); margin-left: 12px; }
+.tabs { display: flex; gap: 0; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--sheet); }
+.tabs a { padding: 6px 16px; font-size: .9rem; color: var(--ink); text-decoration: none; border-right: 1px solid var(--rule); }
+.tabs a:last-child { border-right: 0; }
+.tabs a[aria-current="page"] { background: var(--ai); color: var(--sheet); font-weight: 700; }
+.btn { border: 1px solid var(--rule); background: var(--sheet); border-radius: 6px; padding: 6px 12px; font-size: .88rem; }
+.btn:hover { border-color: var(--ai); }
+.btn.primary { background: var(--ai); border-color: var(--ai); color: var(--sheet); font-weight: 700; }
+.btn[disabled] { opacity: .5; cursor: default; }
+
+.layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 36px; align-items: start; }
+@media (max-width: 860px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+/* 日めくりの一枚 */
+aside { display: grid; gap: 20px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+@media (max-width: 860px) { aside { position: static; } }
+.sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.sheet::before {
+  content: ""; display: block; height: 14px; border-bottom: 1px dashed var(--rule);
+  background: radial-gradient(circle at 50% 50%, var(--paper) 3px, transparent 3.5px) 0 0 / 22px 14px repeat-x;
+}
+.sheet-body { padding: 14px 20px 18px; display: grid; gap: 4px; }
+.sheet-top { display: flex; justify-content: space-between; gap: 8px; font-family: var(--f-mono); font-size: .78rem; color: var(--ink-2); letter-spacing: .04em; }
+.daynum { font-family: var(--f-display); font-weight: 900; font-size: 6rem; line-height: 1; color: var(--fc); font-variant-numeric: tabular-nums; }
+.daynum.small { font-size: 2.4rem; line-height: 1.2; }
+.dayrow { display: flex; align-items: center; gap: 12px; }
+.youbi { font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border: 2px solid var(--fc); color: var(--fc); border-radius: 50%; flex: none; }
+.fieldname { font-weight: 700; font-size: 1rem; line-height: 1.5; }
+.fieldname span { display: block; font-weight: 400; font-size: .78rem; color: var(--ink-2); }
+.sheet-note { font-size: .8rem; color: var(--ink-2); border-top: 1px solid var(--rule); margin-top: 10px; padding-top: 8px; }
+
+.panel h3 { font-family: var(--f-body); font-size: .75rem; letter-spacing: .12em; color: var(--ink-2); font-weight: 500; margin-bottom: 8px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stat { background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 8px 12px; }
+.stat b { font-family: var(--f-mono); font-size: 1.35rem; font-variant-numeric: tabular-nums; display: block; line-height: 1.3; }
+.stat span { font-size: .75rem; color: var(--ink-2); }
+.fbars { display: grid; gap: 6px; }
+.fbar { display: grid; grid-template-columns: 6.5em 1fr 3.2em; gap: 8px; align-items: center; font-size: .78rem; }
+.fbar .track { height: 6px; background: var(--rule); border-radius: 3px; overflow: hidden; }
+.fbar .track i { display: block; height: 100%; background: var(--fc); }
+.fbar .n { font-family: var(--f-mono); text-align: right; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+/* 本文 */
+main { display: grid; gap: 40px; min-width: 0; }
+.lesson-head { display: grid; gap: 10px; }
+.eyebrow { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: .8rem; color: var(--ink-2); }
+.chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 10px; font-size: .78rem; font-weight: 700; color: var(--fc); border: 1px solid var(--fc); }
+.lesson-head h1 { font-size: clamp(1.7rem, 4.4vw, 2.5rem); font-weight: 900; }
+.lead { font-family: var(--f-display); font-size: 1.12rem; color: var(--ink-2); max-width: 40em; }
+.plan { display: flex; flex-wrap: wrap; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--sheet); width: fit-content; max-width: 100%; }
+.plan button { padding: 6px 12px; font-size: .8rem; background: none; border: 0; border-right: 1px solid var(--rule); white-space: nowrap; }
+.plan button:hover { background: var(--ai-soft); }
+.plan button:last-child { border-right: 0; }
+.plan button b { font-family: var(--f-mono); font-weight: 500; color: var(--fc); margin-right: 4px; }
+
+section.step { display: grid; gap: 14px; scroll-margin-top: 16px; }
+.step-h { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+.step-h .n { font-family: var(--f-mono); font-size: .85rem; color: var(--fc); }
+.step-h h2 { font-size: 1.3rem; }
+.step-h .min { margin-left: auto; font-family: var(--f-mono); font-size: .78rem; color: var(--ink-2); white-space: nowrap; }
+.prose { display: grid; gap: 1em; max-width: 40em; font-size: 1.02rem; }
+.prose b { font-weight: 700; background: linear-gradient(transparent 62%, var(--ai-soft) 62%); }
+
+.interp { max-width: 40em; border: 1px dashed var(--ink-2); border-radius: 4px; padding: 12px 16px; display: grid; gap: 8px; font-size: .94rem; }
+.interp-h { font-size: .75rem; letter-spacing: .1em; font-weight: 700; color: var(--ink-2); }
+.interp ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+
+figure.quote { margin: 0; max-width: 40em; display: grid; gap: 10px; }
+.quote blockquote { margin: 0; font-family: var(--f-display); font-size: 1.2rem; line-height: 2; padding: 18px 22px; background: var(--sheet); border: 1px solid var(--rule); border-left: 4px solid var(--fc); overflow-wrap: anywhere; }
+.quote .orig { font-family: var(--f-mono); font-size: .82rem; color: var(--ink-2); line-height: 1.7; overflow-wrap: anywhere; }
+.quote figcaption { font-size: .82rem; color: var(--ink-2); }
+.qtype { font-family: var(--f-body); font-size: .72rem; border: 1px solid var(--rule); padding: 0 6px; border-radius: 3px; margin-right: 6px; }
+
+.quiz { display: grid; gap: 22px; max-width: 40em; }
+.q { display: grid; gap: 8px; }
+.q p.qt { font-weight: 700; }
+.choices { display: grid; gap: 6px; }
+.choice { text-align: left; border: 1px solid var(--rule); background: var(--sheet); border-radius: 6px; padding: 8px 12px; line-height: 1.6; }
+.choice:hover:not([disabled]) { border-color: var(--ai); }
+.choice[disabled] { cursor: default; }
+.choice.ok { background: var(--good-soft); border-color: var(--good); }
+.choice.ng { background: var(--bad-soft); border-color: var(--bad); }
+.exp { font-size: .9rem; color: var(--ink-2); border-left: 2px solid var(--rule); padding-left: 10px; }
+.exp strong { color: var(--ink); }
+.score { font-family: var(--f-mono); font-size: .85rem; color: var(--ink-2); }
+
+.think { font-family: var(--f-display); font-size: 1.15rem; max-width: 36em; }
+textarea, input[type="text"], input[type="search"] {
+  width: 100%; font: inherit; font-size: .95rem; color: var(--ink); background: var(--sheet);
+  border: 1px solid var(--rule); border-radius: 6px; padding: 8px 12px; line-height: 1.7;
+}
+textarea { max-width: 40em; min-height: 7em; resize: vertical; }
+.hint { font-size: .78rem; color: var(--ink-2); }
+
+.ask { display: grid; gap: 10px; max-width: 40em; }
+.ask-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.ask-row input { flex: 1 1 16em; min-width: 0; }
+.suggest { display: flex; flex-wrap: wrap; gap: 6px; }
+.suggest button { border: 1px solid var(--rule); background: transparent; border-radius: 999px; padding: 3px 12px; font-size: .8rem; }
+.suggest button:hover { border-color: var(--ai); }
+.answer { white-space: pre-wrap; background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 14px 16px; font-size: .95rem; }
+.answer:empty { display: none; }
+
+.sources ol { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; font-size: .9rem; max-width: 46em; overflow-wrap: anywhere; }
+.sources li span { color: var(--ink-2); font-size: .82rem; }
+
+.finish { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 18px 20px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; }
+.finish p { flex: 1 1 18em; font-size: .92rem; color: var(--ink-2); }
+.done-badge { font-weight: 700; color: var(--good); }
+.pager { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+
+/* 書架 */
+.shelf { display: grid; gap: 20px; }
+.shelf-head { display: grid; gap: 6px; }
+.shelf-head h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900; }
+.shelf-head p { color: var(--ink-2); font-size: .92rem; }
+.filters { display: grid; gap: 10px; }
+.frow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.fchip { border: 1px solid var(--rule); background: var(--sheet); border-radius: 999px; padding: 3px 12px; font-size: .84rem; display: inline-flex; gap: 6px; align-items: center; }
+.fchip i { width: 9px; height: 9px; border-radius: 50%; background: var(--fc); display: inline-block; }
+.fchip span { font-family: var(--f-mono); font-size: .74rem; color: var(--ink-2); }
+.fchip[aria-pressed="true"] { border-color: var(--fc); box-shadow: inset 0 0 0 1px var(--fc); font-weight: 700; }
+.frow input[type="search"] { flex: 1 1 14em; min-width: 0; max-width: 24em; }
+.frow select { font: inherit; font-size: .88rem; color: var(--ink); background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 6px 8px; }
+.count { font-size: .82rem; color: var(--ink-2); }
+
+.group { display: grid; gap: 10px; }
+.group-h { display: flex; align-items: baseline; gap: 10px; border-bottom: 2px solid var(--fc); padding-bottom: 4px; }
+.group-h h2 { font-size: 1.15rem; color: var(--fc); }
+.group-h span { font-size: .8rem; color: var(--ink-2); }
+.lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.lib-item { text-align: left; background: var(--sheet); border: 1px solid var(--rule); border-left: 4px solid var(--fc); border-radius: 4px; padding: 10px 14px 12px; display: grid; gap: 4px; align-content: start; text-decoration: none; color: var(--ink); }
+.lib-item:hover { border-color: var(--ai); border-left-color: var(--fc); }
+.lib-item .meta { display: flex; justify-content: space-between; gap: 8px; font-size: .74rem; color: var(--ink-2); }
+.lib-item .t { font-family: var(--f-display); font-weight: 700; font-size: 1rem; line-height: 1.5; }
+.lib-item .l { font-size: .8rem; color: var(--ink-2); line-height: 1.6; }
+.lib-item .ok { color: var(--good); font-weight: 700; }
+.lib-item .today { color: var(--ai); font-weight: 700; }
+.empty { padding: 24px; border: 1px dashed var(--rule); border-radius: 4px; color: var(--ink-2); text-align: center; }
+
+footer { font-size: .78rem; color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 12px; max-width: 60em; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+@media (max-width: 480px) { .daynum { font-size: 4.6rem; } .quote blockquote { font-size: 1.06rem; padding: 14px 16px; } .fbar { grid-template-columns: 6em 1fr 3em; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="brand">教養日めくり<small>七つの分野の書架から、毎日一枚</small></div>
+    <nav class="tabs" aria-label="表示の切り替え">
+      <a href="#today" id="tabToday">今日の一枚</a>
+      <a href="#shelf" id="tabShelf">書架</a>
+    </nav>
+  </header>
+
+  <div id="view"></div>
+
+  <footer>
+    各回の本文は、末尾の「出典」に挙げた原典と、信頼できる研究書・公的機関の資料にもとづいています。原典に書かれていることは本文に、後世の解釈・諸説・推測は点線の囲み「解釈・諸説」に分けて示しました。引用の和訳のうち「拙訳」とあるものは本ページ独自の訳、「要旨」とあるものは原文の要点をまとめたものです。「今日の一枚」は、まだ選ばれていない未読の回から毎日一つずつ選ばれ、全回をひと巡りするまで重複しません。記録とメモはこの端末のブラウザにだけ保存されます。
+  </footer>
+</div>
+
+<script>
+const LESSONS = [];
+</script>
+<!--DATA-->
+<script>
+const FIELDS = {
+  phil: { name: "哲学",       en: "Philosophy",          mark: "哲", c: "--c-phil" },
+  hist: { name: "歴史",       en: "History",             mark: "史", c: "--c-hist" },
+  sci:  { name: "自然科学",   en: "Natural Science",     mark: "理", c: "--c-sci" },
+  soc:  { name: "社会科学",   en: "Social Science",      mark: "社", c: "--c-soc" },
+  art:  { name: "芸術",       en: "Arts",                mark: "芸", c: "--c-art" },
+  lit:  { name: "言語と文学", en: "Language & Letters",  mark: "文", c: "--c-lit" },
+  math: { name: "数学と統計", en: "Mathematics",         mark: "数", c: "--c-math" }
+};
+const ORDER = Object.keys(FIELDS);
+const BY_ID = Object.fromEntries(LESSONS.map(l => [l.id, l]));
+const N = LESSONS.length;
+
+/* ───── 日付 ───── */
+const DAY = 86400000;
+const EPOCH = Date.UTC(2024, 0, 1);
+const now = new Date();
+const TODAY = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+const isoOf = (t) => new Date(t).toISOString().slice(0, 10);
+const TODAY_ISO = isoOf(TODAY);
+const YOUBI = ["日", "月", "火", "水", "木", "金", "土"];
+
+/* ───── この端末の記録 ───── */
+const KEY = "kyoyo-himekuri.v1";
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch {} }
+const store = load();
+store.done ||= {};      // id -> 読了日
+store.days ||= [];      // 読了した日付の一覧（連続日数用）
+store.notes ||= {};     // id -> メモ
+store.picks ||= {};     // 日付 -> 今日の一枚の id
+store.round ||= [];     // 今の巡回で既に選ばれた id
+
+/* ───── 今日の一枚：重複なしのランダム ─────
+   全回を固定の乱数で並べ替えた順列を一つ用意し、日数に応じた位置から順に、
+   「この巡回でまだ選ばれていない・まだ読んでいない」回を探して選ぶ。
+   記録が使えない環境でも、順列をそのまま一日一つ進むので全回を巡るまで重複しない。 */
+function mulberry32(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const PERM = (() => {
+  const ids = LESSONS.map(l => l.id).sort();
+  const r = mulberry32(19860131);
+  for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
+  return ids;
+})();
+function todaysPick() {
+  const kept = store.picks[TODAY_ISO];
+  if (kept && BY_ID[kept]) return kept;
+  const start = (((TODAY - EPOCH) / DAY) % N + N) % N;
+  const inRound = new Set(store.round.filter(id => BY_ID[id]));
+  const tryFind = (ok) => { for (let k = 0; k < N; k++) { const id = PERM[(start + k) % N]; if (ok(id)) return id; } return null; };
+  let id = tryFind(x => !inRound.has(x) && !store.done[x])   // 未選択かつ未読
+        ?? tryFind(x => !inRound.has(x));                    // 未選択（既読も含む）
+  if (!id) { store.round = []; id = tryFind(x => !store.done[x]) ?? PERM[start]; } // ひと巡りしたら新しい巡回へ
+  store.round.push(id);
+  store.picks[TODAY_ISO] = id;
+  save();
+  return id;
+}
+const PICK = todaysPick();
+
+function streak() {
+  const set = new Set(store.days);
+  let s = 0, t = TODAY;
+  if (!set.has(isoOf(t))) t -= DAY;
+  while (set.has(isoOf(t))) { s++; t -= DAY; }
+  return s;
+}
+
+/* ───── 共通 ───── */
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const strip = (s) => s.replace(/<[^>]+>/g, "");
+const setField = (f) => document.documentElement.style.setProperty("--fc", `var(${FIELDS[f].c})`);
+const doneCount = () => LESSONS.filter(l => store.done[l.id]).length;
+
+function sidebar(L, mode) {
+  const F = FIELDS[L.field];
+  const d = new Date(TODAY);
+  const top = mode === "today"
+    ? `<span>${d.getUTCFullYear()}年${d.getUTCMonth() + 1}月</span><span>今日の一枚</span>`
+    : `<span>書架から</span><span>${F.name}</span>`;
+  const big = mode === "today"
+    ? `<div class="daynum">${d.getUTCDate()}</div>`
+    : `<div class="daynum small">${F.name}</div>`;
+  const note = mode === "today"
+    ? `この巡回で ${store.round.length} 枚目。全 ${N} 回を読み終えるまで、同じ回は選ばれません。`
+    : (L.id === PICK ? "これは今日の一枚です。" : "書架から選んだ回です。今日の一枚は「今日の一枚」から開けます。");
+  return `
+    <div class="sheet"><div class="sheet-body">
+      <div class="sheet-top">${top}</div>
+      ${big}
+      <div class="dayrow">
+        <div class="youbi">${mode === "today" ? YOUBI[d.getUTCDay()] : F.mark}</div>
+        <div class="fieldname">${F.name}<span>${F.en}</span></div>
+      </div>
+      <p class="sheet-note">${note}</p>
+    </div></div>
+    <div class="panel">
+      <h3>あなたの記録（この端末）</h3>
+      <div class="stats">
+        <div class="stat"><b>${streak()}</b><span>連続日数</span></div>
+        <div class="stat"><b>${doneCount()} / ${N}</b><span>読み終えた回</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>分野ごとの読了</h3>
+      <div class="fbars">${ORDER.map(f => {
+        const all = LESSONS.filter(l => l.field === f), dn = all.filter(l => store.done[l.id]).length;
+        return `<div class="fbar" style="--fc:var(${FIELDS[f].c})"><span>${FIELDS[f].name}</span><span class="track"><i style="width:${all.length ? dn / all.length * 100 : 0}%"></i></span><span class="n">${dn}/${all.length}</span></div>`;
+      }).join("")}</div>
+    </div>`;
+}
+
+/* ───── 読み物 ───── */
+function lessonHTML(L, mode) {
+  const F = FIELDS[L.field];
+  const done = store.done[L.id];
+  const same = LESSONS.filter(l => l.field === L.field);
+  const i = same.indexOf(L);
+  const prev = same[i - 1], next = same[i + 1];
+  return `
+  <div class="lesson-head">
+    <div class="eyebrow"><span class="chip">${F.name}</span><span>${F.name}の ${i + 1} / ${same.length} 回</span>${done ? `<span class="done-badge">読了</span>` : ""}</div>
+    <h1>${L.title}</h1>
+    <p class="lead">${L.lead}</p>
+    <nav class="plan" aria-label="この回の流れ（目安15分）">
+      <button type="button" data-jump="s-read"><b>1</b>読む</button><button type="button" data-jump="s-quote"><b>2</b>原典</button><button type="button" data-jump="s-quiz"><b>3</b>確かめる</button><button type="button" data-jump="s-think"><b>4</b>考える</button><button type="button" data-jump="s-src"><b>典</b>出典</button>
+    </nav>
+  </div>
+
+  <section class="step" id="s-read">
+    <div class="step-h"><span class="n">1</span><h2>読む</h2><span class="min">目安 6分</span></div>
+    <div class="prose">${L.body.map(p => `<p>${p}</p>`).join("")}</div>
+    <div class="interp">
+      <div class="interp-h">解釈・諸説（原典に明記されていない内容）</div>
+      <ul>${L.interp.map(x => `<li>${x}</li>`).join("")}</ul>
+    </div>
+  </section>
+
+  <section class="step" id="s-quote">
+    <div class="step-h"><span class="n">2</span><h2>原典にふれる</h2><span class="min">目安 2分</span></div>
+    <figure class="quote">
+      <blockquote>${L.quote.text}</blockquote>
+      <div class="orig"><span class="qtype">${L.quote.type}</span>${L.quote.orig}</div>
+      <figcaption>${L.quote.note}</figcaption>
+    </figure>
+  </section>
+
+  <section class="step" id="s-quiz">
+    <div class="step-h"><span class="n">3</span><h2>確かめる</h2><span class="min">目安 3分</span></div>
+    <div class="quiz">
+      ${L.quiz.map((q, qi) => `
+        <div class="q" data-qi="${qi}">
+          <p class="qt">問${qi + 1}　${q.q}</p>
+          <div class="choices">${q.c.map((c, ci) => `<button type="button" class="choice" data-ci="${ci}">${c}</button>`).join("")}</div>
+          <p class="exp" hidden></p>
+        </div>`).join("")}
+      <p class="score" id="score">${L.quiz.length}問中 0問 回答済み</p>
+    </div>
+  </section>
+
+  <section class="step" id="s-think">
+    <div class="step-h"><span class="n">4</span><h2>考える</h2><span class="min">目安 4分</span></div>
+    <p class="think">${L.think}</p>
+    <textarea id="note-${L.id}" aria-label="考えたことのメモ" placeholder="思いついたことを数行で。">${esc(store.notes[L.id] || "")}</textarea>
+    <p class="hint">メモはこの端末のブラウザにだけ保存されます。</p>
+  </section>
+
+  <section class="step" id="s-ask" hidden>
+    <div class="step-h"><span class="n">＋</span><h2>Claude と深める</h2><span class="min">任意</span></div>
+    <div class="ask">
+      <div class="suggest" id="suggest">
+        <button type="button">もう少し詳しく</button>
+        <button type="button">反対の立場や批判は？</button>
+        <button type="button">現代とのつながりは？</button>
+        <button type="button">次に読むべき原典は？</button>
+      </div>
+      <div class="ask-row">
+        <input type="text" id="askInput" placeholder="この回について質問する" aria-label="Claude への質問">
+        <button type="button" class="btn primary" id="askBtn">質問する</button>
+        <button type="button" class="btn" id="stopBtn" hidden>止める</button>
+      </div>
+      <div class="answer" id="answer" aria-live="polite"></div>
+      <p class="hint" id="askHint">回答には原典を示し、推測は【推測】と明記するよう Claude に依頼します。生成された回答は誤りを含むことがあるため、必ず示された原典で確かめてください。質問はあなたの Claude の利用枠を使います。</p>
+    </div>
+  </section>
+
+  <section class="step sources" id="s-src">
+    <div class="step-h"><h2>出典</h2></div>
+    <ol>${L.sources.map(([a, b]) => `<li>${a}${b ? `<br><span>${b}</span>` : ""}</li>`).join("")}</ol>
+  </section>
+
+  <div class="finish">
+    <p>${done ? `<span class="done-badge">読了済み（${done}）</span>　読み返しも良い復習です。` : "4つのステップを終えたら、読了にしましょう。"}</p>
+    <button type="button" class="btn primary" id="doneBtn">${done ? "読了を取り消す" : "読了にする"}</button>
+  </div>
+  <nav class="pager" aria-label="同じ分野の前後の回">
+    ${prev ? `<a class="btn" href="#l-${prev.id}">← ${esc(strip(prev.title).split("：")[0])}</a>` : "<span></span>"}
+    <a class="btn" href="#shelf">書架へ戻る</a>
+    ${next ? `<a class="btn" href="#l-${next.id}">${esc(strip(next.title).split("：")[0])} →</a>` : "<span></span>"}
+  </nav>`;
+}
+
+function wireLesson(L) {
+  document.querySelectorAll("[data-jump]").forEach(b => b.addEventListener("click", () => {
+    $(b.dataset.jump)?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }));
+  let answered = 0;
+  document.querySelectorAll(".q").forEach(qEl => {
+    const q = L.quiz[+qEl.dataset.qi];
+    qEl.querySelectorAll(".choice").forEach(b => b.addEventListener("click", () => {
+      const ci = +b.dataset.ci;
+      qEl.querySelectorAll(".choice").forEach((x, i) => {
+        x.disabled = true;
+        if (i === q.a) x.classList.add("ok"); else if (i === ci) x.classList.add("ng");
+      });
+      const exp = qEl.querySelector(".exp");
+      exp.innerHTML = `<strong>${ci === q.a ? "正解。" : "正解は「" + q.c[q.a] + "」。"}</strong>${q.e}`;
+      exp.hidden = false;
+      $("score").textContent = `${L.quiz.length}問中 ${++answered}問 回答済み`;
+    }));
+  });
+  const ta = $("note-" + L.id);
+  ta.addEventListener("input", () => { store.notes[L.id] = ta.value; save(); });
+  $("doneBtn").addEventListener("click", () => {
+    if (store.done[L.id]) delete store.done[L.id];
+    else { store.done[L.id] = TODAY_ISO; if (!store.days.includes(TODAY_ISO)) store.days.push(TODAY_ISO); }
+    save(); route(true);
+  });
+  setupAsk(L);
+}
+
+/* ───── 書架 ───── */
+const shelfState = { field: "all", q: "", status: "all" };
+try { Object.assign(shelfState, JSON.parse(sessionStorage.getItem(KEY + ".shelf")) || {}); } catch {}
+function saveShelf() { try { sessionStorage.setItem(KEY + ".shelf", JSON.stringify(shelfState)); } catch {} }
+
+function shelfHTML() {
+  return `
+  <div class="shelf">
+    <div class="shelf-head">
+      <h1>書架</h1>
+      <p>七つの分野、全 ${N} 回。読みたい回をいつでも選べます。どの回も目安15分、原典と出典つきです。</p>
+    </div>
+    <div class="filters">
+      <div class="frow" id="fchips" role="group" aria-label="分野で絞り込む">
+        <button type="button" class="fchip" data-f="all" aria-pressed="${shelfState.field === "all"}">すべて<span>${N}</span></button>
+        ${ORDER.map(f => `<button type="button" class="fchip" style="--fc:var(${FIELDS[f].c})" data-f="${f}" aria-pressed="${shelfState.field === f}"><i></i>${FIELDS[f].name}<span>${LESSONS.filter(l => l.field === f).length}</span></button>`).join("")}
+      </div>
+      <div class="frow">
+        <input type="search" id="shelfQ" placeholder="題名・人物・キーワードで探す" aria-label="キーワードで探す" value="${esc(shelfState.q)}">
+        <select id="shelfStatus" aria-label="読了状態">
+          <option value="all"${shelfState.status === "all" ? " selected" : ""}>すべて</option>
+          <option value="unread"${shelfState.status === "unread" ? " selected" : ""}>未読だけ</option>
+          <option value="done"${shelfState.status === "done" ? " selected" : ""}>読了だけ</option>
+        </select>
+        <span class="count" id="shelfCount"></span>
+      </div>
+    </div>
+    <div id="shelfList" class="shelf"></div>
+  </div>`;
+}
+
+function drawShelf() {
+  const q = shelfState.q.trim().toLowerCase();
+  const hit = (L) => !q || [L.title, L.lead, ...L.body, ...L.sources.map(s => s.join(" "))].some(s => strip(s).toLowerCase().includes(q));
+  const list = LESSONS.filter(L =>
+    (shelfState.field === "all" || L.field === shelfState.field) &&
+    (shelfState.status === "all" || (shelfState.status === "done") === !!store.done[L.id]) && hit(L));
+  $("shelfCount").textContent = `${list.length} 回`;
+  if (!list.length) { $("shelfList").innerHTML = `<p class="empty">条件に合う回がありません。分野やキーワードを変えてみてください。</p>`; return; }
+  $("shelfList").innerHTML = ORDER.filter(f => list.some(l => l.field === f)).map(f => {
+    const items = list.filter(l => l.field === f);
+    return `<div class="group" style="--fc:var(${FIELDS[f].c})">
+      <div class="group-h"><h2>${FIELDS[f].name}</h2><span>${items.length} 回</span></div>
+      <div class="lib-grid">${items.map(L => `
+        <a class="lib-item" href="#l-${L.id}">
+          <span class="meta"><span>${FIELDS[f].name}</span><span>${L.id === PICK ? `<span class="today">今日の一枚</span>` : ""}${store.done[L.id] ? `<span class="ok">読了</span>` : ""}</span></span>
+          <span class="t">${L.title}</span>
+          <span class="l">${L.lead}</span>
+        </a>`).join("")}</div>
+    </div>`;
+  }).join("");
+}
+
+function wireShelf() {
+  $("fchips").addEventListener("click", e => {
+    const b = e.target.closest("[data-f]"); if (!b) return;
+    shelfState.field = b.dataset.f; saveShelf();
+    document.querySelectorAll(".fchip").forEach(x => x.setAttribute("aria-pressed", x === b));
+    drawShelf();
+  });
+  $("shelfQ").addEventListener("input", e => { shelfState.q = e.target.value; saveShelf(); drawShelf(); });
+  $("shelfStatus").addEventListener("change", e => { shelfState.status = e.target.value; saveShelf(); drawShelf(); });
+  drawShelf();
+}
+
+/* ───── 画面の切り替え（#today / #shelf / #l-<id>） ───── */
+function route(keepScroll) {
+  const h = location.hash.slice(1);
+  let mode = "today", L = BY_ID[PICK];
+  if (h === "shelf") mode = "shelf";
+  else if (h.startsWith("l-") && BY_ID[h.slice(2)]) { mode = "lesson"; L = BY_ID[h.slice(2)]; }
+  $("tabToday").setAttribute("aria-current", mode === "today" ? "page" : "false");
+  $("tabShelf").setAttribute("aria-current", mode !== "today" ? "page" : "false");
+
+  if (mode === "shelf") {
+    setField("phil");
+    $("view").innerHTML = shelfHTML();
+    wireShelf();
+  } else {
+    setField(L.field);
+    $("view").innerHTML = `<div class="layout"><aside>${sidebar(L, mode)}</aside><main>${lessonHTML(L, mode)}</main></div>`;
+    wireLesson(L);
+  }
+  if (!keepScroll) window.scrollTo(0, 0);
+}
+addEventListener("hashchange", () => route(false));
+
+/* ───── Claude と深める（sample 機能。使えない環境では欄ごと隠す） ───── */
+const samplePromise = window.claude?.use ? window.claude.use("sample").catch(() => null) : Promise.resolve(null);
+let askDisabled = false, ctl = null;
+
+async function setupAsk(L) {
+  const sample = await samplePromise;
+  const sec = $("s-ask");
+  if (!sample || askDisabled || !sec || !document.contains(sec)) return;
+  sec.hidden = false;
+  const F = FIELDS[L.field];
+  const input = $("askInput"), btn = $("askBtn"), stop = $("stopBtn"), out = $("answer");
+  async function ask(question) {
+    if (!question.trim()) { input.focus(); return; }
+    ctl?.abort(); ctl = new AbortController();
+    btn.disabled = true; stop.hidden = false; out.textContent = "考えています…";
+    const prompt =
+`あなたは教養講座の講師です。以下は学習者が今日読んだ「${F.name}」分野の短い教材です。
+
+題：${strip(L.title)}
+本文：${L.body.map(strip).join(" ")}
+解釈・諸説：${L.interp.map(strip).join(" ")}
+出典：${L.sources.map(s => s[0]).join("／")}
+
+学習者の質問：${question}
+
+回答の条件：
+- 日本語で、400〜600字程度。見出しや Markdown 記号は使わず、段落で書く。
+- 事実を述べるときは、その根拠となる原典（著作名・章や条文・論文名と年など）を具体的に示す。
+- 原典から推測した内容、または原典がなく推測するしかない内容は、文頭に【推測】と付け、原典にもとづく記述とは段落を分ける。
+- 確信のない固有名詞・年・数値は書かない。
+- 最後に「次に読むなら」として原典を1〜2点挙げる。`;
+    try {
+      await sample(prompt, { signal: ctl.signal, cache: false, onText: ({ text }) => { out.textContent = text; } });
+    } catch (e) {
+      out.textContent = e?.text ?? "";
+      const msg = { not_granted: "Claude への質問が許可されなかったため、この欄を閉じました。", rate_limited: "質問が続いたため、少し時間をおいてからもう一度どうぞ。", cancelled: "" }[e?.code]
+        ?? "回答を受け取れませんでした。時間をおいて、もう一度質問してください。";
+      if (e?.code === "not_granted") { askDisabled = true; sec.hidden = true; }
+      if (msg) $("askHint").textContent = msg;
+    } finally { btn.disabled = false; stop.hidden = true; }
+  }
+  btn.addEventListener("click", () => ask(input.value));
+  input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.isComposing) ask(input.value); });
+  stop.addEventListener("click", () => ctl?.abort());
+  $("suggest").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; input.value = b.textContent; ask(b.textContent); });
+}
+
+route(false);
+</script>
