@@ -26,7 +26,21 @@ for (const L of LESSONS) {
 }
 if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
 
-const data = files.map(f => `<script>\n${fs.readFileSync(path.join(dataDir, f), "utf8")}\n</script>`).join("\n");
+// ふりがな辞書の検査：書式と、どの回にも出てこない語（綴りの誤り）を報告する
+const rubySrc = fs.readFileSync(path.join(ROOT, "src/ruby.js"), "utf8");
+const RUBY_SRC = new Function(rubySrc + "; return RUBY_SRC;")();
+const allText = LESSONS.map(L => [L.title, L.lead, ...L.body, ...L.interp, L.quote.text, L.quote.orig, L.quote.note, L.think, ...L.quiz.flatMap(q => [q.q, ...q.c, q.e])].join("\n")).join("\n").replace(/<[^>]+>/g, "");
+const rubyErr = [], unused = [];
+for (const line of RUBY_SRC.split("\n").map(s => s.trim()).filter(Boolean)) {
+  const [k, r] = [line.slice(0, line.indexOf(" ")), line.slice(line.indexOf(" ") + 1).trim()];
+  if (!k || !r || line.indexOf(" ") < 0) rubyErr.push(`ふりがな辞書の書式: ${line}`);
+  else if (r[0] !== "=" && !/^[ぁ-ゖァ-ヺー]+$/.test(r)) rubyErr.push(`よみが仮名でない: ${line}`);
+  if (!allText.includes(k)) unused.push(k);
+}
+if (rubyErr.length) { console.error(rubyErr.join("\n")); process.exit(1); }
+if (unused.length) console.warn("ふりがな辞書で本文に出てこない語:", unused.join(" "));
+
+const data = `<script>\n${rubySrc}\n</script>\n` + files.map(f => `<script>\n${fs.readFileSync(path.join(dataDir, f), "utf8")}\n</script>`).join("\n");
 const html = fs.readFileSync(path.join(ROOT, "src/app.html"), "utf8").replace("<!--DATA-->", () => data);
 fs.writeFileSync(path.join(ROOT, "kyoyo-himekuri.html"), html);
 const by = {}; for (const L of LESSONS) by[L.field] = (by[L.field] || 0) + 1;
