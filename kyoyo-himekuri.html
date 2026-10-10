@@ -1,0 +1,1049 @@
+<title>教養日めくり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: 日めくり暦の一枚（左・固定）＋その日の学び（右・読み物）。曜日の七曜（月火水木金土日）を分野の色に対応させる */
+:root {
+  --paper: #eef0eb;
+  --sheet: #f9faf7;
+  --ink: #1c222c;
+  --ink-2: #4b5462;
+  --rule: #d3d8d0;
+  --ai: #2b4a78;          /* 藍：アクセント */
+  --ai-soft: #dfe6f1;
+  --good: #2f6b45;
+  --good-soft: #dcebe0;
+  --bad: #9a3324;
+  --bad-soft: #f3dfda;
+  /* 七曜の色（分野） */
+  --c-tsuki: #5d6b85;   /* 月・哲学 */
+  --c-hi: #b2452f;      /* 火・歴史 */
+  --c-mizu: #1f6f8b;    /* 水・自然科学 */
+  --c-ki: #3e7a3f;      /* 木・社会科学 */
+  --c-kin: #a07818;     /* 金・芸術 */
+  --c-tsuchi: #8a5a3b;  /* 土・言語と文学 */
+  --c-nichi: #c0602a;   /* 日・数学と統計 */
+  --fc: var(--c-tsuki); /* 表示中の分野の色（JSで切替） */
+  --f-display: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #13161b; --sheet: #1b1f26; --ink: #e5e8e2; --ink-2: #a8afb9; --rule: #2e343d;
+    --ai: #8fb0e3; --ai-soft: #233149; --good: #7fc392; --good-soft: #1f3327; --bad: #ec8f7d; --bad-soft: #3d2420;
+    --c-tsuki: #a3b0c9; --c-hi: #e88a72; --c-mizu: #6fbfd8; --c-ki: #8cc78a; --c-kin: #e0bb5c; --c-tsuchi: #d1a07f; --c-nichi: #f0a170;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #13161b; --sheet: #1b1f26; --ink: #e5e8e2; --ink-2: #a8afb9; --rule: #2e343d;
+  --ai: #8fb0e3; --ai-soft: #233149; --good: #7fc392; --good-soft: #1f3327; --bad: #ec8f7d; --bad-soft: #3d2420;
+  --c-tsuki: #a3b0c9; --c-hi: #e88a72; --c-mizu: #6fbfd8; --c-ki: #8cc78a; --c-kin: #e0bb5c; --c-tsuchi: #d1a07f; --c-nichi: #f0a170;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.9;
+  padding-inline: 16px; padding-block: 20px 64px;
+}
+.wrap { max-width: 1120px; margin-inline: auto; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.35; margin: 0; }
+p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+
+/* masthead */
+.mast { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+.brand { font-family: var(--f-display); font-weight: 900; font-size: 1.5rem; letter-spacing: .08em; }
+.brand small { font-family: var(--f-body); font-weight: 400; font-size: .8rem; letter-spacing: .04em; color: var(--ink-2); margin-left: 12px; }
+.mast nav { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn { border: 1px solid var(--rule); background: var(--sheet); border-radius: 6px; padding: 6px 12px; font-size: .88rem; }
+.btn:hover { border-color: var(--ai); }
+.btn.primary { background: var(--ai); border-color: var(--ai); color: var(--sheet); font-weight: 700; }
+.btn[disabled] { opacity: .5; cursor: default; }
+
+.layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 36px; align-items: start; }
+@media (max-width: 860px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+/* 日めくりの一枚 */
+aside { display: grid; gap: 20px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+@media (max-width: 860px) { aside { position: static; } }
+.sheet {
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px;
+  position: relative; overflow: hidden;
+}
+.sheet::before { /* 綴じ穴の列 */
+  content: ""; display: block; height: 14px; border-bottom: 1px dashed var(--rule);
+  background: radial-gradient(circle at 50% 50%, var(--paper) 3px, transparent 3.5px) 0 0 / 22px 14px repeat-x;
+}
+.sheet-body { padding: 14px 20px 18px; display: grid; gap: 4px; }
+.sheet-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: .78rem; color: var(--ink-2); letter-spacing: .06em; }
+.daynum { font-family: var(--f-display); font-weight: 900; font-size: 6.2rem; line-height: 1; color: var(--fc); font-variant-numeric: tabular-nums; }
+.dayrow { display: flex; align-items: center; gap: 12px; }
+.youbi { font-family: var(--f-display); font-weight: 700; font-size: 1.8rem; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border: 2px solid var(--fc); color: var(--fc); border-radius: 50%; }
+.fieldname { font-weight: 700; font-size: 1rem; }
+.fieldname span { display: block; font-weight: 400; font-size: .78rem; color: var(--ink-2); }
+.sheet-note { font-size: .8rem; color: var(--ink-2); border-top: 1px solid var(--rule); margin-top: 10px; padding-top: 8px; }
+
+.panel h3 { font-family: var(--f-body); font-size: .75rem; letter-spacing: .12em; color: var(--ink-2); font-weight: 500; margin-bottom: 8px; }
+.week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.wd { border: 1px solid var(--rule); background: var(--sheet); border-radius: 4px; padding: 6px 0 4px; display: grid; justify-items: center; gap: 2px; font-size: .7rem; color: var(--ink-2); position: relative; }
+.wd b { font-family: var(--f-display); font-size: 1.05rem; color: var(--fc); }
+.wd.today { border-color: var(--fc); box-shadow: inset 0 -3px 0 var(--fc); }
+.wd.sel { background: var(--ai-soft); }
+.wd .mark { height: 1em; font-size: .7rem; color: var(--good); }
+
+.timer { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.clock { font-family: var(--f-mono); font-size: 1.9rem; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.bar { height: 4px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--ai); width: 0; transition: width .5s linear; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stat { background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 8px 12px; }
+.stat b { font-family: var(--f-mono); font-size: 1.4rem; font-variant-numeric: tabular-nums; display: block; line-height: 1.3; }
+.stat span { font-size: .75rem; color: var(--ink-2); }
+
+/* 本文 */
+main { display: grid; gap: 40px; min-width: 0; }
+.lesson-head { display: grid; gap: 10px; }
+.eyebrow { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: .8rem; color: var(--ink-2); }
+.chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 10px; font-size: .78rem; font-weight: 700; color: var(--fc); border: 1px solid var(--fc); }
+.lesson-head h1 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 900; }
+.lead { font-family: var(--f-display); font-size: 1.12rem; color: var(--ink-2); max-width: 40em; }
+.plan { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--sheet); width: fit-content; max-width: 100%; }
+.plan a { padding: 6px 12px; font-size: .8rem; color: var(--ink); text-decoration: none; border-right: 1px solid var(--rule); white-space: nowrap; }
+.plan a:last-child { border-right: 0; }
+.plan a b { font-family: var(--f-mono); font-weight: 500; color: var(--ai); margin-right: 4px; }
+
+section.step { display: grid; gap: 14px; scroll-margin-top: 16px; }
+.step-h { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+.step-h .n { font-family: var(--f-mono); font-size: .85rem; color: var(--fc); }
+.step-h h2 { font-size: 1.3rem; }
+.step-h .min { margin-left: auto; font-family: var(--f-mono); font-size: .78rem; color: var(--ink-2); white-space: nowrap; }
+.prose { display: grid; gap: 1em; max-width: 40em; font-size: 1.02rem; }
+.prose b { font-weight: 700; background: linear-gradient(transparent 62%, var(--ai-soft) 62%); }
+
+.interp { max-width: 40em; border: 1px dashed var(--ink-2); border-radius: 4px; padding: 12px 16px; display: grid; gap: 8px; font-size: .94rem; }
+.interp-h { font-size: .75rem; letter-spacing: .1em; font-weight: 700; color: var(--ink-2); }
+.interp ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+
+figure.quote { margin: 0; max-width: 40em; display: grid; gap: 10px; }
+.quote blockquote { margin: 0; font-family: var(--f-display); font-size: 1.22rem; line-height: 2; padding: 18px 22px; background: var(--sheet); border: 1px solid var(--rule); border-left: 4px solid var(--fc); }
+.quote .orig { font-family: var(--f-mono); font-size: .82rem; color: var(--ink-2); line-height: 1.7; }
+.quote figcaption { font-size: .82rem; color: var(--ink-2); }
+.quote figcaption b { color: var(--ink); }
+.qtype { font-size: .72rem; border: 1px solid var(--rule); padding: 0 6px; border-radius: 3px; margin-right: 6px; }
+
+.quiz { display: grid; gap: 22px; max-width: 40em; }
+.q { display: grid; gap: 8px; }
+.q p.qt { font-weight: 700; }
+.choices { display: grid; gap: 6px; }
+.choice { text-align: left; border: 1px solid var(--rule); background: var(--sheet); border-radius: 6px; padding: 8px 12px; line-height: 1.6; }
+.choice:hover:not([disabled]) { border-color: var(--ai); }
+.choice[disabled] { cursor: default; }
+.choice.ok { background: var(--good-soft); border-color: var(--good); }
+.choice.ng { background: var(--bad-soft); border-color: var(--bad); }
+.exp { font-size: .9rem; color: var(--ink-2); border-left: 2px solid var(--rule); padding-left: 10px; }
+.exp strong { color: var(--ink); }
+.score { font-family: var(--f-mono); font-size: .85rem; color: var(--ink-2); }
+
+.think { font-family: var(--f-display); font-size: 1.15rem; max-width: 36em; }
+textarea, input[type="text"] {
+  width: 100%; max-width: 40em; font: inherit; font-size: .95rem; color: var(--ink); background: var(--sheet);
+  border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; line-height: 1.7;
+}
+textarea { min-height: 7em; resize: vertical; }
+.hint { font-size: .78rem; color: var(--ink-2); }
+
+.ask { display: grid; gap: 10px; max-width: 40em; }
+.ask-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.ask-row input { flex: 1 1 16em; min-width: 0; }
+.suggest { display: flex; flex-wrap: wrap; gap: 6px; }
+.suggest button { border: 1px solid var(--rule); background: transparent; border-radius: 999px; padding: 3px 12px; font-size: .8rem; }
+.suggest button:hover { border-color: var(--ai); }
+.answer { white-space: pre-wrap; background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 14px 16px; font-size: .95rem; min-height: 3em; }
+.answer:empty { display: none; }
+
+.sources ol { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; font-size: .9rem; max-width: 46em; }
+.sources li span { color: var(--ink-2); font-size: .82rem; }
+
+.finish { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 18px 20px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; }
+.finish p { flex: 1 1 18em; font-size: .92rem; color: var(--ink-2); }
+.done-badge { font-weight: 700; color: var(--good); }
+
+/* 全14回 */
+.library { display: grid; gap: 14px; }
+.lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.lib-item { text-align: left; background: var(--sheet); border: 1px solid var(--rule); border-top: 3px solid var(--fc); border-radius: 4px; padding: 10px 14px 12px; display: grid; gap: 2px; }
+.lib-item:hover { border-color: var(--ai); border-top-color: var(--fc); }
+.lib-item .meta { display: flex; justify-content: space-between; font-size: .74rem; color: var(--ink-2); }
+.lib-item .t { font-family: var(--f-display); font-weight: 700; font-size: 1rem; line-height: 1.5; }
+.lib-item.cur { outline: 2px solid var(--ai); outline-offset: -2px; }
+.lib-item .ok { color: var(--good); font-weight: 700; }
+
+footer { font-size: .78rem; color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 12px; max-width: 60em; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+@media (max-width: 480px) { .daynum { font-size: 4.8rem; } .quote blockquote { font-size: 1.08rem; padding: 14px 16px; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="brand">教養日めくり<small>一日十五分、七つの分野をめぐる</small></div>
+    <nav aria-label="日付の移動">
+      <button class="btn" id="prevBtn" type="button">← 前の回</button>
+      <button class="btn" id="todayBtn" type="button">今日</button>
+      <button class="btn" id="nextBtn" type="button">次の回 →</button>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <div class="sheet" id="sheet">
+        <div class="sheet-body">
+          <div class="sheet-top"><span id="sYear"></span><span id="sCycle"></span></div>
+          <div class="daynum" id="sDay"></div>
+          <div class="dayrow">
+            <div class="youbi" id="sYoubi"></div>
+            <div class="fieldname" id="sField"></div>
+          </div>
+          <p class="sheet-note" id="sNote"></p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>七曜と分野</h3>
+        <div class="week" id="week"></div>
+      </div>
+
+      <div class="panel">
+        <h3>十五分タイマー</h3>
+        <div class="timer">
+          <span class="clock" id="clock">15:00</span>
+          <button class="btn" id="timerBtn" type="button">開始</button>
+          <button class="btn" id="timerReset" type="button">戻す</button>
+        </div>
+        <div class="bar" aria-hidden="true"><i id="timerBar"></i></div>
+      </div>
+
+      <div class="panel">
+        <h3>あなたの記録（この端末）</h3>
+        <div class="stats">
+          <div class="stat"><b id="stStreak">0</b><span>連続日数</span></div>
+          <div class="stat"><b id="stDone">0 / 14</b><span>読み終えた回</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main"></main>
+  </div>
+
+  <section class="library" aria-labelledby="libH">
+    <div class="step-h"><h2 id="libH">全十四回</h2><span class="min">二週間でひと巡り</span></div>
+    <div class="lib-grid" id="lib"></div>
+  </section>
+
+  <footer>
+    各回の本文は、末尾の「出典」に挙げた原典と標準的な研究書にもとづいて書いています。原典に書かれていることは本文に、後世の解釈・諸説・推測は点線の囲み「解釈・諸説」に分けて示しました。引用の和訳のうち「拙訳」とあるものは本ページ独自の訳です。学習の記録とメモはこの端末のブラウザにだけ保存されます。
+  </footer>
+</div>
+
+<script>
+const FIELDS = {
+  phil:  { name: "哲学",       en: "Philosophy",       youbi: "月", c: "--c-tsuki" },
+  hist:  { name: "歴史",       en: "History",          youbi: "火", c: "--c-hi" },
+  sci:   { name: "自然科学",   en: "Natural Science",  youbi: "水", c: "--c-mizu" },
+  soc:   { name: "社会科学",   en: "Social Science",   youbi: "木", c: "--c-ki" },
+  art:   { name: "芸術",       en: "Arts",             youbi: "金", c: "--c-kin" },
+  lit:   { name: "言語と文学", en: "Language & Letters", youbi: "土", c: "--c-tsuchi" },
+  math:  { name: "数学と統計", en: "Mathematics",      youbi: "日", c: "--c-nichi" }
+};
+const ORDER = ["phil", "hist", "sci", "soc", "art", "lit", "math"]; // 月〜日
+
+const LESSONS = [
+/* ───── 第一週 ───── */
+{
+  id: "plato-cave", field: "phil",
+  title: "洞窟の比喩：影を実在と思い込む私たち",
+  lead: "プラトンは、教育とは知識を注ぎ込むことではなく、魂の向きを変えることだと語った。",
+  body: [
+    "古代ギリシアの哲学者プラトン（前427頃〜前347）の対話篇『国家』第7巻の冒頭で、ソクラテスは一つの情景を描きます。地下の洞窟に、子どものころから手足と首を縛られ、奥の壁しか見ることのできない人々がいる。背後の高いところでは火が燃えていて、火と囚人のあいだには低い壁がある。その壁の上を、人や動物をかたどった器物が運ばれていく。",
+    "囚人たちが見られるのは、器物が壁に落とす<b>影</b>だけです。彼らは影こそが実在だと考え、どの影が先に現れるかを言い当てる腕前を競い合っています。",
+    "あるとき一人が縛めを解かれ、振り返らされます。火の光で目が痛み、さっきまでの影のほうがよほど確かに見える。さらに急な坂を洞窟の外へ引きずり出されると、まばゆさで何も見えません。目が慣れるにつれ、彼はまず影を、次に水に映る像を、それから事物そのものを見られるようになり、夜には月と星を、そして最後に<b>太陽そのもの</b>を見ることができるようになります。",
+    "この人が洞窟へ戻ると、今度は暗さに目が慣れず、影の当てっこで負けてしまいます。囚人たちは「上へ行って目をだめにして帰ってきた」と笑い、自分たちを解き放って上へ連れて行こうとする者がいれば、捕まえて殺すだろう、とソクラテスは語ります。",
+    "比喩の意味は本文でソクラテス自身が説明しています。洞窟の住まいは視覚を通して現れる世界、火の光は太陽の力、上への道のりは魂が知性によって知られる世界へと昇っていくこと。そして最後にかろうじて見られるのが<b>「善のイデア」</b>です。この比喩は、第6巻の「太陽の比喩」「線分の比喩」に続く三つめの比喩として置かれています。",
+    "続く箇所でソクラテスは教育観を述べます。教育とは、見る力を持たない魂に知識を外から入れることではない。誰の魂にも学ぶ力はすでにあり、教育とはその力を正しい方向へ<b>向け変える技術</b>なのだ、と。"
+  ],
+  interp: [
+    "解放者を「殺すだろう」という一節は、前399年のソクラテス刑死を暗示したものと読むのが一般的です。ただし本文にそう明記されているわけではありません。",
+    "現代では、メディアや SNS が見せる「影」の比喩として引かれることがあります。これは後世の応用で、プラトン自身の意図（イデア論）とは別のものです。"
+  ],
+  quote: {
+    type: "引用（拙訳）",
+    text: "では次に、教育を受けることと受けないことに関して、われわれの本性がどのような状態にあるかを、次のような有様になぞらえてみてほしい。",
+    orig: "『国家』514A",
+    note: "比喩の書き出しの一文。プラトンがこの比喩を「教育」の話として始めていることに注目してください。"
+  },
+  quiz: [
+    { q: "洞窟の囚人たちが「実在」だと思っているものは何か。", c: ["壁に映る影", "背後で燃える火", "洞窟の外の景色"], a: 0, e: "囚人は振り向けないため、器物が壁に落とす影しか見たことがありません（514B–515C）。" },
+    { q: "洞窟の外へ出た人が、最後に見られるようになるものは。", c: ["水面に映る像", "太陽そのもの", "夜空の星"], a: 1, e: "影 → 水面の像 → 事物 → 月と星 → 太陽、の順に目が慣れていきます（516A–B）。" },
+    { q: "この比喩のあとでソクラテスが示す「教育」の考え方は。", c: ["空の魂に知識を注ぎ込むこと", "記憶力を鍛えること", "魂がすでに持つ力の向きを変えること"], a: 2, e: "教育は「向け変え（ペリアゴーゲー）」の技術だと述べられます（518B–D）。" }
+  ],
+  think: "あなたが「壁の影」をそのまま実在だと思っているかもしれない分野はどこでしょう。振り返って「火」を見るには、何が必要ですか。",
+  sources: [
+    ["プラトン『国家』第7巻 514A–521B（ステファヌス版の頁番号）", "比喩本体と教育論。邦訳は藤沢令夫訳『国家』（岩波文庫）ほか"],
+    ["プラトン『国家』第6巻 507A–511E", "太陽の比喩・線分の比喩"],
+    ["プラトン『ソクラテスの弁明』", "ソクラテス裁判（前399）の記録"]
+  ]
+},
+{
+  id: "goseibai", field: "hist",
+  title: "御成敗式目：武士がつくった「道理」の法",
+  lead: "1232年、北条泰時は漢字の読めない武士にもわかる裁判の基準をつくった。",
+  body: [
+    "貞永元年（1232年）、鎌倉幕府の執権・北条泰時を中心に、51か条からなる法が定められました。<b>御成敗式目</b>（貞永式目）です。「成敗」はここでは裁判・裁定の意味です。",
+    "背景には、1221年の承久の乱があります。乱ののち幕府の力は西国にも及び、多くの地頭が新たに置かれました。土地をめぐって地頭と荘園領主、御家人どうしの争いが増え、裁判の統一的な基準が必要になっていました。",
+    "泰時は、京都で六波羅探題を務めていた弟・北条重時に宛てた書状で、式目の趣旨を説明しています。朝廷の律令は漢文で書かれ、読みこなせる武士はほとんどいない。だから、身分の高い低いにかかわらず公平に裁くための基準を、わかりやすく書き記した。この式目は<b>「ただ道理のおすところ」</b>を記したものであり、京都の律令を改めるものではない、という内容です。",
+    "条文には武家社会の実情が表れています。第8条は、実際に土地を支配して20年が過ぎていれば、源頼朝の時代の先例にならい、権利の正否を論じずにそのまま認めると定めます（年紀法）。第18条は、女子に譲った所領を親が取り返すこと（悔い返し）を認めており、女性が所領を相続していた事実がわかります。第23条は、子のない女性が養子に所領を譲ることを頼朝以来の先例として認めています。",
+    "式目はその後「式目追加」と呼ばれる追加法で補われながら、室町幕府にも基本法として受け継がれました。戦国大名の分国法にも影響を与え、江戸時代には寺子屋で文字を習う手本としても広く使われました。"
+  ],
+  interp: [
+    "泰時の言う「道理」が具体的に何を指すか（武家社会の慣習か、先例か、より一般的な正義感覚か）は、研究者のあいだで議論があります。",
+    "式目の制定に承久の乱後の土地紛争が強く関係したという説明は通説ですが、泰時の書状が直接述べているのは「公平な裁判の基準」という目的です。"
+  ],
+  quote: {
+    type: "原文（読み下し）",
+    text: "当知行の後、二十箇年を過ぐれば、大将家の例に任せて、理非を論ぜず改替にあたはず。",
+    orig: "御成敗式目 第8条",
+    note: "「大将家」は源頼朝のこと。実際に20年支配した土地は、権利の正否を問わず取り上げない、という意味。読み下しの表記は刊本により異なります。"
+  },
+  quiz: [
+    { q: "御成敗式目が定められた年は。", c: ["1192年", "1221年", "1232年"], a: 2, e: "貞永元年＝1232年。1221年は承久の乱の年です。" },
+    { q: "第8条によると、20年間実際に支配してきた土地はどう扱われるか。", c: ["権利の正否を問わずそのまま認める", "朝廷に返す", "改めて裁判で審理する"], a: 0, e: "「理非を論ぜず改替にあたはず」。長期の事実上の支配を保護しています。" },
+    { q: "泰時が書状で、式目の拠りどころとして挙げたものは。", c: ["律令", "道理", "中国の法典"], a: 1, e: "「ただ道理のおすところを記され候ものなり」とあり、律令を改めるものではないとも述べています。" }
+  ],
+  think: "成文の法と、その社会で「当たり前」とされている道理。あなたの職場や地域で、ルールより道理が優先される場面はありますか。それは良いことでしょうか。",
+  sources: [
+    ["『御成敗式目』（貞永元年＝1232年）", "第8・18・23条ほか"],
+    ["北条泰時書状（北条重時宛、いわゆる「泰時消息」）", "式目制定の趣旨"],
+    ["佐藤進一・池内義資編『中世法制史料集 第1巻 鎌倉幕府法』（岩波書店）", "式目・追加法の校訂本文"]
+  ]
+},
+{
+  id: "blue-sky", field: "sci",
+  title: "空はなぜ青いのか：波長の4乗の物語",
+  lead: "空の青さ、夕焼けの赤さ、雲の白さは、ひとつの物理で説明できる。",
+  body: [
+    "太陽の光には、紫から赤まで、さまざまな波長（およそ400〜700ナノメートル）の光が含まれています。この光が大気を通るとき、空気中の窒素や酸素の分子にぶつかって、あらゆる方向へ散らばります。これを<b>散乱</b>といいます。",
+    "分子のように光の波長よりずっと小さな粒子による散乱は、波長が短いほど強く起こります。その強さは<b>波長の4乗に反比例</b>します。たとえば波長450ナノメートルの青い光は、700ナノメートルの赤い光に比べて (700÷450)⁴ ≒ 5.9 倍も強く散乱されます。この関係を理論的に導いたのがイギリスの物理学者レイリー卿（ジョン・ウィリアム・ストラット）で、この散乱は<b>レイリー散乱</b>と呼ばれます。",
+    "昼間に空のどこを見ても青いのは、空のあらゆる方向から、散乱された青い光が目に届くからです。",
+    "では、もっと波長の短い紫ではなく、なぜ青に見えるのでしょうか。太陽光にはもともと紫の成分が青より少なく、大気上層でも一部が吸収されます。さらに人間の目は紫に対する感度が低いため、散乱光全体としては「空色」に見えるのです。",
+    "夕方、太陽が低くなると、光が大気を通る距離がずっと長くなります。そのあいだに青い光は散乱されて失われ、まっすぐ届くのは散乱されにくい赤や橙の光です。これが<b>夕焼け</b>です。",
+    "雲が白いのは、雲の水滴が光の波長と同じくらいかそれより大きいからです。この大きさの粒子による散乱（ミー散乱）は波長による差が小さく、すべての色をほぼ同じように散らすため、白く見えます。",
+    "歴史的には、1869年にジョン・ティンダルが微粒子による散乱で青い光が生じる実験を示し、レイリーが1871年にその理論を発表しました。レイリーはのちの1899年の論文で、塵などがなくても空気の分子そのものによる散乱で空の青さを説明できることを示しています。"
+  ],
+  interp: [
+    "火星では、大気中の細かい塵の性質のために、夕焼けが青みがかって見えることが探査車キュリオシティの撮影で知られています（NASA/JPL, 2015年公開画像）。地球とは逆のこの現象の詳しい仕組みは、本ページでは扱いません。"
+  ],
+  quote: {
+    type: "要旨",
+    text: "光の波長より十分に小さい粒子が散乱する光の強さは、波長の4乗に反比例する。それゆえ短い波長の光ほど強く散らされ、空の光は青を帯びる。",
+    orig: "Rayleigh, “On the light from the sky, its polarization and colour,” Phil. Mag. (1871)",
+    note: "レイリーの議論の要点をまとめたもので、原文の直訳ではありません。"
+  },
+  quiz: [
+    { q: "レイリー散乱の強さは、波長の何乗に反比例するか。", c: ["1乗", "2乗", "4乗"], a: 2, e: "4乗です。そのため波長の短い青は赤の約6倍も散乱されます。" },
+    { q: "夕焼けが赤い主な理由は。", c: ["夕方は太陽の温度が下がるから", "光の通り道が長くなり、青い光が散乱で失われるから", "夕方は空気中の水蒸気が赤く光るから"], a: 1, e: "通過距離が長いあいだに青が散らされ、まっすぐ届くのは赤や橙の光になります。" },
+    { q: "雲が白く見える理由は。", c: ["水滴が大きく、散乱の波長による差が小さいから", "雲が太陽光を吸収するから", "雲が自ら白く光るから"], a: 0, e: "水滴による散乱（ミー散乱）は色による差が小さく、すべての色をほぼ均等に散らします。" }
+  ],
+  think: "今日、空を一度見上げてみてください。真上と地平線近くで、青さは同じでしたか。違ったとしたら、今日学んだことでどう説明できるでしょう。",
+  sources: [
+    ["Lord Rayleigh, “On the light from the sky, its polarization and colour,” Philosophical Magazine 41 (1871)", "散乱強度と波長の関係"],
+    ["Lord Rayleigh, “On the transmission of light through an atmosphere containing small particles in suspension, and on the origin of the blue of the sky,” Philosophical Magazine 47 (1899)", "分子散乱による空の青さ"],
+    ["J. Tyndall, “On the blue colour of the sky, the polarization of skylight…,” Proceedings of the Royal Society 17 (1869)", "ティンダルの実験"],
+    ["NASA/JPL, Curiosity による火星の夕焼け画像（2015年公開）", "解釈・諸説欄の補足"]
+  ]
+},
+{
+  id: "ricardo", field: "soc",
+  title: "比較優位：何でも得意な国も、貿易で得をする",
+  lead: "リカードの四つの数字は、200年たった今も経済学の入門書の最初に出てくる。",
+  body: [
+    "イギリスの経済学者デヴィッド・リカードは、1817年の著書『経済学および課税の原理』第7章「外国貿易について」で、ある数値例を示しました。",
+    "イギリスでは、一定量のラシャ（毛織物）をつくるのに100人の1年分の労働が、一定量のワインをつくるのに120人の労働が必要だとします。ポルトガルでは、同じ量のラシャに90人、ワインに80人で済むとします。",
+    "ポルトガルは、ラシャでもワインでもイギリスより少ない労働で生産できます（<b>絶対優位</b>）。それなら貿易は必要ないように思えます。ところがリカードは、ポルトガルがワインに、イギリスがラシャに特化して交換すれば、<b>両国とも得をする</b>と論じました。",
+    "鍵は「相対的な」費用です。ポルトガルでは、ワイン1単位をつくる労働で、ラシャを 80÷90 ≒ 0.89 単位つくれます。イギリスでは 120÷100 = 1.2 単位です。つまりポルトガルにとってワインは「ラシャをあきらめる量」が少ない、相対的に安い財です。このあきらめる量を<b>機会費用</b>といい、機会費用が相手より小さいことを<b>比較優位</b>といいます。",
+    "数字で確かめてみましょう。特化しない場合、両国が各1単位ずつつくると、合計390人の労働でラシャ2単位・ワイン2単位です。特化すると、イギリスの220人はラシャを 220÷100 = 2.2 単位、ポルトガルの170人はワインを 170÷80 = 2.125 単位つくれます。同じ労働で、どちらの財も増えています。",
+    "この考え方は国だけでなく個人にも当てはまります。何でも人より上手にできる人でも、すべてを自分でやるより、相対的に最も得意なことに集中して他を人に任せたほうが、全体の成果は大きくなります。"
+  ],
+  interp: [
+    "リカードの例は、輸送費や、産業を移るときの失業・調整コストを考えていません。また、国全体で得をしても、国内には得をする人と損をする人が生じうることが、のちにストルパー＝サミュエルソン定理（1941）などで理論化されました。",
+    "同じ時期にロバート・トレンズも似た考えを示していた（1815年）ことから、比較優位の発見者が誰かについては学説史上の議論があります。"
+  ],
+  quote: {
+    type: "引用（拙訳）",
+    text: "イギリスは、ラシャを生産するのに1年間100人の労働を要し、もしワインをつくろうとすれば同じ期間に120人の労働を要する、という状況にあるかもしれない。",
+    orig: "Ricardo, Principles, ch. 7 “On Foreign Trade” (1817)",
+    note: "この直後にポルトガルの数字（ワイン80人、ラシャ90人）が示されます。"
+  },
+  quiz: [
+    { q: "ポルトガルは両方の財でイギリスより効率的だった。それでも両国が貿易で得をする根拠となる考え方は。", c: ["絶対優位", "比較優位", "規模の経済"], a: 1, e: "相対的な生産費（機会費用）の違いがあれば、特化と交換で双方が得をします。" },
+    { q: "リカードの例で、ポルトガルが特化すべき財は。", c: ["ワイン", "ラシャ", "両方"], a: 0, e: "ポルトガルのワインの機会費用はラシャ約0.89単位で、イギリス（1.2単位）より小さいからです。" },
+    { q: "特化後、イギリスの220人がつくれるラシャの量は。", c: ["2単位", "2.2単位", "2.125単位"], a: 1, e: "220÷100 = 2.2単位。2.125単位はポルトガルのワインです。" }
+  ],
+  think: "あなたが「人より上手にできるけれど、人に任せたほうがいい」仕事は何でしょう。比較優位の考え方で、今週の時間の使い方を見直すとしたら。",
+  sources: [
+    ["David Ricardo, On the Principles of Political Economy and Taxation (1817), ch. 7 “On Foreign Trade”", "邦訳は羽鳥卓也・吉澤芳樹訳『経済学および課税の原理』（岩波文庫）"],
+    ["W. F. Stolper & P. A. Samuelson, “Protection and Real Wages,” Review of Economic Studies 9 (1941)", "国内の分配への影響"],
+    ["Robert Torrens, An Essay on the External Corn Trade (1815)", "先取権をめぐる議論"]
+  ]
+},
+{
+  id: "hokusai-wave", field: "art",
+  title: "神奈川沖浪裏：大波と小さな富士",
+  lead: "世界で最も知られた日本の絵は、何千枚も刷られた「商品」だった。",
+  body: [
+    "《神奈川沖浪裏》は、葛飾北斎（1760〜1849）の連作『冨嶽三十六景』の一図で、天保初年（1831年ごろ）に版元・西村屋与八（永寿堂）から出版されました。北斎が70歳を過ぎたころの作品です。",
+    "これは一点ものの絵画ではなく、<b>木版多色摺りの錦絵</b>です。絵師が下絵を描き、彫師が版木を彫り、摺師が刷る分業で、同じ版木から多くの枚数が刷られ、手ごろな値段で売られました。そのため現在も、東京国立博物館、メトロポリタン美術館、大英博物館など、世界各地の美術館に摺りが残っています。",
+    "画面では、鉤爪のように砕ける大波が、押送船（おしおくりぶね）と呼ばれる3艘の舟とこぎ手たちを呑み込もうとしています。押送船は、房総や相模でとれた魚を江戸へ急送した快速船です。そして波の谷間のはるか向こうに、<b>小さな富士山</b>が描かれています。",
+    "鮮やかな青には、<b>ベロ藍</b>（プルシアンブルー）が使われています。18世紀初めにベルリンで発見された合成顔料で、輸入量が増えて安くなった1830年前後から浮世絵で盛んに使われるようになりました。従来の植物性の藍より色が鮮やかで退色しにくいのが特徴です。",
+    "シリーズ名は「三十六景」ですが、好評のため10図が追加され、実際には<b>全46図</b>あります。追加の10図は輪郭線を墨で刷ったもので「裏富士」と呼ばれます。",
+    "北斎の作品は19世紀後半のヨーロッパで、日本美術熱（ジャポニスム）の中で広く知られました。作曲家ドビュッシーの交響詩『海』（1905年）の初版楽譜の表紙には、この大波の図が使われています。"
+  ],
+  interp: [
+    "「動き続ける波」と「不動の富士」の対比に、無常と永遠を読む解釈がよく語られますが、北斎自身がそう述べた記録はありません。",
+    "北斎が「70歳を過ぎてようやく形がわかってきた」と述べた下の言葉は、この作品の数年後のものです。この作品と直接結びつけるのは推測になります。"
+  ],
+  quote: {
+    type: "原文",
+    text: "七十年前画く所は実に取るに足るものなし。七十三才にして稍禽獣虫魚の骨格草木の出生を悟し得たり。（中略）一百歳にして正に神妙ならん歟。",
+    orig: "葛飾北斎『富嶽百景』初編 跋（1834年）",
+    note: "70歳より前に描いたものは取るに足らない、73歳でようやく生き物の骨格や草木の成り立ちがわかってきた、百歳で神妙の域に達するだろうか、という言葉。表記は翻刻により異なります。"
+  },
+  quiz: [
+    { q: "《神奈川沖浪裏》が含まれる連作は。", c: ["東海道五十三次", "冨嶽三十六景", "名所江戸百景"], a: 1, e: "『冨嶽三十六景』です。東海道五十三次と名所江戸百景は歌川広重の作品です。" },
+    { q: "この作品の鮮やかな青に使われた合成顔料は。", c: ["ベロ藍（プルシアンブルー）", "群青（ラピスラズリ）", "露草の青花"], a: 0, e: "ベルリン由来の合成顔料で、「ベルリン藍」がなまって「ベロ藍」と呼ばれました。" },
+    { q: "『冨嶽三十六景』の実際の図数は。", c: ["36図", "46図", "100図"], a: 1, e: "好評のため「裏富士」10図が追加され、全46図になりました。" }
+  ],
+  think: "北斎は70歳を過ぎてなお「まだ取るに足らない」と書きました。あなたが10年後もまだ上達し続けていたいことは何ですか。",
+  sources: [
+    ["葛飾北斎『冨嶽三十六景 神奈川沖浪裏』（天保初年頃、西村屋与八版）", "作品そのもの。東京国立博物館・メトロポリタン美術館・大英博物館等の所蔵品解説"],
+    ["葛飾北斎『富嶽百景』初編 跋（天保5年＝1834年）", "引用文"],
+    ["C. Debussy, La Mer, 初版楽譜（Durand, 1905）", "表紙図版"]
+  ]
+},
+{
+  id: "iroha", field: "lit",
+  title: "いろは歌：47文字すべてを一度ずつ",
+  lead: "仮名を重複なく一度ずつ使い切り、しかも意味の通る歌になっている。",
+  body: [
+    "「いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす」。この歌は、当時区別されていた仮名<b>47文字をちょうど一度ずつ</b>使っています（「ん」は含みません）。すべての文字を一度ずつ使う文をパングラムといいますが、いろは歌はその完璧な例です。",
+    "形式は七五調を4回くり返す今様（いまよう）の形です。一般的な読み方は「色は匂へど 散りぬるを　我が世誰ぞ 常ならむ　有為の奥山 今日越えて　浅き夢見じ 酔ひもせず」。花は美しく咲いても散ってしまう、この世で誰が変わらずにいられようか、という<b>無常</b>の歌として読まれます。",
+    "現存する最古の記録は、承暦3年（1079年）の『金光明最勝王経音義』です。お経の字の読み方を示す書物の中に、7字ずつ区切った形で書かれています。",
+    "作者は空海だという伝承が広く知られていますが、これは後世の説で、根拠はありません。むしろ否定的な証拠があります。10世紀ごろまでの日本語では、ア行の「え」とヤ行の「え（ye）」が区別されていました。同じく手習いの歌である「あめつちの詞」はこの二つを別々に数えていますが、いろは歌には「え」が一つしかありません。つまりいろは歌は、<b>二つの「え」が区別されなくなった後</b>につくられたと考えられ、835年に亡くなった空海の時代とは合いません。",
+    "いろは歌は手習いの手本として広まり、ものの順番を示す記号としても使われました。12世紀の辞書『色葉字類抄』は語をいろは順に並べ、江戸の町火消は「いろは四十八組」と名づけられ、「いろはかるた」も生まれました。"
+  ],
+  interp: [
+    "歌の内容を、『涅槃経』の偈「諸行無常 是生滅法 生滅滅已 寂滅為楽」（雪山偈）の意味を和語に移したものとする解釈は古くからありますが、作者の意図として確かめられているわけではありません。",
+    "7字ずつ区切ると各行の末字が「とかなくてしす（咎無くて死す）」と読める、という話は俗説として有名です。意図された暗号であるという根拠はありません。"
+  ],
+  quote: {
+    type: "原文",
+    text: "いろはにほへと　ちりぬるを　わかよたれそ　つねならむ　うゐのおくやま　けふこえて　あさきゆめみし　ゑひもせす",
+    orig: "いろは歌（最古の記録：『金光明最勝王経音義』1079年）",
+    note: "声に出して読み、47文字に重複がないか指で数えてみてください。「ゐ」「ゑ」は現代では使われない仮名です。"
+  },
+  quiz: [
+    { q: "いろは歌に使われている仮名の数は。", c: ["46文字", "47文字", "48文字"], a: 1, e: "47文字。「ん」は含まれません（「いろは四十八組」は「ん」などを加えた数です）。" },
+    { q: "いろは歌の現存最古の記録は。", c: ["『古今和歌集』", "『金光明最勝王経音義』", "『源氏物語』"], a: 1, e: "承暦3年（1079年）の『金光明最勝王経音義』です。" },
+    { q: "空海作者説が疑わしいとされる言語学上の理由は。", c: ["漢字が一字も使われていないから", "ア行とヤ行の「え」を区別していないから", "七五調で書かれているから"], a: 1, e: "二つの「え」の区別が失われたのは空海の没後（10世紀ごろ）と考えられています。" }
+  ],
+  think: "「色は匂へど散りぬるを」。あなたにとって、失われるからこそ価値があると感じるものは何ですか。",
+  sources: [
+    ["『金光明最勝王経音義』（承暦3年＝1079年）", "いろは歌の現存最古の記録"],
+    ["『大般涅槃経』聖行品（雪山偈）", "解釈・諸説欄"],
+    ["大矢透『音図及手習詞歌考』（1918年）", "いろは歌・あめつちの詞の成立年代の古典的研究"],
+    ["小松英雄『いろはうた』（中公新書 1979年／講談社学術文庫 2009年）", "成立と解釈の総合的研究"]
+  ]
+},
+{
+  id: "euclid-primes", field: "math",
+  title: "素数は無限にある：2300年前の証明",
+  lead: "たった数行で、終わりのない数の列についての真理が確定する。",
+  body: [
+    "<b>素数</b>とは、1とその数自身でしか割り切れない、2以上の整数のことです。2, 3, 5, 7, 11, 13… と続きます。数が大きくなるほど素数はまばらになっていきますが、どこかで尽きてしまうのでしょうか。",
+    "この問いには、古代ギリシアの数学者エウクレイデス（ユークリッド）が紀元前300年ごろにまとめた『原論』第9巻の<b>命題20</b>が答えています。「素数は、いかなる定められた個数の素数よりも多い」。つまり、素数は無限にあります。",
+    "証明の考え方はこうです。素数が有限個しかないとして、それを全部かけ合わせ、1を足した数 N をつくります。N = 2×3×5×…×（最後の素数）+ 1。",
+    "N は、リストにあるどの素数で割っても、<b>必ず1余ります</b>。すると N は、それ自身が素数であるか、あるいはリストにない別の素数で割り切れるかのどちらかです。いずれにせよ、リストにない素数が存在することになり、「これで全部」という前提と矛盾します。",
+    "注意したいのは、N そのものが素数になるとは限らないことです。たとえば 2×3×5×7×11×13 + 1 = 30031 ですが、これは 59×509 と分解できます。それでも、59 も 509 も最初のリストにない素数であり、証明の結論は変わりません。",
+    "なおエウクレイデス自身の証明は、現代の教科書によくある「有限と仮定して矛盾を導く」形ではなく、「与えられた素数たちに対して、それ以外の素数が必ずある」ことを示す形で書かれています。",
+    "素数探しは今も続いています。2024年10月時点で知られている最大の素数は 2¹³⁶²⁷⁹⁸⁴¹ − 1 で、十進法で4100万桁を超えます。"
+  ],
+  interp: [
+    "「最大の素数」の記録は更新されうるため、今日の時点で最新かどうかは確認が必要です（上の記録は GIMPS の2024年10月の発表にもとづきます）。",
+    "素数がどのくらいの割合で現れるかは、1896年にアダマールとド・ラ・ヴァレ・プーサンが独立に証明した「素数定理」が答えています（x 以下の素数の個数はおよそ x / log x）。"
+  ],
+  quote: {
+    type: "引用（拙訳）",
+    text: "素数は、いかなる定められた個数の素数よりも多い。",
+    orig: "エウクレイデス『原論』第9巻 命題20",
+    note: "「無限」という言葉を使わずに無限を語っている点に注目してください。ギリシア数学は「実無限」を慎重に避けました。"
+  },
+  quiz: [
+    { q: "素数の無限性を示した命題は『原論』の何巻にあるか。", c: ["第1巻", "第5巻", "第9巻"], a: 2, e: "第9巻命題20です。第7〜9巻は数論を扱っています。" },
+    { q: "2×3×5×7×11×13 + 1 = 30031 は素数か。", c: ["素数である", "合成数である（59×509）", "偶数である"], a: 1, e: "合成数です。N 自体が素数である必要はなく、リスト外の素数（59, 509）が見つかれば十分です。" },
+    { q: "証明の鍵となる性質は。", c: ["N がとても大きいこと", "N をリストのどの素数で割っても1余ること", "N が必ず奇数であること"], a: 1, e: "どの既知の素数でも割り切れないので、N の素因数はリストの外にあります。" }
+  ],
+  think: "「無限にあること」を、一つひとつ数えずに証明できるのはなぜでしょう。あなたの身近な問題で、全部を調べずに結論を出せるものはありますか。",
+  sources: [
+    ["Euclid, Elements, Book IX, Proposition 20（Heiberg 校訂版）", "邦訳は中村幸四郎ほか訳『ユークリッド原論』（共立出版）"],
+    ["GIMPS（Great Internet Mersenne Prime Search）発表, 2024年10月", "M136279841 の発見"],
+    ["J. Hadamard (1896); C.-J. de la Vallée Poussin (1896)", "素数定理の証明"]
+  ]
+},
+/* ───── 第二週 ───── */
+{
+  id: "descartes-cogito", field: "phil",
+  title: "我思う、ゆえに我あり：すべてを疑った先に",
+  lead: "デカルトは、疑いうるものをすべて捨てたとき、何が残るかを確かめようとした。",
+  body: [
+    "フランスの哲学者ルネ・デカルト（1596〜1650）は、1637年に『方法序説』を出版しました。学者の共通語ラテン語ではなく、<b>フランス語</b>で書かれています。冒頭の一文は「良識はこの世で最も公平に分け与えられているものである」。専門家でなくとも、正しく考える方法さえ知れば真理に至れる、という宣言です。",
+    "第2部でデカルトは、考えるための4つの規則を示します。明らかに真と認めたもの以外は受け入れない（明証）、難問を小さな部分に分ける（分割）、単純なものから複雑なものへ順に進む（順序）、見落としがないよう全体を見直す（枚挙）。",
+    "第4部で、デカルトは<b>方法的懐疑</b>に踏み込みます。少しでも疑いうるものは、すべて偽として退けてみる。感覚はときに私たちを欺く。推論でさえ誤ることがある。さらに、目覚めているときの考えはすべて夢の中でも現れうるのだから、それらも夢の幻と変わらないと仮定してみる。",
+    "ところが、そのようにすべてを偽だと考えようとしているあいだも、<b>そう考えている私は、必ず何ものかでなければならない</b>。デカルトはこの真理を「私は考える、ゆえに私はある（je pense, donc je suis）」と表し、どんな懐疑論者の極端な想定によっても揺るがないものとして、哲学の第一原理に据えました。",
+    "有名なラテン語の形「cogito, ergo sum」は、1644年の『哲学原理』第1部第7節に現れます。1641年の『省察』（第二省察）では、「私はある、私は存在する（ego sum, ego existo）」という形で、欺く力をもつ何者かを想定してもなお確実なこととして述べられています。"
+  ],
+  interp: [
+    "18世紀ドイツの物理学者リヒテンベルクは、「私は考える」ではなく「それが考える（es denkt）」と言うべきだと書き残しています。考えが起きていることは確かでも、それを担う「私」という実体まで確実と言えるのか、という批判は今も議論されています。",
+    "コギトが「推論（ゆえに）」なのか「直観」なのかについては、デカルト自身の応答（『省察』第二答弁）も含め、解釈が分かれています。"
+  ],
+  quote: {
+    type: "引用（拙訳）",
+    text: "私がこのようにすべてを偽であると考えようとしているあいだも、そう考えている私は、必然的に何ものかでなければならないことに気づいた。そして「私は考える、ゆえに私はある」というこの真理が……",
+    orig: "Descartes, Discours de la méthode, IVe partie (1637) / AT VI 32",
+    note: "原文 “je pense, donc je suis”。AT はアダン＝タヌリ版全集の巻・頁です。"
+  },
+  quiz: [
+    { q: "「je pense, donc je suis」が書かれた著作は。", c: ["『方法序説』", "『純粋理性批判』", "『パンセ』"], a: 0, e: "1637年の『方法序説』第4部です。ラテン語形は『哲学原理』（1644）に出てきます。" },
+    { q: "方法的懐疑とはどのような方法か。", c: ["権威ある書物の記述を基準にする", "少しでも疑いうるものを偽とみなして退ける", "多数の意見を真理とみなす"], a: 1, e: "確実な土台を見つけるため、疑いの余地のあるものを一度すべて退けます。" },
+    { q: "『方法序説』が書かれた言語は。", c: ["ラテン語", "フランス語", "オランダ語"], a: 1, e: "学者以外の読者にも届くよう、フランス語で書かれました。" }
+  ],
+  think: "あなたが「これだけは疑えない」と思うことを一つ挙げてください。それを、デカルトの方法で疑ってみると何が残りますか。",
+  sources: [
+    ["R. Descartes, Discours de la méthode (1637), 第1・2・4部（AT VI）", "邦訳は谷川多佳子訳『方法序説』（岩波文庫）"],
+    ["R. Descartes, Meditationes de prima philosophia (1641), 第二省察（AT VII 25）", "ego sum, ego existo"],
+    ["R. Descartes, Principia philosophiae (1644), 第1部第7節", "cogito, ergo sum"],
+    ["G. C. Lichtenberg, Sudelbücher（雑記帳）", "es denkt の批判"]
+  ]
+},
+{
+  id: "meiji-calendar", field: "hist",
+  title: "明治の改暦：12月が2日で終わった年",
+  lead: "1872年、日本は23日前の予告で暦を太陽暦に切り替えた。",
+  body: [
+    "明治5年11月9日（1872年12月9日）、政府は太政官布告で、それまでの太陰太陽暦（天保暦）をやめて<b>太陽暦</b>（グレゴリオ暦）を採用すると発表しました。しかも、<b>明治5年12月3日を明治6年1月1日とする</b>という内容です。予告からわずか23日後の切り替えでした。",
+    "その結果、明治5年の12月は1日と2日の<b>2日間しかありません</b>でした。年末の支払いや正月の準備が間に合わず、社会は大きく混乱しました。",
+    "同じ改暦の詔書で、時刻の制度も変わりました。昼と夜をそれぞれ6等分し、季節によって一刻の長さが変わる「不定時法」から、1日を24時間に等分する「定時法」へ移り、午前・午後の呼び方が定められました。",
+    "改暦の理由としては、欧米諸国との外交や通商で暦をそろえる必要があったことが挙げられます。加えて、当時政府の財政を担っていた大隈重信は、後年の回顧で、財政上の事情を語っています。旧暦のままなら明治6年には閏月があって1年が13か月になり、月給制の官吏に13か月分の給与を払わなければならない。改暦すれば閏月がなくなり、さらに明治5年12月はわずか2日なので、その月の給与も支払わずに済んだ、というものです。",
+    "新しい暦にとまどう人々に向けて、福沢諭吉は1873年に『改暦弁』を書き、太陽暦の合理性をわかりやすく説きました。この小冊子はよく売れたと伝えられています。"
+  ],
+  interp: [
+    "財政上の理由は、大隈重信本人の回顧（『大隈伯昔日譚』）にもとづく説明です。当事者の後年の証言であり、これが改暦の唯一の、あるいは主な動機だったかについては評価が分かれます。",
+    "旧暦は公式には使われなくなりましたが、七夕やお盆を旧暦（または月遅れ）で行う地域が今もあるように、暮らしの中に残り続けています。"
+  ],
+  quote: {
+    type: "原文",
+    text: "今般太陰暦ヲ廃シ太陽暦御頒行相成候ニ付来ル十二月三日ヲ以テ明治六年一月一日ト被定候事",
+    orig: "明治5年11月9日 太政官布告第337号",
+    note: "「このたび太陰暦を廃して太陽暦を頒布するので、来る12月3日を明治6年1月1日と定める」の意。布告本文はこのあとに時刻制度などの定めが続きます。"
+  },
+  quiz: [
+    { q: "改暦によって、明治5年12月3日は何日になったか。", c: ["明治5年12月31日", "明治6年1月1日", "明治6年2月1日"], a: 1, e: "12月3日が明治6年1月1日となり、明治5年の12月は2日間で終わりました。" },
+    { q: "大隈重信が回顧で挙げた財政上の事情は。", c: ["閏月のため13か月分の給与が必要になること", "外国の銀行からの借金", "米の値段の急落"], a: 0, e: "改暦で閏月がなくなり、明治5年12月分の給与も不要になった、と述べています。" },
+    { q: "太陽暦の合理性を説いた福沢諭吉の小冊子は。", c: ["『学問のすゝめ』", "『改暦弁』", "『西洋事情』"], a: 1, e: "1873年の『改暦弁』です。" }
+  ],
+  think: "社会の「当たり前」を急に変える改革には、どんな利点と犠牲があるでしょう。あなたが経験した急な制度変更を思い出してみてください。",
+  sources: [
+    ["明治5年太政官布告第337号（改暦ノ布告）", "『法令全書』明治5年。国立国会図書館デジタルコレクションで閲覧可"],
+    ["大隈重信述・円城寺清編『大隈伯昔日譚』（1895年）", "改暦の財政事情の回顧"],
+    ["福沢諭吉『改暦弁』（1873年）", ""],
+    ["国立国会図書館 電子展示会「日本の暦」", "改暦の経緯の概説"]
+  ]
+},
+{
+  id: "dna-helix", field: "sci",
+  title: "DNA二重らせん：1ページの論文",
+  lead: "生命の情報がどう複製されるかの手がかりは、わずか1ページの論文に書かれていた。",
+  body: [
+    "1953年4月25日、科学誌『Nature』171巻に、ジェームズ・ワトソンとフランシス・クリックの論文「核酸の分子構造：デオキシリボ核酸の構造」が載りました。本文はおよそ<b>1ページ</b>です。",
+    "二人が提案したのは、2本の鎖が<b>互いに逆向きに</b>らせん状に巻き合い、内側で塩基どうしが対をつくる構造でした。対のつくり方は決まっていて、<b>アデニン（A）はチミン（T）と、グアニン（G）はシトシン（C）と</b>だけ結びつきます。",
+    "この対の規則は、生化学者エルヴィン・シャルガフが見いだしていた「DNA中の A と T、G と C の量はそれぞれ等しい」という観察とよく合いました。",
+    "構造の決め手になったのは、X線回折のデータです。同じ号には、モーリス・ウィルキンスらの論文と、ロザリンド・フランクリンとレイモンド・ゴスリングの論文が並んで掲載されました。とくにフランクリンの研究室で撮影された回折写真（「写真51」として知られる）は、らせん構造を強く示すものでした。",
+    "ワトソンとクリックは論文の終わりに、控えめな一文を置いています。「私たちが仮定した特定の対形成が、遺伝物質の複製の仕組みを直ちに示唆していることに、私たちは気づいていないわけではない」。片方の鎖が決まれば、もう片方は自動的に決まる。つまり、鎖をほどいて相手を作り直せば、同じ情報を写し取れるのです。",
+    "1962年、ワトソン、クリック、ウィルキンスの3人がノーベル生理学・医学賞を受けました。フランクリンは1958年に37歳で亡くなっており、ノーベル賞は存命者にしか授与されないため、受賞の対象にはなりませんでした。"
+  ],
+  interp: [
+    "ワトソンがフランクリンの許可なく写真51を見せられたという話は、ワトソン自身の回想記『二重らせん』（1968）にもとづきます。この本のフランクリン像は一面的だと広く批判されてきました。",
+    "2023年に『Nature』に掲載された論考（Cobb & Comfort）は、新たに見つかった資料から、フランクリンは単なる「データを盗まれた被害者」ではなく、対等な貢献者として当時も認識されていたと論じています。評価は今も更新されています。"
+  ],
+  quote: {
+    type: "引用（拙訳）",
+    text: "私たちが仮定した特定の対形成が、遺伝物質の複製の仕組みとしてありうるものを直ちに示唆していることに、私たちは気づいていないわけではない。",
+    orig: "Watson & Crick, Nature 171, 737–738 (1953)",
+    note: "原文 “It has not escaped our notice that the specific pairing we have postulated immediately suggests a possible copying mechanism for the genetic material.” 科学史上最も有名な控えめ表現と言われます。"
+  },
+  quiz: [
+    { q: "DNAの塩基対の正しい組み合わせは。", c: ["A–G と T–C", "A–T と G–C", "A–C と G–T"], a: 1, e: "アデニンはチミンと、グアニンはシトシンと対をつくります。" },
+    { q: "ワトソンとクリックの論文の長さは、おおよそ。", c: ["1ページ", "10ページ", "100ページ"], a: 0, e: "Nature 171巻 737–738頁。本文は約1ページです。" },
+    { q: "フランクリンが1962年のノーベル賞を受けなかった直接の理由は。", c: ["研究が評価されなかったから", "1958年に亡くなっており、賞は存命者に限られるから", "辞退したから"], a: 1, e: "ノーベル財団の規程により、死後に授与されることはありません。" }
+  ],
+  think: "大きな発見は、誰の貢献としてどう記憶されるのでしょう。あなたの身近な成果で、名前が残らなかった貢献者はいますか。",
+  sources: [
+    ["J. D. Watson & F. H. C. Crick, “Molecular Structure of Nucleic Acids,” Nature 171, 737–738 (1953)", ""],
+    ["R. E. Franklin & R. G. Gosling, “Molecular Configuration in Sodium Thymonucleate,” Nature 171, 740–741 (1953)", ""],
+    ["M. H. F. Wilkins, A. R. Stokes & H. R. Wilson, Nature 171, 738–740 (1953)", ""],
+    ["J. D. Watson, The Double Helix (1968)", "回想記"],
+    ["M. Cobb & N. Comfort, “What Rosalind Franklin truly contributed to the discovery of DNA's structure,” Nature 616 (2023)", "解釈・諸説欄"]
+  ]
+},
+{
+  id: "montesquieu", field: "soc",
+  title: "権力分立：権力が権力を止める仕組み",
+  lead: "モンテスキューの一章は、アメリカ合衆国憲法にも日本国憲法にも息づいている。",
+  body: [
+    "フランスの思想家モンテスキュー（1689〜1755）は、1748年に『法の精神』を出版しました。その第11編は「政治的自由」を論じています。",
+    "モンテスキューはまず、権力を持つ者はそれを濫用しがちだという経験則を述べ、だからこそ<b>「権力が権力を阻止する」</b>ように物事を配置しなければならない、と説きます（第11編第4章）。",
+    "続く第6章「イギリスの国制について」では、国家の権力を<b>立法権・執行権・裁判権</b>の三つに分けて論じます。そして、同じ人や同じ団体に立法権と執行権が集まれば自由はない、裁判権が立法権や執行権から分離されていなければ、やはり自由はない、と述べました。",
+    "この考え方は大きな影響を与えました。アメリカ合衆国憲法（1787年）を擁護した『ザ・フェデラリスト』第47篇で、マディソンはモンテスキューを権力分立論の権威として引いています。1789年のフランス人権宣言第16条は「権利の保障が確保されず、権力の分立が定められていない社会は、憲法をもたない」とまで定めました。",
+    "日本国憲法も三権を分けています。第41条「国会は、国権の最高機関であつて、国の唯一の立法機関である」、第65条「行政権は、内閣に属する」、第76条第1項「すべて司法権は、最高裁判所及び法律の定めるところにより設置する下級裁判所に属する」。",
+    "さらに三権は互いに<b>抑制し均衡</b>を保ちます。衆議院は内閣不信任を決議でき（第69条）、内閣は衆議院を解散できます。裁判所は法律などが憲法に適合するかを審査し（第81条）、内閣は最高裁判所の長官を指名し、その他の裁判官を任命します（第6条第2項・第79条第1項）。国会は裁判官を裁く弾劾裁判所を設けます（第64条）。"
+  ],
+  interp: [
+    "モンテスキューが描いたイギリス像は理想化されていたとする指摘があります。19世紀のバジョットは『イギリス憲政論』（1867）で、イギリス政治の「効率的な秘密」は立法と行政の分離ではなく、両者のほぼ完全な融合（内閣）にあると論じました。日本の議院内閣制も、この意味で厳格な三権分離とは異なります。",
+    "「三権分立」という整理そのものは教科書的な単純化で、モンテスキュー自身の議論は、身分（君主・貴族・庶民）の均衡など、より複雑な構成をとっています。"
+  ],
+  quote: {
+    type: "引用（拙訳）",
+    text: "同じ人間、あるいは同じ役職者の団体において、立法権が執行権と結びつくとき、自由は存在しない。",
+    orig: "Montesquieu, De l'esprit des lois, livre XI, chapitre 6 (1748)",
+    note: "原文 “Lorsque dans la même personne ou dans le même corps de magistrature, la puissance législative est réunie à la puissance exécutrice, il n'y a point de liberté.”"
+  },
+  quiz: [
+    { q: "モンテスキューが『法の精神』で三権を論じた章の題材となった国は。", c: ["フランス", "イギリス", "アメリカ"], a: 1, e: "第11編第6章「イギリスの国制について」です。" },
+    { q: "「権力の分立が定められていない社会は、憲法をもたない」と定めた文書は。", c: ["マグナ・カルタ", "フランス人権宣言（1789）", "大日本帝国憲法"], a: 1, e: "フランス人権宣言第16条です。" },
+    { q: "日本国憲法で「行政権は、内閣に属する」と定める条文は。", c: ["第41条", "第65条", "第76条"], a: 1, e: "第41条は国会（立法）、第76条は裁判所（司法）です。" }
+  ],
+  think: "あなたの属する組織で、「決める人」「実行する人」「チェックする人」は分かれていますか。分かれていないことで起きた問題を思い出せますか。",
+  sources: [
+    ["Montesquieu, De l'esprit des lois (1748), 第11編第4章・第6章", "邦訳は野田良之ほか訳『法の精神』（岩波文庫）"],
+    ["日本国憲法 第6・41・64・65・69・76・79・81条", "e-Gov 法令検索"],
+    ["人および市民の権利宣言（1789年）第16条", ""],
+    ["The Federalist No. 47 (J. Madison, 1788)", ""],
+    ["W. Bagehot, The English Constitution (1867)", "解釈・諸説欄"]
+  ]
+},
+{
+  id: "temperament", field: "art",
+  title: "音律：12回の完全5度は7オクターヴにならない",
+  lead: "ドレミの「ド」に戻ってこられない、わずかなずれの話。",
+  body: [
+    "弦の長さを半分にすると、音は<b>1オクターヴ</b>高くなります（長さの比 2:1）。長さを3分の2にすると<b>完全5度</b>上の音（3:2）、4分の3にすると完全4度上の音（4:3）になります。単純な整数比の音どうしはよく溶け合って響きます。",
+    "古代ギリシアのピタゴラス学派は、この完全5度を積み重ねて音階をつくりました（<b>ピタゴラス音律</b>）。古代中国でも、管の長さを3分の1ずつ減らしたり増やしたりして音をつくる「三分損益法」が『呂氏春秋』などに記されており、結果は同じ原理になります。",
+    "ところが問題があります。完全5度を12回積み重ねると、音名はひと巡りして元の音名（7オクターヴ上）に戻るはずです。しかし計算すると (3/2)¹² ≒ 129.75 に対し、7オクターヴは 2⁷ = 128。わずかに合いません。この比 約1.0136 のずれを<b>ピタゴラス・コンマ</b>（約23.5セント、半音の約4分の1）といいます。",
+    "このずれをどこかで処理しないかぎり、どの調でも美しく響く鍵盤楽器はつくれません。そこで、さまざまな音律が工夫されました。現代のピアノで標準になっている<b>十二平均律</b>は、オクターヴを12の等しい半音に分け、隣り合う半音の比を 2 の12乗根（≒1.05946）にします。",
+    "平均律ではどの調にも自由に転調できますが、代わりに純正な響きをすべて少しずつ犠牲にしています。完全5度は純正より約2セント狭く、長3度（純正なら 5:4）は約14セント広くなります。",
+    "十二平均律の正確な計算は、16世紀末に中国・明の朱載堉と、オランダのシモン・ステヴィンが、ほぼ同時期にそれぞれ行っています。"
+  ],
+  interp: [
+    "ピタゴラスが鍛冶屋の槌の音から音程の比を発見したという逸話は、後世（ニコマコスら）の伝承で、物理的にも史実としても疑わしいとされています。",
+    "バッハの『平均律クラヴィーア曲集』の原題 “Das Wohltemperirte Clavier” は「よく調律された鍵盤楽器」という意味で、現代の十二平均律を指すとは限りません。24の調すべてが弾ける、調ごとに少しずつ性格の異なる不等分の音律を想定していたとする説が有力ですが、どの音律かは確定していません。"
+  ],
+  quote: {
+    type: "引用（拙訳・抄）",
+    text: "よく調律されたクラヴィーア、あるいは、全音と半音のすべての調による前奏曲とフーガ。……学ぶことを望む音楽の若者の益と使用のため、またこの道にすでに熟達した人々の格別な楽しみのために。",
+    orig: "J. S. Bach, Das Wohltemperirte Clavier 第1巻 自筆譜の表題（1722年）",
+    note: "24の長調・短調すべてで曲を書いたこと自体が、その音律でどの調も弾けるという実演でした。"
+  },
+  quiz: [
+    { q: "完全5度をつくる弦の長さの比は。", c: ["2:1", "3:2", "5:4"], a: 1, e: "3:2です。2:1はオクターヴ、5:4は純正長3度です。" },
+    { q: "十二平均律で隣り合う半音の周波数比は。", c: ["2 の12乗根", "3/2", "12/11"], a: 0, e: "2^(1/12) ≒ 1.05946。これを12回かけるとちょうど2（1オクターヴ）になります。" },
+    { q: "バッハの曲集の原題 “Wohltemperirte” の意味は。", c: ["等しく分割された", "よく調律された", "古い調律の"], a: 1, e: "「よく調律された」。現代の平均律と同じ意味とは限りません。" }
+  ],
+  think: "すべての調で弾けるようにするため、どの響きも少しずつ妥協する。あなたの生活で「全体のために小さく妥協している」仕組みは何でしょう。",
+  sources: [
+    ["『呂氏春秋』季夏紀・音律篇", "三分損益法"],
+    ["Nicomachus, Enchiridion harmonices（『ハルモニア論提要』）第6章", "ピタゴラスと槌の逸話"],
+    ["朱載堉『律学新説』（1584年）ほか", "十二平均律の計算"],
+    ["J. S. Bach, Das Wohltemperirte Clavier I (1722), 自筆譜（ベルリン国立図書館蔵）", "表題"],
+    ["B. Lehman, “Bach's extraordinary temperament: our Rosetta Stone,” Early Music 33 (2005)", "解釈・諸説欄"]
+  ]
+},
+{
+  id: "hojoki", field: "lit",
+  title: "方丈記：ゆく河の流れは絶えずして",
+  lead: "大火、竜巻、遷都、飢饉、大地震。災厄の記録から、ひとりの男は小さな庵へ向かった。",
+  body: [
+    "『方丈記』は、鴨長明（1155頃〜1216）が建暦2年（1212年）に書いた随筆です。末尾に「時に建暦の二年、弥生のつごもりごろ、桑門の蓮胤、外山の庵にしてこれをしるす」とあります。蓮胤は長明の法名です。",
+    "冒頭は、流れる川と水の泡のたとえで始まります。川の流れは絶えないが、そこにあるのはもとの水ではない。人も住まいも同じだ、と。日本の古典の中でも最もよく知られた書き出しの一つです。",
+    "前半で長明は、自らが見聞きした<b>五つの災厄</b>を記録します。安元の大火（1177年）、治承の辻風（つむじ風、1180年）、福原遷都（1180年）、養和の飢饉（1181〜82年）、元暦の大地震（1185年）です。",
+    "その筆致は具体的です。養和の飢饉では、仁和寺の隆暁法印が、死者を見るたびに額に「阿」の字を書いて仏縁を結ばせ、京の一部の区域で2か月のあいだに数えた遺体が<b>四万二千三百余り</b>にのぼったと記しています。",
+    "後半は、長明が日野山に結んだ庵での暮らしです。広さは<b>一丈四方</b>（約3メートル四方）、高さは七尺足らず。これが「方丈」の名の由来です。土台を据えず、組み立て式で、車に積んで運べるつくりでした。",
+    "しかし長明は最後に、この草庵を愛し静けさに執着することさえ、仏の教えに背くのではないかと自らに問います。答えは出さず、「不請の阿弥陀仏」を二、三遍唱えて筆を置きます。",
+    "漢語を交えた引き締まった文体は、和漢混淆文の先駆けとされます。構成には、平安中期の慶滋保胤『池亭記』（982年）の影響が指摘されています。現存最古の写本は大福光寺本です。"
+  ],
+  interp: [
+    "結末の自問を、悟りきれない人間の誠実さと読むか、未完の思索と読むかは、読者や研究者によって分かれます。",
+    "東日本大震災（2011年）以後、『方丈記』を災害文学として読み直す動きが広がりました。これは現代の受容のあり方で、長明の執筆意図とは区別して考える必要があります。"
+  ],
+  quote: {
+    type: "原文",
+    text: "ゆく河の流れは絶えずして、しかももとの水にあらず。よどみに浮かぶうたかたは、かつ消えかつ結びて、久しくとどまりたる例なし。世の中にある人とすみかと、またかくのごとし。",
+    orig: "鴨長明『方丈記』冒頭（大福光寺本）",
+    note: "「うたかた」は水の泡。「かつ消えかつ結びて」は、消えては生まれ、生まれては消えて。表記は校注本により少し異なります。"
+  },
+  quiz: [
+    { q: "『方丈記』が書かれた年は。", c: ["1185年", "1212年", "1333年"], a: 1, e: "建暦2年（1212年）。1185年は記録された元暦の大地震の年です。" },
+    { q: "「方丈」とは何のことか。", c: ["寺の住職", "一丈四方の小さな庵", "長明の故郷"], a: 1, e: "一丈（約3メートル）四方の住まいの広さを指します。" },
+    { q: "構成に影響を与えたとされる平安時代の作品は。", c: ["『池亭記』", "『枕草子』", "『土佐日記』"], a: 0, e: "慶滋保胤『池亭記』（982年）。都の荒廃と自らの住まいを記した漢文の作品です。" }
+  ],
+  think: "長明は最後に、自分の好きな暮らしへの執着さえ疑いました。あなたが手放しがたいと感じている「心地よい習慣」は何ですか。",
+  sources: [
+    ["鴨長明『方丈記』（大福光寺本）", "校注は『新日本古典文学大系 39』（岩波書店）、市古貞次校注『新訂 方丈記』（岩波文庫）など"],
+    ["慶滋保胤『池亭記』（天元5年＝982年、『本朝文粋』所収）", ""]
+  ]
+},
+{
+  id: "bayes", field: "math",
+  title: "ベイズの定理：陽性でも、たぶん病気ではない",
+  lead: "検査の精度と「そもそもの割合」を両方考えないと、確率の直感は大きく外れる。",
+  body: [
+    "イギリスの牧師で数学者のトーマス・ベイズ（1701頃〜1761）は、確率についての論文を遺して亡くなりました。友人のリチャード・プライスがそれを整理し、1763年に王立協会の『哲学紀要』に発表しました。のちにフランスのラプラスが、同じ考え方をより一般的な形で定式化しています（1774年）。",
+    "現代の形では、ベイズの定理は次のように書けます。<b>P(A|B) = P(B|A) × P(A) ÷ P(B)</b>。「B が起きたとき A である確率」を、「A のとき B が起きる確率」と「A そのものの確率（事前確率）」から求める式です。",
+    "例で考えます（数値は説明用の仮のものです）。ある病気の人は全体の<b>1%</b>。検査は、病気の人の90%を陽性と判定し、病気でない人の9%も誤って陽性と判定します。あなたが陽性と出たとき、本当に病気である確率はどのくらいでしょう。",
+    "90% くらいと答えたくなりますが、1万人で数えてみましょう。病気の人は100人で、そのうち陽性は90人。病気でない9900人のうち、誤って陽性になるのは 9900 × 9% = 891人。陽性は合計 981人で、本当に病気なのは 90人。つまり確率は 90 ÷ 981 ≒ <b>約9%</b>です。",
+    "直感が外れるのは、「そもそも病気の人がどれだけ少ないか」（基準率）を無視しがちだからです。この傾向は心理学者トヴェルスキーとカーネマンによって研究され、<b>基準率の無視</b>として知られています。",
+    "一方、ギーゲレンツァーとホフラーゲの研究（1995年）は、確率を「1万人中90人」のような<b>自然頻度</b>で示すと、正しく推論できる人が大きく増えることを示しました。上の説明で人数を数えたのは、そのためです。"
+  ],
+  interp: [
+    "現代の「ベイズ統計学」は、確率を「信念の度合い」として扱い、データで更新していく枠組みとして発展しました。ベイズ本人がこうした解釈をどこまで意図していたかは、学説史上の議論があります。",
+    "実際の医療検査では、検査を受ける人の集団（症状のある人か、全員検診か）によって事前確率が大きく変わります。上の数値例はあくまで考え方の説明です。"
+  ],
+  quote: {
+    type: "引用（拙訳）",
+    text: "ある未知の事象が起こった回数と起こらなかった回数が与えられたとき、一回の試行でそれが起こる確率が、名指しできる任意の二つの確率の値のあいだにある見込みを求めよ。",
+    orig: "Bayes, “An Essay towards solving a Problem in the Doctrine of Chances,” Phil. Trans. 53 (1763)",
+    note: "論文冒頭に掲げられた「問題」。観察結果から、その背後にある確率を逆向きに推し量る、という発想の出発点です。"
+  },
+  quiz: [
+    { q: "上の例（有病率1%、感度90%、偽陽性率9%）で、陽性の人が本当に病気である確率は。", c: ["約90%", "約50%", "約9%"], a: 2, e: "1万人中、陽性981人のうち病気は90人。90÷981 ≒ 9% です。" },
+    { q: "ベイズの論文を整理して発表した人物は。", c: ["リチャード・プライス", "ピエール＝シモン・ラプラス", "アイザック・ニュートン"], a: 0, e: "プライスが1763年に発表しました。ラプラスは1774年に独立に一般化しています。" },
+    { q: "確率の推論を助けるとされる表し方は。", c: ["小数点以下まで細かく書く", "「1万人中90人」のような自然頻度で書く", "グラフを使わない"], a: 1, e: "Gigerenzer & Hoffrage (1995) が示しました。" }
+  ],
+  think: "最近、ニュースや身の回りで「〇〇なら△△の可能性が高い」と聞いた話を一つ思い出してください。その話の「基準率」は何でしょうか。",
+  sources: [
+    ["T. Bayes, “An Essay towards solving a Problem in the Doctrine of Chances,” Philosophical Transactions 53 (1763)", "R. Price による序文つき"],
+    ["P.-S. Laplace, “Mémoire sur la probabilité des causes par les événements” (1774)", ""],
+    ["A. Tversky & D. Kahneman, “Judgment under Uncertainty: Heuristics and Biases,” Science 185 (1974)", "事前確率への鈍感さ"],
+    ["G. Gigerenzer & U. Hoffrage, “How to improve Bayesian reasoning without instruction: Frequency formats,” Psychological Review 102 (1995)", ""]
+  ]
+}
+];
+
+/* ───── 日付と回の対応 ───── */
+const EPOCH = Date.UTC(2024, 0, 1); // 2024-01-01 は月曜日
+const DAY = 86400000;
+function localDayStamp(d) { return Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()); }
+function isoOf(stamp) { return new Date(stamp).toISOString().slice(0, 10); }
+function lessonIndexFor(stamp) {
+  const days = Math.floor((stamp - EPOCH) / DAY);
+  const week = Math.floor(days / 7);
+  const dow = ((days % 7) + 7) % 7;              // 0 = 月
+  const cycle = ((week % 2) + 2) % 2;            // 0 = 第一週, 1 = 第二週
+  return cycle * 7 + dow;
+}
+const TODAY = localDayStamp(new Date());
+let viewStamp = TODAY;
+
+/* ───── この端末の記録（localStorage は失敗しうるので必ず try） ───── */
+const KEY = "kyoyo-himekuri.v1";
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || { done: {}, days: [], notes: {} }; } catch { return { done: {}, days: [], notes: {} }; } }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch {} }
+const store = load();
+store.done ||= {}; store.days ||= []; store.notes ||= {};
+
+function streak() {
+  const set = new Set(store.days);
+  let s = 0, t = TODAY;
+  if (!set.has(isoOf(t))) t -= DAY;               // 今日まだでも昨日まで続いていれば数える
+  while (set.has(isoOf(t))) { s++; t -= DAY; }
+  return s;
+}
+
+/* ───── 描画 ───── */
+const $ = (id) => document.getElementById(id);
+const YOUBI = ["月", "火", "水", "木", "金", "土", "日"];
+const KANJI_NUM = ["〇","一","二","三","四","五","六","七","八","九","十","十一","十二","十三","十四"];
+
+function render() {
+  const idx = lessonIndexFor(viewStamp);
+  const L = LESSONS[idx];
+  const F = FIELDS[L.field];
+  const d = new Date(viewStamp);
+  const dow = idx % 7;
+  document.documentElement.style.setProperty("--fc", `var(${F.c})`);
+
+  $("sYear").textContent = `${d.getUTCFullYear()}年${d.getUTCMonth() + 1}月`;
+  $("sCycle").textContent = `第${idx < 7 ? "一" : "二"}週・第${KANJI_NUM[idx + 1]}回`;
+  $("sDay").textContent = d.getUTCDate();
+  $("sYoubi").textContent = YOUBI[dow];
+  $("sField").innerHTML = `${F.name}<span>${F.en}</span>`;
+  $("sNote").textContent = viewStamp === TODAY ? "今日の一枚です。" :
+    `${viewStamp < TODAY ? "過去" : "先"}の日付の回を表示しています。`;
+
+  // 七曜
+  const monday = viewStamp - dow * DAY;
+  $("week").innerHTML = ORDER.map((k, i) => {
+    const st = monday + i * DAY;
+    const li = LESSONS[lessonIndexFor(st)];
+    const cls = ["wd", st === TODAY ? "today" : "", st === viewStamp ? "sel" : ""].join(" ");
+    return `<button type="button" class="${cls}" style="--fc:var(${FIELDS[k].c})" data-stamp="${st}" title="${li.title}">
+      <b>${YOUBI[i]}</b>${FIELDS[k].name.slice(0, 2)}<span class="mark">${store.done[li.id] ? "済" : ""}</span></button>`;
+  }).join("");
+
+  $("stStreak").textContent = streak();
+  $("stDone").textContent = `${Object.keys(store.done).length} / 14`;
+
+  renderLesson(L, F);
+  renderLibrary(idx);
+}
+
+function renderLesson(L, F) {
+  const done = store.done[L.id];
+  $("main").innerHTML = `
+  <div class="lesson-head">
+    <div class="eyebrow"><span class="chip">${F.youbi}曜・${F.name}</span><span>読む・原典・確かめる・考える　計15分</span></div>
+    <h1>${L.title}</h1>
+    <p class="lead">${L.lead}</p>
+    <nav class="plan" aria-label="今日の流れ">
+      <a href="#s-read"><b>6分</b>読む</a><a href="#s-quote"><b>2分</b>原典</a><a href="#s-quiz"><b>3分</b>確かめる</a><a href="#s-think"><b>4分</b>考える</a>
+    </nav>
+  </div>
+
+  <section class="step" id="s-read">
+    <div class="step-h"><span class="n">1</span><h2>読む</h2><span class="min">6分</span></div>
+    <div class="prose">${L.body.map(p => `<p>${p}</p>`).join("")}</div>
+    <div class="interp">
+      <div class="interp-h">解釈・諸説（原典に明記されていない内容）</div>
+      <ul>${L.interp.map(x => `<li>${x}</li>`).join("")}</ul>
+    </div>
+  </section>
+
+  <section class="step" id="s-quote">
+    <div class="step-h"><span class="n">2</span><h2>原典にふれる</h2><span class="min">2分</span></div>
+    <figure class="quote">
+      <blockquote>${L.quote.text}</blockquote>
+      <div class="orig"><span class="qtype">${L.quote.type}</span>${L.quote.orig}</div>
+      <figcaption>${L.quote.note}</figcaption>
+    </figure>
+  </section>
+
+  <section class="step" id="s-quiz">
+    <div class="step-h"><span class="n">3</span><h2>確かめる</h2><span class="min">3分</span></div>
+    <div class="quiz" id="quiz">
+      ${L.quiz.map((q, qi) => `
+        <div class="q" data-qi="${qi}">
+          <p class="qt">問${qi + 1}　${q.q}</p>
+          <div class="choices">${q.c.map((c, ci) => `<button type="button" class="choice" data-ci="${ci}">${c}</button>`).join("")}</div>
+          <p class="exp" hidden></p>
+        </div>`).join("")}
+      <p class="score" id="score">3問中 0問 回答済み</p>
+    </div>
+  </section>
+
+  <section class="step" id="s-think">
+    <div class="step-h"><span class="n">4</span><h2>考える</h2><span class="min">4分</span></div>
+    <p class="think">${L.think}</p>
+    <textarea id="note-${L.id}" aria-label="考えたことのメモ" placeholder="思いついたことを数行で。">${escapeHtml(store.notes[L.id] || "")}</textarea>
+    <p class="hint">メモはこの端末のブラウザにだけ保存されます。</p>
+  </section>
+
+  <section class="step" id="s-ask" hidden>
+    <div class="step-h"><span class="n">＋</span><h2>Claude と深める</h2><span class="min">任意</span></div>
+    <div class="ask">
+      <div class="suggest" id="suggest">
+        <button type="button">もう少し詳しく</button>
+        <button type="button">反対の立場や批判は？</button>
+        <button type="button">現代とのつながりは？</button>
+        <button type="button">次に読むべき原典は？</button>
+      </div>
+      <div class="ask-row">
+        <input type="text" id="askInput" placeholder="この回について質問する" aria-label="Claude への質問">
+        <button type="button" class="btn primary" id="askBtn">質問する</button>
+        <button type="button" class="btn" id="stopBtn" hidden>止める</button>
+      </div>
+      <div class="answer" id="answer" aria-live="polite"></div>
+      <p class="hint" id="askHint">回答には原典を示し、推測は【推測】と明記するよう Claude に依頼します。回答は誤りを含むことがあるため、示された原典で確かめてください。質問はあなたの Claude の利用枠を使います。</p>
+    </div>
+  </section>
+
+  <section class="step sources">
+    <div class="step-h"><h2>出典</h2></div>
+    <ol>${L.sources.map(([a, b]) => `<li>${a}${b ? `<br><span>${b}</span>` : ""}</li>`).join("")}</ol>
+  </section>
+
+  <div class="finish">
+    <p>${done ? `<span class="done-badge">読了済み（${done}）</span>　もう一度読み返すのも良い復習です。` : "4つのステップを終えたら、今日の一枚をめくりましょう。"}</p>
+    <button type="button" class="btn primary" id="doneBtn">${done ? "記録を取り消す" : "今日の一枚をめくる"}</button>
+  </div>`;
+
+  // クイズ
+  let answered = 0;
+  $("main").querySelectorAll(".q").forEach(qEl => {
+    const q = L.quiz[+qEl.dataset.qi];
+    qEl.querySelectorAll(".choice").forEach(b => b.addEventListener("click", () => {
+      const ci = +b.dataset.ci;
+      qEl.querySelectorAll(".choice").forEach((x, i) => {
+        x.disabled = true;
+        if (i === q.a) x.classList.add("ok");
+        else if (i === ci) x.classList.add("ng");
+      });
+      const exp = qEl.querySelector(".exp");
+      exp.innerHTML = `<strong>${ci === q.a ? "正解。" : "正解は「" + q.c[q.a] + "」。"}</strong>${q.e}`;
+      exp.hidden = false;
+      answered++;
+      $("score").textContent = `3問中 ${answered}問 回答済み`;
+    }));
+  });
+
+  // メモ
+  const ta = $("note-" + L.id);
+  ta.addEventListener("input", () => { store.notes[L.id] = ta.value; save(); });
+
+  // 読了
+  $("doneBtn").addEventListener("click", () => {
+    if (store.done[L.id]) { delete store.done[L.id]; }
+    else {
+      store.done[L.id] = isoOf(TODAY);
+      if (!store.days.includes(isoOf(TODAY))) store.days.push(isoOf(TODAY));
+    }
+    save(); render();
+  });
+
+  setupAsk(L, F);
+}
+
+function renderLibrary(cur) {
+  $("lib").innerHTML = LESSONS.map((L, i) => {
+    const F = FIELDS[L.field];
+    return `<button type="button" class="lib-item ${i === cur ? "cur" : ""}" style="--fc:var(${F.c})" data-i="${i}">
+      <span class="meta"><span>第${i < 7 ? "一" : "二"}週 ${F.youbi}曜・${F.name}</span><span class="ok">${store.done[L.id] ? "読了" : ""}</span></span>
+      <span class="t">${L.title}</span></button>`;
+  }).join("");
+}
+
+function escapeHtml(s) { return s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* ───── 移動 ───── */
+function go(stamp) { viewStamp = stamp; render(); window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); }
+$("prevBtn").addEventListener("click", () => go(viewStamp - DAY));
+$("nextBtn").addEventListener("click", () => go(viewStamp + DAY));
+$("todayBtn").addEventListener("click", () => go(TODAY));
+$("week").addEventListener("click", e => { const b = e.target.closest("[data-stamp]"); if (b) go(+b.dataset.stamp); });
+$("lib").addEventListener("click", e => {
+  const b = e.target.closest("[data-i]"); if (!b) return;
+  // 選んだ回が今日以前で最も近く現れる日へ移動
+  const want = +b.dataset.i;
+  let s = TODAY;
+  for (let k = 0; k < 14; k++) { if (lessonIndexFor(TODAY - k * DAY) === want) { s = TODAY - k * DAY; break; } }
+  go(s);
+});
+
+/* ───── 十五分タイマー ───── */
+const TOTAL = 15 * 60;
+let left = TOTAL, tick = null;
+function drawTimer() {
+  $("clock").textContent = `${String(Math.floor(left / 60)).padStart(2, "0")}:${String(left % 60).padStart(2, "0")}`;
+  $("timerBar").style.width = `${(1 - left / TOTAL) * 100}%`;
+}
+$("timerBtn").addEventListener("click", () => {
+  if (tick) { clearInterval(tick); tick = null; $("timerBtn").textContent = "再開"; return; }
+  if (left === 0) left = TOTAL;
+  $("timerBtn").textContent = "一時停止";
+  tick = setInterval(() => {
+    left = Math.max(0, left - 1); drawTimer();
+    if (left === 0) { clearInterval(tick); tick = null; $("timerBtn").textContent = "もう一度"; $("clock").textContent = "おつかれさま"; }
+  }, 1000);
+});
+$("timerReset").addEventListener("click", () => { clearInterval(tick); tick = null; left = TOTAL; $("timerBtn").textContent = "開始"; drawTimer(); });
+
+/* ───── Claude と深める（sample 機能。使えない環境では欄ごと隠す） ───── */
+let samplePromise = window.claude?.use ? window.claude.use("sample").catch(() => null) : Promise.resolve(null);
+let askDisabled = false;
+let ctl = null;
+
+function lessonText(L) {
+  const strip = s => s.replace(/<[^>]+>/g, "");
+  return [
+    `題：${L.title}`,
+    `本文：${L.body.map(strip).join(" ")}`,
+    `解釈・諸説：${L.interp.map(strip).join(" ")}`,
+    `出典：${L.sources.map(s => s[0]).join("／")}`
+  ].join("\n");
+}
+
+async function setupAsk(L, F) {
+  const sample = await samplePromise;
+  const sec = $("s-ask");
+  if (!sample || askDisabled || !sec) return;
+  sec.hidden = false;
+  const input = $("askInput"), btn = $("askBtn"), stop = $("stopBtn"), out = $("answer");
+
+  async function ask(question) {
+    if (!question.trim()) { input.focus(); return; }
+    ctl?.abort();
+    ctl = new AbortController();
+    btn.disabled = true; stop.hidden = false;
+    out.textContent = "考えています…";
+    const prompt =
+`あなたは教養講座の講師です。以下は学習者が今日読んだ「${F.name}」分野の短い教材です。
+
+${lessonText(L)}
+
+学習者の質問：${question}
+
+回答の条件：
+- 日本語で、400〜600字程度。見出しや Markdown 記号は使わず、段落で書く。
+- 事実を述べるときは、その根拠となる原典（著作名・章や条文・論文名と年など）を具体的に示す。
+- 原典から推測した内容、または原典がなく推測するしかない内容は、文頭に【推測】と付け、原典にもとづく記述とは段落を分ける。
+- 確信のない固有名詞・年・数値は書かない。
+- 最後に「次に読むなら」として原典を1〜2点挙げる。`;
+    try {
+      await sample(prompt, { signal: ctl.signal, cache: false, onText: ({ text }) => { out.textContent = text; } });
+    } catch (e) {
+      out.textContent = e?.text ?? "";
+      const msg = {
+        not_granted: "Claude への質問が許可されなかったため、この欄を閉じました。",
+        rate_limited: "質問が続いたため、少し時間をおいてからもう一度どうぞ。",
+        cancelled: ""
+      }[e?.code] ?? "回答を受け取れませんでした。時間をおいて、もう一度質問してください。";
+      if (e?.code === "not_granted") { askDisabled = true; sec.hidden = true; }
+      if (msg) $("askHint").textContent = msg;
+    } finally {
+      btn.disabled = false; stop.hidden = true;
+    }
+  }
+  btn.addEventListener("click", () => ask(input.value));
+  input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.isComposing) ask(input.value); });
+  stop.addEventListener("click", () => ctl?.abort());
+  $("suggest").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    input.value = b.textContent; ask(b.textContent);
+  });
+}
+
+drawTimer();
+render();
+</script>
