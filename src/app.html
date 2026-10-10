@@ -359,21 +359,31 @@ function sidebar(L, mode) {
 }
 
 /* ───── ふりがな（src/ruby.js の辞書） ───── */
-const RUBY = new Map(RUBY_SRC.split("\n").map(s => s.trim()).filter(Boolean).map(s => { const i = s.indexOf(" "); return [s.slice(0, i), s.slice(i + 1).trim()]; }));
+// 1行は「語 よみ」。語の頭の ! は「前後が漢字なら付けない」（一字の王朝名など）、行末の @id,id は「その回でだけ付ける」
+const RUBY = new Map(RUBY_SRC.split("\n").map(s => s.trim()).filter(s => s && s[0] !== "#").map(s => {
+  const [k, r, at] = s.split(/ +/);
+  return [k.replace(/^!/, ""), { r, bound: k[0] === "!", only: at ? new Set(at.slice(1).split(",")) : null }];
+}));
 // 長い語を先に試す。本文の直後に（よみ）が書かれている語は、それを初出として扱い付けない
 const RUBY_RE = new RegExp([...RUBY.keys()].sort((a, b) => b.length - a.length).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g");
-function ruby(html, seen) {
+const KANJI = /[\u3400-\u9fff々]/;
+// 一字の語は、前後が漢字でなく、後ろが助詞などのときだけ独立した語とみなす（「明るい」「周り」などを避ける）
+function standsAlone(text, at, len) {
+  const next = text.slice(at + len);
+  return !KANJI.test(text[at - 1] || "") && !KANJI.test(next[0] || "") && (!/^[ぁ-ゖ]/.test(next) || /^(から|[のにでへとやはがをも])/.test(next));
+}
+function ruby(html, seen, id) {
   return String(html).replace(/(<[^>]*>)|[^<]+/g, (m, tag) => tag ? m : m.replace(RUBY_RE, (w, at, text) => {
-    if (seen.has(w)) return w;
+    const e = RUBY.get(w);
+    if (seen.has(w) || (e.only && !e.only.has(id)) || (e.bound && !standsAlone(text, at, w.length))) return w;
     seen.add(w);
     if (/^（[ぁ-ゖァ-ヺー・]+）/.test(text.slice(at + w.length))) return w;
-    const r = RUBY.get(w);
-    return r[0] === "=" ? r.slice(1) : `<ruby>${w}<rt>${r}</rt></ruby>`;
+    return e.r[0] === "=" ? e.r.slice(1) : `<ruby>${w}<rt>${e.r}</rt></ruby>`;
   }));
 }
 const rqCache = new Map();
 function rubyQuiz(L) {
-  if (!rqCache.has(L.id)) rqCache.set(L.id, L.quiz.map(q => { const s = new Set(); return { q: ruby(q.q, s), c: q.c.map(c => ruby(c, s)), e: ruby(q.e, s) }; }));
+  if (!rqCache.has(L.id)) rqCache.set(L.id, L.quiz.map(q => { const s = new Set(); return { q: ruby(q.q, s, L.id), c: q.c.map(c => ruby(c, s, L.id)), e: ruby(q.e, s, L.id) }; }));
   return rqCache.get(L.id);
 }
 
@@ -389,8 +399,8 @@ function lessonHTML(L, mode) {
   return `
   <div class="lesson-head">
     <div class="eyebrow"><span class="chip">${F.name}</span><span>${F.name}の ${i + 1} / ${same.length} 回</span>${done ? `<span class="done-badge">読了</span>` : ""}</div>
-    <h1>${ruby(L.title, sA)}</h1>
-    <p class="lead">${ruby(L.lead, sA)}</p>
+    <h1>${ruby(L.title, sA, L.id)}</h1>
+    <p class="lead">${ruby(L.lead, sA, L.id)}</p>
     <nav class="plan" aria-label="この回の流れ（目安15分）">
       <button type="button" data-jump="s-read"><b>1</b>読む</button><button type="button" data-jump="s-quote"><b>2</b>原典</button><button type="button" data-jump="s-quiz"><b>3</b>確かめる</button><button type="button" data-jump="s-think"><b>4</b>考える</button><button type="button" data-jump="s-src"><b>典</b>出典</button>
     </nav>
@@ -398,19 +408,19 @@ function lessonHTML(L, mode) {
 
   <section class="step" id="s-read">
     <div class="step-h"><span class="n">1</span><h2>読む</h2><span class="min">目安 6分</span></div>
-    <div class="prose">${L.body.map(p => `<p>${ruby(p, sA)}</p>`).join("")}</div>
+    <div class="prose">${L.body.map(p => `<p>${ruby(p, sA, L.id)}</p>`).join("")}</div>
     <div class="interp">
       <div class="interp-h">解釈・諸説（原典に明記されていない内容）</div>
-      <ul>${L.interp.map(x => `<li>${ruby(x, sA)}</li>`).join("")}</ul>
+      <ul>${L.interp.map(x => `<li>${ruby(x, sA, L.id)}</li>`).join("")}</ul>
     </div>
   </section>
 
   <section class="step" id="s-quote">
     <div class="step-h"><span class="n">2</span><h2>原典にふれる</h2><span class="min">目安 2分</span></div>
     <figure class="quote">
-      <blockquote>${ruby(L.quote.text, sB)}</blockquote>
-      <div class="orig"><span class="qtype">${L.quote.type}</span>${ruby(L.quote.orig, sB)}</div>
-      <figcaption>${ruby(L.quote.note || "", sB)}</figcaption>
+      <blockquote>${ruby(L.quote.text, sB, L.id)}</blockquote>
+      <div class="orig"><span class="qtype">${L.quote.type}</span>${ruby(L.quote.orig, sB, L.id)}</div>
+      <figcaption>${ruby(L.quote.note || "", sB, L.id)}</figcaption>
     </figure>
   </section>
 
@@ -429,7 +439,7 @@ function lessonHTML(L, mode) {
 
   <section class="step" id="s-think">
     <div class="step-h"><span class="n">4</span><h2>考える</h2><span class="min">目安 4分</span></div>
-    <p class="think">${ruby(L.think, new Set())}</p>
+    <p class="think">${ruby(L.think, new Set(), L.id)}</p>
     <textarea id="note-${L.id}" aria-label="考えたことのメモ" placeholder="思いついたことを数行で。">${esc(store.notes[L.id] || "")}</textarea>
     <p class="hint">メモはこの端末のブラウザにだけ保存されます。</p>
   </section>

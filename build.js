@@ -31,10 +31,14 @@ const rubySrc = fs.readFileSync(path.join(ROOT, "src/ruby.js"), "utf8");
 const RUBY_SRC = new Function(rubySrc + "; return RUBY_SRC;")();
 const allText = LESSONS.map(L => [L.title, L.lead, ...L.body, ...L.interp, L.quote.text, L.quote.orig, L.quote.note, L.think, ...L.quiz.flatMap(q => [q.q, ...q.c, q.e])].join("\n")).join("\n").replace(/<[^>]+>/g, "");
 const rubyErr = [], unused = [];
-for (const line of RUBY_SRC.split("\n").map(s => s.trim()).filter(Boolean)) {
-  const [k, r] = [line.slice(0, line.indexOf(" ")), line.slice(line.indexOf(" ") + 1).trim()];
-  if (!k || !r || line.indexOf(" ") < 0) rubyErr.push(`ふりがな辞書の書式: ${line}`);
-  else if (r[0] !== "=" && !/^[ぁ-ゖァ-ヺー]+$/.test(r)) rubyErr.push(`よみが仮名でない: ${line}`);
+const rubyKeys = new Set();
+for (const line of RUBY_SRC.split("\n").map(s => s.trim()).filter(s => s && s[0] !== "#")) {
+  const [k0, r, at, extra] = line.split(/ +/), k = (k0 || "").replace(/^!/, "");
+  if (!k || !r || extra || (at && !/^@[\w-]+(,[\w-]+)*$/.test(at))) { rubyErr.push(`ふりがな辞書の書式: ${line}`); continue; }
+  if (rubyKeys.has(k)) rubyErr.push(`ふりがな辞書で語が重複: ${k}`);
+  rubyKeys.add(k);
+  if (r[0] !== "=" && !/^[ぁ-ゖァ-ヺー]+$/.test(r)) rubyErr.push(`よみが仮名でない: ${line}`);
+  if (at) for (const id of at.slice(1).split(",")) if (!ids.has(id)) rubyErr.push(`ふりがな辞書の回 id が不明: ${line}`);
   if (!allText.includes(k)) unused.push(k);
 }
 if (rubyErr.length) { console.error(rubyErr.join("\n")); process.exit(1); }
