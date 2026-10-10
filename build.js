@@ -1,4 +1,4 @@
-// 教養日めくり：src/app.html に src/data/*.js を埋め込んで kyoyo-himekuri.html（Artifact 用）と docs/（アプリ版）を生成し、データを検査する
+// 教養日めくり：src/app.html に src/data/*.js を埋め込んで kyoyo-himekuri.html を生成し、データを検査する
 const fs = require("fs");
 const path = require("path");
 const ROOT = __dirname;
@@ -43,18 +43,5 @@ if (unused.length) console.warn("ふりがな辞書で本文に出てこない�
 const data = `<script>\n${rubySrc}\n</script>\n` + files.map(f => `<script>\n${fs.readFileSync(path.join(dataDir, f), "utf8")}\n</script>`).join("\n");
 const html = fs.readFileSync(path.join(ROOT, "src/app.html"), "utf8").replace("<!--DATA-->", () => data);
 fs.writeFileSync(path.join(ROOT, "kyoyo-himekuri.html"), html);
-
-// アプリ版（PWA）：docs/ に出力し、GitHub Pages でそのまま公開できるようにする
-const pwa = path.join(ROOT, "src/pwa"), out = path.join(ROOT, "docs");
-const body = html.replace(/^<meta charset="utf-8">\n<title>[^<]*<\/title>\n/, "");
-if (body === html) { console.error("src/app.html の先頭が想定と違うため、アプリ版を作れません"); process.exit(1); }
-const page = fs.readFileSync(path.join(pwa, "shell-head.html"), "utf8") + body + fs.readFileSync(path.join(pwa, "shell-foot.html"), "utf8");
-const version = require("crypto").createHash("sha256").update(page).digest("hex").slice(0, 12);
-fs.rmSync(out, { recursive: true, force: true });
-fs.mkdirSync(out);
-fs.writeFileSync(path.join(out, "index.html"), page);
-fs.writeFileSync(path.join(out, "sw.js"), fs.readFileSync(path.join(pwa, "sw.js"), "utf8").replace("__VERSION__", version));
-for (const f of ["manifest.webmanifest", "icon-180.png", "icon-192.png", "icon-512.png"]) fs.copyFileSync(path.join(pwa, f), path.join(out, f));
-fs.writeFileSync(path.join(out, ".nojekyll"), "");
 const by = {}; for (const L of LESSONS) by[L.field] = (by[L.field] || 0) + 1;
-console.log(`OK: ${LESSONS.length} 回`, by, `${(Buffer.byteLength(html) / 1024).toFixed(0)} KB`, `アプリ版 docs/（版 ${version}）`);
+console.log(`OK: ${LESSONS.length} 回`, by, `${(Buffer.byteLength(html) / 1024).toFixed(0)} KB`);
