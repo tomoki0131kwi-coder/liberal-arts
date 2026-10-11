@@ -30,6 +30,8 @@
   --c-fin: #0f7564;
   --c-stock: #2f56a8;
   --c-acct: #93347f;
+  --c-ent: #b8364f;
+  --c-anime: #4a55c8;
   --fc: var(--c-phil);
   --f-display: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
@@ -39,14 +41,14 @@
   :root:not([data-theme="light"]) {
     --paper: #13161b; --sheet: #1b1f26; --ink: #e5e8e2; --ink-2: #a8afb9; --rule: #2e343d;
     --ai: #8fb0e3; --ai-soft: #233149; --good: #7fc392; --good-soft: #1f3327; --bad: #ec8f7d; --bad-soft: #3d2420;
-    --c-phil: #a3b0c9; --c-hist: #e88a72; --c-sci: #6fbfd8; --c-soc: #8cc78a; --c-art: #e0bb5c; --c-lit: #d1a07f; --c-math: #f0a170; --c-drink: #e391b4; --c-eng: #c3a8ec; --c-bio: #bccb6e; --c-fin: #6fd0bd; --c-stock: #9ab4f2; --c-acct: #e79bd6;
+    --c-phil: #a3b0c9; --c-hist: #e88a72; --c-sci: #6fbfd8; --c-soc: #8cc78a; --c-art: #e0bb5c; --c-lit: #d1a07f; --c-math: #f0a170; --c-drink: #e391b4; --c-eng: #c3a8ec; --c-bio: #bccb6e; --c-fin: #6fd0bd; --c-stock: #9ab4f2; --c-acct: #e79bd6; --c-ent: #f2939f; --c-anime: #a7aef6;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #13161b; --sheet: #1b1f26; --ink: #e5e8e2; --ink-2: #a8afb9; --rule: #2e343d;
   --ai: #8fb0e3; --ai-soft: #233149; --good: #7fc392; --good-soft: #1f3327; --bad: #ec8f7d; --bad-soft: #3d2420;
-  --c-phil: #a3b0c9; --c-hist: #e88a72; --c-sci: #6fbfd8; --c-soc: #8cc78a; --c-art: #e0bb5c; --c-lit: #d1a07f; --c-math: #f0a170; --c-drink: #e391b4; --c-eng: #c3a8ec; --c-bio: #bccb6e; --c-fin: #6fd0bd; --c-stock: #9ab4f2; --c-acct: #e79bd6;
+  --c-phil: #a3b0c9; --c-hist: #e88a72; --c-sci: #6fbfd8; --c-soc: #8cc78a; --c-art: #e0bb5c; --c-lit: #d1a07f; --c-math: #f0a170; --c-drink: #e391b4; --c-eng: #c3a8ec; --c-bio: #bccb6e; --c-fin: #6fd0bd; --c-stock: #9ab4f2; --c-acct: #e79bd6; --c-ent: #f2939f; --c-anime: #a7aef6;
   color-scheme: dark;
 }
 
@@ -247,7 +249,7 @@ footer { font-size: .78rem; color: var(--ink-2); border-top: 1px solid var(--rul
 
 <div class="wrap">
   <header class="mast">
-    <div class="brand">教養日めくり<small>十三の分野の書架から、毎日一枚</small></div>
+    <div class="brand">教養日めくり<small>十五の分野の書架から、毎日一枚</small></div>
     <nav class="tabs" aria-label="表示の切り替え">
       <a href="#today" id="tabToday">今日の一枚</a>
       <a href="#shelf" id="tabShelf">書架</a>
@@ -279,7 +281,9 @@ const FIELDS = {
   bio:  { name: "動物と植物", en: "Animals & Plants", mark: "生", c: "--c-bio" },
   fin:  { name: "金融・経済の歴史と雑学", en: "Money & Economy", mark: "金", c: "--c-fin" },
   stock:{ name: "株式・債券の歴史と雑学", en: "Stocks & Bonds", mark: "株", c: "--c-stock" },
-  acct: { name: "会計の歴史と雑学", en: "Accounting", mark: "簿", c: "--c-acct" }
+  acct: { name: "会計の歴史と雑学", en: "Accounting", mark: "簿", c: "--c-acct" },
+  ent:  { name: "芸能の歴史と雑学", en: "Performing Arts & Entertainment", mark: "演", c: "--c-ent" },
+  anime:{ name: "アニメ・ゲーム・漫画の歴史と雑学", en: "Anime, Games & Manga", mark: "遊", c: "--c-anime" }
 };
 const ORDER = Object.keys(FIELDS);
 const BY_ID = Object.fromEntries(LESSONS.map(l => [l.id, l]));
@@ -580,7 +584,7 @@ function shelfHTML() {
   <div class="shelf">
     <div class="shelf-head">
       <h1>書架</h1>
-      <p>十三の分野、全 ${N} 回。読みたい回をいつでも選べます。どの回も目安15分、原典と出典つきです。</p>
+      <p>十五の分野、全 ${N} 回。読みたい回をいつでも選べます。どの回も目安15分、原典と出典つきです。</p>
       <div class="random-row">
         <button type="button" class="btn primary" id="randomBtn">ランダムに一枚</button>
         <span class="hint">下で絞り込んだ回の中から、未読の回を優先して選びます。</span>
