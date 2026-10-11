@@ -190,6 +190,9 @@ textarea { max-width: 40em; min-height: 7em; resize: vertical; }
 .shelf-head { display: grid; gap: 6px; }
 .shelf-head h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900; }
 .shelf-head p { color: var(--ink-2); font-size: .92rem; }
+.random-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 4px; }
+.random-row .btn { padding: 8px 16px; font-size: .92rem; }
+.random-row .hint { color: var(--ink-2); font-size: .8rem; }
 .filters { display: grid; gap: 10px; }
 .frow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .fchip { border: 1px solid var(--rule); background: var(--sheet); border-radius: 999px; padding: 3px 12px; font-size: .84rem; display: inline-flex; gap: 6px; align-items: center; }
@@ -519,6 +522,10 @@ function shelfHTML() {
     <div class="shelf-head">
       <h1>書架</h1>
       <p>十の分野、全 ${N} 回。読みたい回をいつでも選べます。どの回も目安15分、原典と出典つきです。</p>
+      <div class="random-row">
+        <button type="button" class="btn primary" id="randomBtn">ランダムに一枚</button>
+        <span class="hint">下で絞り込んだ回の中から、未読の回を優先して選びます。</span>
+      </div>
     </div>
     <div class="filters">
       <div class="frow" id="fchips" role="group" aria-label="分野で絞り込む">
@@ -539,13 +546,30 @@ function shelfHTML() {
   </div>`;
 }
 
-function drawShelf() {
+function shelfList() {
   const q = shelfState.q.trim().toLowerCase();
   const hit = (L) => !q || [L.title, L.lead, ...L.body, ...L.sources.map(s => s.join(" "))].some(s => strip(s).toLowerCase().includes(q));
-  const list = LESSONS.filter(L =>
+  return LESSONS.filter(L =>
     (shelfState.field === "all" || L.field === shelfState.field) &&
     (shelfState.status === "all" || (shelfState.status === "done") === !!store.done[L.id]) && hit(L));
+}
+
+// 絞り込み中の回から一枚。未読を優先し、直前にランダムで選んだ回は（ほかに候補があれば）避ける
+function randomPick() {
+  const list = shelfList();
+  if (!list.length) return;
+  const unread = list.filter(L => !store.done[L.id]);
+  let pool = unread.length ? unread : list;
+  if (pool.length > 1) pool = pool.filter(L => L.id !== shelfState.lastRandom);
+  const L = pool[Math.floor(Math.random() * pool.length)];
+  shelfState.lastRandom = L.id; saveShelf();
+  location.hash = "l-" + L.id;
+}
+
+function drawShelf() {
+  const list = shelfList();
   $("shelfCount").textContent = `${list.length} 回`;
+  $("randomBtn").disabled = !list.length;
   if (!list.length) { $("shelfList").innerHTML = `<p class="empty">条件に合う回がありません。分野やキーワードを変えてみてください。</p>`; return; }
   $("shelfList").innerHTML = ORDER.filter(f => list.some(l => l.field === f)).map(f => {
     const items = list.filter(l => l.field === f);
@@ -570,6 +594,7 @@ function wireShelf() {
   });
   $("shelfQ").addEventListener("input", e => { shelfState.q = e.target.value; saveShelf(); drawShelf(); });
   $("shelfStatus").addEventListener("change", e => { shelfState.status = e.target.value; saveShelf(); drawShelf(); });
+  $("randomBtn").addEventListener("click", randomPick);
   drawShelf();
 }
 
