@@ -168,14 +168,29 @@ textarea, input[type="text"], input[type="search"] {
 textarea { max-width: 40em; min-height: 7em; resize: vertical; }
 .hint { font-size: .78rem; color: var(--ink-2); }
 
-.ask { display: grid; gap: 10px; max-width: 40em; }
-.ask-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.ask-row input { flex: 1 1 16em; min-width: 0; }
+/* Claude と深める：チャット表示（自分の発言は右、Claude は左） */
+.chat { display: grid; gap: 10px; max-width: 44em; }
+.chat-log { display: flex; flex-direction: column; gap: 12px; max-height: min(70vh, 560px); overflow-y: auto; padding: 14px; background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; }
+.chat-log:empty { display: none; }
+.chat-empty { color: var(--ink-2); font-size: .88rem; text-align: center; margin: 6px 0; }
+.msg { display: grid; gap: 3px; max-width: 88%; }
+.msg.user { align-self: flex-end; justify-items: end; }
+.msg.ai { align-self: flex-start; }
+.msg .who { font-size: .72rem; color: var(--ink-2); font-family: var(--f-mono); }
+.msg .bubble { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .95rem; line-height: 1.85; padding: 10px 14px; border-radius: 14px; }
+.msg.user .bubble { background: var(--ai); color: var(--sheet); border-bottom-right-radius: 4px; }
+.msg.ai .bubble { background: var(--sheet); border: 1px solid var(--rule); border-bottom-left-radius: 4px; }
+.msg.ai.pending .bubble { color: var(--ink-2); }
+.msg .note { font-size: .76rem; color: var(--bad); }
+.chat-input { display: flex; gap: 8px; align-items: flex-end; }
+.chat-input textarea { flex: 1 1 auto; min-width: 0; resize: none; min-height: 2.6em; max-height: 9em; max-width: none; font: inherit; font-size: .95rem; line-height: 1.6; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--sheet); color: var(--ink); }
+.chat-input .btn { padding: 8px 14px; white-space: nowrap; flex: none; }
 .suggest { display: flex; flex-wrap: wrap; gap: 6px; }
 .suggest button { border: 1px solid var(--rule); background: transparent; border-radius: 999px; padding: 3px 12px; font-size: .8rem; }
 .suggest button:hover { border-color: var(--ai); }
-.answer { white-space: pre-wrap; background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 14px 16px; font-size: .95rem; }
-.answer:empty { display: none; }
+.suggest button[disabled] { opacity: .5; }
+.chat-foot { display: grid; gap: 4px; }
+.linkbtn { border: 0; background: none; padding: 0; color: var(--ai); text-decoration: underline; font-size: inherit; cursor: pointer; }
 
 .sources ol { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; font-size: .9rem; max-width: 46em; overflow-wrap: anywhere; }
 .sources li span { color: var(--ink-2); font-size: .82rem; }
@@ -449,20 +464,23 @@ function lessonHTML(L, mode) {
 
   <section class="step" id="s-ask" hidden>
     <div class="step-h"><span class="n">＋</span><h2>Claude と深める</h2><span class="min">任意</span></div>
-    <div class="ask">
+    <div class="chat">
+      <div class="chat-log" id="chatLog" aria-live="polite"></div>
       <div class="suggest" id="suggest">
         <button type="button">もう少し詳しく</button>
         <button type="button">反対の立場や批判は？</button>
         <button type="button">現代とのつながりは？</button>
         <button type="button">次に読むべき原典は？</button>
       </div>
-      <div class="ask-row">
-        <input type="text" id="askInput" placeholder="この回について質問する" aria-label="Claude への質問">
-        <button type="button" class="btn primary" id="askBtn">質問する</button>
+      <form class="chat-input" id="chatForm">
+        <textarea id="askInput" rows="1" placeholder="この回について質問する" aria-label="Claude への質問"></textarea>
+        <button type="submit" class="btn primary" id="askBtn">送信</button>
         <button type="button" class="btn" id="stopBtn" hidden>止める</button>
+      </form>
+      <div class="chat-foot">
+        <p class="hint" id="askHint">回答には原典を示し、推測は【推測】と明記するよう Claude に依頼します。生成された回答は誤りを含むことがあるため、必ず示された原典で確かめてください。質問はあなたの Claude の利用枠を使います。</p>
+        <p class="hint"><span id="chatWhere">質問と回答は、この回のページに残ります。</span> <button type="button" class="linkbtn" id="clearChat" hidden>この回の履歴を消す</button></p>
       </div>
-      <div class="answer" id="answer" aria-live="polite"></div>
-      <p class="hint" id="askHint">回答には原典を示し、推測は【推測】と明記するよう Claude に依頼します。生成された回答は誤りを含むことがあるため、必ず示された原典で確かめてください。質問はあなたの Claude の利用枠を使います。</p>
     </div>
   </section>
 
@@ -600,6 +618,7 @@ function wireShelf() {
 
 /* ───── 画面の切り替え（#today / #shelf / #l-<id>） ───── */
 function route(keepScroll) {
+  ctl?.abort();                                   // 別の画面へ移るときは、回答中の質問を止める（途中までの回答は履歴に残る）
   const h = location.hash.slice(1);
   let mode = "today", L = BY_ID[PICK];
   if (h === "shelf") mode = "shelf";
@@ -625,47 +644,155 @@ addEventListener("hashchange", () => route(false));
 const samplePromise = window.claude?.use ? window.claude.use("sample").catch(() => null) : Promise.resolve(null);
 let askDisabled = false, ctl = null;
 
-async function setupAsk(L) {
-  const sample = await samplePromise;
-  const sec = $("s-ask");
-  if (!sample || askDisabled || !sec || !document.contains(sec)) return;
-  sec.hidden = false;
+// 質問の履歴：回ごとに保存する。使えるときはアカウントの非公開領域（db の data/users/<id>/）、
+// 使えないときはこの端末のブラウザ。書き込みに失敗したら、その訪問のあいだはブラウザに切り替える
+const CHAT_KEY = KEY + ".chat", CHAT_KEEP = 60, CHAT_SEND = 16;
+const localChat = {
+  where: "この端末のブラウザに保存されます（あなただけが見られます）。",
+  all() { try { return JSON.parse(localStorage.getItem(CHAT_KEY)) || {}; } catch { return {}; } },
+  async load(id) { return this.all()[id] || []; },
+  async save(id, turns) { const a = this.all(); if (turns.length) a[id] = turns; else delete a[id]; try { localStorage.setItem(CHAT_KEY, JSON.stringify(a)); } catch {} },
+};
+const chatStorePromise = (async () => {
+  if (!window.claude?.use) return localChat;
+  const [db, user] = await Promise.all([window.claude.use("db").catch(() => null), window.claude.use("user").catch(() => null)]);
+  const uid = user ? await user.id() : null;
+  if (!db || !uid) return localChat;
+  let fallback = false, chain = Promise.resolve();
+  const ref = id => db.collection("data/users/" + uid).doc("chat-" + id);
+  return {
+    get where() { return fallback ? localChat.where : "あなたのアカウントに保存され、ほかの人には見えません。"; },
+    async load(id) {
+      if (fallback) return localChat.load(id);
+      try { const snap = await ref(id).get(); return snap.exists ? (snap.data().turns || []) : await localChat.load(id); }
+      catch { return localChat.load(id); }
+    },
+    save(id, turns) {
+      // 同じ文書への書き込みは一つずつ
+      chain = chain.then(async () => {
+        if (fallback) return localChat.save(id, turns);
+        try { if (turns.length) await ref(id).set({ lesson: id, turns, updatedAt: Date.now() }); else await ref(id).delete(); }
+        catch { fallback = true; await localChat.save(id, turns); }
+      });
+      return chain;
+    },
+  };
+})();
+
+function chatRules(L) {
   const F = FIELDS[L.field];
-  const input = $("askInput"), btn = $("askBtn"), stop = $("stopBtn"), out = $("answer");
-  async function ask(question) {
-    if (!question.trim()) { input.focus(); return; }
-    ctl?.abort(); ctl = new AbortController();
-    btn.disabled = true; stop.hidden = false; out.textContent = "考えています…";
-    const prompt =
-`あなたは教養講座の講師です。以下は学習者が今日読んだ「${F.name}」分野の短い教材です。
+  return `あなたは教養講座の講師です。以下は学習者が読んだ「${F.name}」分野の短い教材です。このあと学習者との会話が続きます。これまでのやり取りを踏まえ、最後の質問に答えてください。
 
 題：${strip(L.title)}
 本文：${L.body.map(strip).join(" ")}
 解釈・諸説：${L.interp.map(strip).join(" ")}
 出典：${L.sources.map(s => s[0]).join("／")}
 
-学習者の質問：${question}
-
 回答の条件：
-- 日本語で、400〜600字程度。見出しや Markdown 記号は使わず、段落で書く。
+- 日本語で、質問に見合った長さ（目安200〜600字）。見出しや Markdown 記号は使わず、段落で書く。
 - 事実を述べるときは、その根拠となる原典（著作名・章や条文・論文名と年など）を具体的に示す。
 - 原典から推測した内容、または原典がなく推測するしかない内容は、文頭に【推測】と付け、原典にもとづく記述とは段落を分ける。
 - 確信のない固有名詞・年・数値は書かない。
-- 最後に「次に読むなら」として原典を1〜2点挙げる。`;
-    try {
-      await sample(prompt, { signal: ctl.signal, cache: false, onText: ({ text }) => { out.textContent = text; } });
-    } catch (e) {
-      out.textContent = e?.text ?? "";
-      const msg = { not_granted: "Claude への質問が許可されなかったため、この欄を閉じました。", rate_limited: "質問が続いたため、少し時間をおいてからもう一度どうぞ。", cancelled: "" }[e?.code]
-        ?? "回答を受け取れませんでした。時間をおいて、もう一度質問してください。";
-      if (e?.code === "not_granted") { askDisabled = true; sec.hidden = true; }
-      if (msg) $("askHint").textContent = msg;
-    } finally { btn.disabled = false; stop.hidden = true; }
+- 最初の回答と、学習者が読む本を尋ねたときは、最後に「次に読むなら」として原典を1〜2点挙げる。`;
+}
+
+const timeText = (t) => { try { return new Date(t).toLocaleString("ja-JP", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }); } catch { return ""; } };
+
+function msgEl(t) {
+  const el = document.createElement("div");
+  el.className = "msg " + (t.role === "user" ? "user" : "ai");
+  const who = document.createElement("span"); who.className = "who";
+  who.textContent = (t.role === "user" ? "あなた" : "Claude") + (t.at ? "　" + timeText(t.at) : "");
+  const b = document.createElement("div"); b.className = "bubble"; b.textContent = t.content;
+  el.append(who, b);
+  if (t.note) { const n = document.createElement("span"); n.className = "note"; n.textContent = t.note; el.append(n); }
+  return el;
+}
+
+async function setupAsk(L) {
+  const sample = await samplePromise;
+  const sec = $("s-ask");
+  if (!sample || askDisabled || !sec || !document.contains(sec)) return;
+  sec.hidden = false;
+  const log = $("chatLog"), form = $("chatForm"), input = $("askInput"), btn = $("askBtn"), stop = $("stopBtn"), clear = $("clearChat");
+  const sugg = [...document.querySelectorAll("#suggest button")];
+  const store = await chatStorePromise;
+  if (!document.contains(sec)) return;           // 読み込み中に別の回へ移った
+  let turns = await store.load(L.id);
+  if (!document.contains(sec)) return;
+  $("chatWhere").textContent = "質問と回答は、この回のページに残ります。" + store.where;
+
+  const nearBottom = () => log.scrollHeight - log.scrollTop - log.clientHeight < 80;
+  const toBottom = () => { log.scrollTop = log.scrollHeight; };
+  function drawLog() {
+    log.replaceChildren(...(turns.length ? turns.map(msgEl) : [Object.assign(document.createElement("p"), { className: "chat-empty", textContent: "この回について、気になったことを聞いてみましょう。" })]));
+    clear.hidden = !turns.length;
+    toBottom();
   }
-  btn.addEventListener("click", () => ask(input.value));
-  input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.isComposing) ask(input.value); });
+  drawLog();
+
+  const busy = (on) => { btn.disabled = on; stop.hidden = !on; sugg.forEach(b => b.disabled = on); };
+  const autoSize = () => { input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 160) + "px"; };
+  input.addEventListener("input", autoSize);
+  autoSize();
+
+  async function ask(question) {
+    question = question.trim();
+    if (!question) { input.focus(); return; }
+    if (ctl) return;                                // 回答中は次を受け付けない
+    ctl = new AbortController();
+    const mine = ctl;
+    input.value = ""; autoSize(); busy(true);
+    const q = { role: "user", content: question, at: Date.now() };
+    turns.push(q);
+    if (!log.querySelector(".msg")) log.replaceChildren();
+    log.append(msgEl(q));
+    const pending = msgEl({ role: "assistant", content: "考えています…" });
+    pending.classList.add("pending");
+    log.append(pending); toBottom(); clear.hidden = false;
+    const bubble = pending.querySelector(".bubble");
+    const recent = turns.slice(-CHAT_SEND).map(t => ({ role: t.role === "user" ? "user" : "assistant", content: t.content }));
+    try {
+      const { text, truncated } = await sample([{ role: "user", content: chatRules(L) }, ...recent], {
+        signal: mine.signal, cache: false,
+        onText: ({ text }) => { const stick = nearBottom(); pending.classList.remove("pending"); bubble.textContent = text; if (stick) toBottom(); },
+      });
+      const a = { role: "assistant", content: text, at: Date.now() };
+      if (truncated) a.note = "回答が長すぎたため途中で切れています。質問を分けてみてください。";
+      turns.push(a);
+    } catch (e) {
+      const code = e?.code;
+      if (e?.text) {
+        turns.push({ role: "assistant", content: e.text, at: Date.now(), note: code === "cancelled" ? "途中で止めました。" : "回答が途中で途切れました。" });
+      } else {
+        turns.pop();                                // 回答がなかった質問は履歴に残さず、入力欄に戻す
+        if (!input.value) { input.value = question; autoSize(); }
+      }
+      const msg = { not_granted: "Claude への質問が許可されなかったため、新しい質問はできません。これまでの履歴はそのまま読めます。", rate_limited: "質問が続いたため、少し時間をおいてからもう一度どうぞ。", cancelled: "" }[code]
+        ?? "回答を受け取れませんでした。時間をおいて、もう一度質問してください。";
+      if (code === "not_granted") { askDisabled = true; form.hidden = true; $("suggest").hidden = true; }
+      if (msg) $("askHint").textContent = msg;
+    } finally {
+      if (ctl === mine) ctl = null;
+      busy(false);
+    }
+    if (turns.length > CHAT_KEEP) turns = turns.slice(-CHAT_KEEP);
+    await store.save(L.id, turns);
+    if (document.contains(sec)) drawLog();
+  }
+
+  form.addEventListener("submit", e => { e.preventDefault(); ask(input.value); });
+  input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); ask(input.value); } });
   stop.addEventListener("click", () => ctl?.abort());
-  $("suggest").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; input.value = b.textContent; ask(b.textContent); });
+  $("suggest").addEventListener("click", e => { const b = e.target.closest("button"); if (b) ask(b.textContent); });
+  // 消すときは、もう一度押して確かめる
+  let armed = 0;
+  clear.addEventListener("click", async () => {
+    if (ctl) return;
+    if (Date.now() - armed > 4000) { armed = Date.now(); clear.textContent = "もう一度押すと消えます"; setTimeout(() => { if (document.contains(clear)) clear.textContent = "この回の履歴を消す"; }, 4000); return; }
+    armed = 0; clear.textContent = "この回の履歴を消す";
+    turns = []; await store.save(L.id, turns); drawLog();
+  });
 }
 
 route(false);
