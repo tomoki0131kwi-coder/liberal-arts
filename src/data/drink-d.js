@@ -1,4 +1,4 @@
-/* 酒の歴史と雑学：第3版で追加（2） */
+/* 酒：第3版で追加（2） */
 LESSONS.push(
 {
   id: "drink-kawachi-koji", field: "drink",

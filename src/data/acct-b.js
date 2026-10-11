@@ -1,4 +1,4 @@
-/* 会計の歴史と雑学：第二陣 */
+/* 会計：第二陣 */
 LESSONS.push(
 {
   id: "acct-exchequer", field: "acct",

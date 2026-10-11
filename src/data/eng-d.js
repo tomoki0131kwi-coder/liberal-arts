@@ -1,4 +1,4 @@
-/* 英語の歴史と雑学：第3版で追加（2） */
+/* 英語：第3版で追加（2） */
 LESSONS.push(
 {
   id: "eng-ampersand-at", field: "eng",

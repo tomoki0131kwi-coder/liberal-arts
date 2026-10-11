@@ -1,4 +1,4 @@
-/* 株式・債券の歴史と雑学：第三陣 */
+/* 株式・債券：第三陣 */
 LESSONS.push(
 {
   id: "stock-tontine", field: "stock",

@@ -1,4 +1,4 @@
-/* 金融・経済の歴史と雑学：第一陣 */
+/* 金融・経済：第一陣 */
 LESSONS.push(
 {
   id: "fin-first-coins", field: "fin",

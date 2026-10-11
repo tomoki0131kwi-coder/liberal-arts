@@ -1,4 +1,4 @@
-/* 金融・経済の歴史と雑学：第三陣 */
+/* 金融・経済：第三陣 */
 LESSONS.push(
 {
   id: "fin-bitcoin", field: "fin",

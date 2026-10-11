@@ -1,4 +1,4 @@
-/* アニメ・ゲーム・漫画の歴史と雑学：第一陣（漫画） */
+/* アニメ・ゲーム・漫画：第一陣（漫画） */
 LESSONS.push(
 {
   id: "anime-choju-giga", field: "anime",

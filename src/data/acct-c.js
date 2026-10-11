@@ -1,4 +1,4 @@
-/* 会計の歴史と雑学：第三陣 */
+/* 会計：第三陣 */
 LESSONS.push(
 {
   id: "acct-numerals", field: "acct",

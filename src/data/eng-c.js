@@ -1,4 +1,4 @@
-/* 英語の歴史と雑学：第3版で追加（1） */
+/* 英語：第3版で追加（1） */
 LESSONS.push(
 {
   id: "eng-alphabet", field: "eng",

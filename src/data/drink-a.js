@@ -1,4 +1,4 @@
-/* 酒の歴史と雑学 */
+/* 酒の回 */
 LESSONS.push(
 {
   id: "drink-origins", field: "drink",

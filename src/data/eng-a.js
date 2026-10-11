@@ -1,4 +1,4 @@
-/* 英語の歴史と雑学 */
+/* 英語の回 */
 LESSONS.push(
 {
   id: "eng-anglo-saxon", field: "eng",

@@ -1,4 +1,4 @@
-/* 酒の歴史と雑学：第3版で追加（1） */
+/* 酒：第3版で追加（1） */
 LESSONS.push(
 {
   id: "drink-reinheitsgebot", field: "drink",

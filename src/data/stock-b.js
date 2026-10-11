@@ -1,4 +1,4 @@
-/* 株式・債券の歴史と雑学：第二陣 */
+/* 株式・債券：第二陣 */
 LESSONS.push(
 {
   id: "stock-kabu-word", field: "stock",

@@ -1,4 +1,4 @@
-/* 金融・経済の歴史と雑学：第二陣 */
+/* 金融・経済：第二陣 */
 LESSONS.push(
 {
   id: "fin-ryogae", field: "fin",

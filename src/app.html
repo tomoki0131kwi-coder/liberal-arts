@@ -259,7 +259,7 @@ footer { font-size: .78rem; color: var(--ink-2); border-top: 1px solid var(--rul
   <div id="view"></div>
 
   <footer>
-    各回の本文は、末尾の「出典」に挙げた原典と、信頼できる研究書・公的機関の資料にもとづいています。原典に書かれていることは本文に、後世の解釈・諸説・推測は点線の囲み「解釈・諸説」に分けて示しました。引用の和訳のうち「拙訳」とあるものは本ページ独自の訳、「要旨」とあるものは原文の要点をまとめたものです。「今日の一枚」は、まだ選ばれていない未読の回から毎日一つずつ選ばれ、全回をひと巡りするまで重複しません。記録とメモはこの端末のブラウザにだけ保存されます。「酒の歴史と雑学」は知識としての読み物です。日本では20歳未満の飲酒は法律で禁じられています。「金融・経済」「株式・債券」「会計」の各回も知識としての読み物で、特定の金融商品の売買を勧めたり、投資・税務の助言をしたりするものではありません。
+    各回の本文は、末尾の「出典」に挙げた原典と、信頼できる研究書・公的機関の資料にもとづいています。原典に書かれていることは本文に、後世の解釈・諸説・推測は点線の囲み「解釈・諸説」に分けて示しました。引用の和訳のうち「拙訳」とあるものは本ページ独自の訳、「要旨」とあるものは原文の要点をまとめたものです。「今日の一枚」は、まだ選ばれていない未読の回から毎日一つずつ選ばれ、全回をひと巡りするまで重複しません。記録とメモはこの端末のブラウザにだけ保存されます。「酒」の各回は知識としての読み物です。日本では20歳未満の飲酒は法律で禁じられています。「金融・経済」「株式・債券」「会計」の各回も知識としての読み物で、特定の金融商品の売買を勧めたり、投資・税務の助言をしたりするものではありません。
   </footer>
 </div>
 
@@ -276,14 +276,14 @@ const FIELDS = {
   art:  { name: "芸術",       en: "Arts",                mark: "芸", c: "--c-art" },
   lit:  { name: "言語と文学", en: "Language & Letters",  mark: "文", c: "--c-lit" },
   math: { name: "数学と統計", en: "Mathematics",         mark: "数", c: "--c-math" },
-  drink:{ name: "酒の歴史と雑学", en: "Drinks & Culture", mark: "酒", c: "--c-drink" },
-  eng:  { name: "英語の歴史と雑学", en: "History of English", mark: "英", c: "--c-eng" },
+  drink:{ name: "酒", en: "Drinks & Culture", mark: "酒", c: "--c-drink" },
+  eng:  { name: "英語", en: "History of English", mark: "英", c: "--c-eng" },
   bio:  { name: "動物と植物", en: "Animals & Plants", mark: "生", c: "--c-bio" },
-  fin:  { name: "金融・経済の歴史と雑学", en: "Money & Economy", mark: "金", c: "--c-fin" },
-  stock:{ name: "株式・債券の歴史と雑学", en: "Stocks & Bonds", mark: "株", c: "--c-stock" },
-  acct: { name: "会計の歴史と雑学", en: "Accounting", mark: "簿", c: "--c-acct" },
-  ent:  { name: "芸能の歴史と雑学", en: "Performing Arts & Entertainment", mark: "演", c: "--c-ent" },
-  anime:{ name: "アニメ・ゲーム・漫画の歴史と雑学", en: "Anime, Games & Manga", mark: "遊", c: "--c-anime" }
+  fin:  { name: "金融・経済", en: "Money & Economy", mark: "金", c: "--c-fin" },
+  stock:{ name: "株式・債券", en: "Stocks & Bonds", mark: "株", c: "--c-stock" },
+  acct: { name: "会計", en: "Accounting", mark: "簿", c: "--c-acct" },
+  ent:  { name: "芸能", en: "Performing Arts & Entertainment", mark: "演", c: "--c-ent" },
+  anime:{ name: "アニメ・ゲーム・漫画", en: "Anime, Games & Manga", mark: "遊", c: "--c-anime" }
 };
 const ORDER = Object.keys(FIELDS);
 const BY_ID = Object.fromEntries(LESSONS.map(l => [l.id, l]));

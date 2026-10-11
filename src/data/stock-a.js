@@ -1,4 +1,4 @@
-/* 株式・債券の歴史と雑学：第一陣 */
+/* 株式・債券：第一陣 */
 LESSONS.push(
 {
   id: "stock-voc", field: "stock",

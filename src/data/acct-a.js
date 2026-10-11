@@ -1,4 +1,4 @@
-/* 会計の歴史と雑学：第一陣 */
+/* 会計：第一陣 */
 LESSONS.push(
 {
   id: "acct-tokens", field: "acct",
