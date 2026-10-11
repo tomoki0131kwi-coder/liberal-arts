@@ -128,6 +128,10 @@ rt { font-family: var(--f-body); font-size: .5em; font-weight: 400; letter-spaci
 .plan button:hover { background: var(--ai-soft); }
 .plan button:last-child { border-right: 0; }
 .plan button b { font-family: var(--f-mono); font-weight: 500; color: var(--fc); margin-right: 4px; }
+.plan button[aria-current="step"] { background: var(--ai-soft); font-weight: 700; }
+.focus-bar { font-size: .84rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+[hidden] { display: none !important; }
+main.focus-step section.step:not(.is-focus) { display: none; }
 
 section.step { display: grid; gap: 14px; scroll-margin-top: 16px; }
 .step-h { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
@@ -12798,6 +12802,7 @@ function lessonHTML(L, mode) {
     <nav class="plan" aria-label="この回の流れ（目安15分）">
       <button type="button" data-jump="s-read"><b>1</b>読む</button><button type="button" data-jump="s-quote"><b>2</b>原典</button><button type="button" data-jump="s-quiz"><b>3</b>確かめる</button><button type="button" data-jump="s-think"><b>4</b>考える</button><button type="button" data-jump="s-src"><b>典</b>出典</button>
     </nav>
+    <p class="focus-bar" id="focusBar" hidden>選んだステップだけを表示しています。<button type="button" class="linkbtn" id="showAll">すべてのステップを表示</button></p>
   </div>
 
   <section class="step" id="s-read">
@@ -12877,9 +12882,39 @@ function lessonHTML(L, mode) {
 }
 
 function wireLesson(L) {
-  document.querySelectorAll("[data-jump]").forEach(b => b.addEventListener("click", () => {
-    $(b.dataset.jump)?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  // ステップへの移動。スマートフォンのアプリなどでは、ページが全体の高さのまま表示され外側の画面がスクロールするため、
+  // ページからはスクロールできない。そのときは、選んだステップだけをボタンのすぐ下に表示する
+  const main = document.querySelector("main");
+  const steps = [...document.querySelectorAll("section.step")];
+  const navBtns = [...document.querySelectorAll("[data-jump]")];
+  const pageScrolls = () => (document.scrollingElement || document.documentElement).scrollHeight > innerHeight + 4;
+  function focusStep(id) {
+    main.classList.add("focus-step");
+    steps.forEach(s => s.classList.toggle("is-focus", s.id === id));
+    navBtns.forEach(x => x.setAttribute("aria-current", x.dataset.jump === id ? "step" : "false"));
+    $("focusBar").hidden = false;
+  }
+  function showAll() {
+    main.classList.remove("focus-step");
+    steps.forEach(s => s.classList.remove("is-focus"));
+    navBtns.forEach(x => x.removeAttribute("aria-current"));
+    $("focusBar").hidden = true;
+  }
+  navBtns.forEach(b => b.addEventListener("click", () => {
+    const id = b.dataset.jump, el = $(id);
+    if (!el) return;
+    if (main.classList.contains("focus-step") || !pageScrolls()) { focusStep(id); return; }
+    const before = el.getBoundingClientRect().top;
+    if (before >= 0 && before < 40) return;        // すでにその位置にある
+    el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    // なめらかなスクロールが効かない画面では、すぐ移動し、それでも動かなければ一つだけ表示に切り替える
+    setTimeout(() => {
+      if (!document.contains(el) || Math.abs(el.getBoundingClientRect().top - before) > 1) return;
+      scrollTo(0, scrollY + before - 16);
+      if (Math.abs(el.getBoundingClientRect().top - before) <= 1) focusStep(id);
+    }, 800);
   }));
+  $("showAll").addEventListener("click", showAll);
   let answered = 0;
   document.querySelectorAll(".q").forEach(qEl => {
     const q = L.quiz[+qEl.dataset.qi];
