@@ -164,7 +164,7 @@ LESSONS.push(
   sources: [
     ["S&P Dow Jones Indices, \"Dow Jones Industrial Average\" 指数の沿革", ""],
     ["The Wall Street Journal 創刊号", "1889年7月8日"],
-    ["John Prestbo (ed.), Markets Measure: An Illustrated History of America Told Through the Dow Jones Industrial Average", "Dow Jones, 1999"]
+    ["John A. Prestbo (ed.), The Market's Measure: An Illustrated History of America Told Through the Dow Jones Industrial Average", "Dow Jones & Company, 1999"]
   ]
 },
 {
@@ -230,7 +230,7 @@ LESSONS.push(
   sources: [
     ["Yale News, \"Yale's 367-year-old water bond still pays interest\"", "2015年9月"],
     ["Sidney Homer and Richard Sylla, A History of Interest Rates, 4th ed.", "Wiley, 2005"],
-    ["UK Debt Management Office, \"Redemption of undated gilts\"", "2015年"]
+    ["UK Debt Management Office, Press Notice: redemption of 2¾% Annuities, 2½% Annuities, 2½% Consolidated Stock and 2½% Treasury Stock（すべての永久国債の償還完了を告知）", "2015年3月27日"]
   ]
 },
 {
@@ -295,7 +295,7 @@ LESSONS.push(
   think: "「土地の値段は下がらない」と多くの人が信じていました。今、あなたの周りで、みんなが当然のように信じている「〇〇は下がらない（上がらない）」はありますか。",
   sources: [
     ["日本経済新聞社「日経平均プロフィル」（算出要領・ヒストリカルデータ）", ""],
-    ["日本銀行「バブル期の金融政策とその反省」（金融研究所の論文等）", ""],
+    ["翁邦雄・白川方明・白塚重典「資産価格バブルと金融政策：1980年代後半の日本の経験とその教訓」IMES Discussion Paper No. 2000-J-11", "日本銀行金融研究所, 2000年"],
     ["内閣府『経済財政白書』（バブル崩壊後の日本経済に関する分析）", ""]
   ]
 },

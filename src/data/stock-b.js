@@ -76,7 +76,7 @@ LESSONS.push(
     "1830年、リヴァプールとマンチェスターを結ぶ鉄道が開業し、鉄道は人と物を速く大量に運ぶ新しい技術として、大きな期待を集めました。1840年代半ばになると、イギリスでは、鉄道会社の設立と鉄道株への投資が爆発的に増えました。これが「<b>鉄道狂時代</b>」（レールウェイ・マニア）です。",
     "1845年から1847年にかけて、議会は数百の鉄道会社の建設計画を認可しました。人々は、少額の頭金だけで株を申し込み、値上がりを期待して売り買いしました。新聞には鉄道会社の広告があふれました。",
     "この時代の代表的な人物が、「<b>鉄道王</b>」と呼ばれた<b>ジョージ・ハドソン</b>です。ハドソンは多くの鉄道会社を経営し、巨大な鉄道網を築きました。しかし、のちに、新しく集めた資金から既存の株主に配当を払うなどの不正な経理が明らかになり、失脚しました。",
-    "1847年ごろ、金利の上昇などをきっかけに株価は暴落し、多くの投資家が損失を被りました。小説『ジェーン・エア』で知られる<b>シャーロット・ブロンテ</b>と、妹の<b>エミリー</b>、<b>アン</b>も、叔母から相続したお金を鉄道株に投資しており、シャーロットは手紙の中で、株の行方を心配する気持ちを書き残しています。",
+    "1845年秋、イングランド銀行の利上げなどをきっかけに鉄道株は下落に転じ、1847年の恐慌を経て大きく値下がりして、多くの投資家が損失を被りました。小説『ジェーン・エア』で知られる<b>シャーロット・ブロンテ</b>と、妹の<b>エミリー</b>、<b>アン</b>も、叔母から相続したお金を鉄道株に投資しており、シャーロットは手紙の中で、株の行方を心配する気持ちを書き残しています。",
     "鉄道狂時代は多くの投資家に損失をもたらしましたが、その結果として、イギリス全土に鉄道網が残りました。バブルは投資家を傷つけましたが、社会には新しい基盤（インフラ）を残したのです。"
   ],
   interp: [
@@ -85,7 +85,7 @@ LESSONS.push(
   ],
   quote: {
     type: "要旨",
-    text: "鉄道狂時代の熱狂は、新しい技術への合理的な期待と、それを大きく超えた楽観とが入り混じったものだった。投資家は損失を被ったが、イギリスは鉄道網を手に入れた。",
+    text: "鉄道狂時代の投資家は、新しい路線が期待された収益を上げられないことを示す、信頼できる数量的な証拠を手にしていた。それでも「集団的な幻覚」によってそれを無視した。鉄道狂時代は、市場が効率的でなかった明白な例である。",
     orig: "Andrew Odlyzko, \"Collective hallucinations and inefficient markets: The British Railway Mania of the 1840s\" (2010) の主張の要旨",
     note: "当時の新聞や議会資料をもとに、鉄道狂時代を分析した研究です。"
   },
@@ -98,7 +98,8 @@ LESSONS.push(
   sources: [
     ["Andrew Odlyzko, \"Collective hallucinations and inefficient markets: The British Railway Mania of the 1840s\"", "University of Minnesota, 2010"],
     ["Juliet Barker, The Brontës", "Weidenfeld & Nicolson, 1994"],
-    ["The Brontë Society, Brontë Parsonage Museum", ""]
+    ["The Brontë Society, Brontë Parsonage Museum", ""],
+    ["Federal Reserve Bank of New York, Liberty Street Economics, \"Crisis Chronicles: Railway Mania, the Hungry Forties, and the Commercial Crisis of 1847\"", "2015年"]
   ]
 },
 {
@@ -231,7 +232,7 @@ LESSONS.push(
   sources: [
     ["Campbell R. Harvey, \"The Real Term Structure and Consumption Growth\", Journal of Financial Economics 22(2), 305–333", "1988年"],
     ["Federal Reserve Bank of New York, \"The Yield Curve as a Leading Indicator\"", ""],
-    ["日本銀行「国債の利回り曲線（イールドカーブ）とは何ですか？」", ""]
+    ["日本銀行「教えて！にちぎん」用語集（イールドカーブ）", ""]
   ]
 },
 {
@@ -364,7 +365,7 @@ LESSONS.push(
   sources: [
     ["金融商品取引法（昭和23年法律第25号）第166条・第167条", ""],
     ["証券取引等監視委員会「インサイダー取引規制について」", ""],
-    ["日本証券業協会「インサイダー取引規制の概要」", ""]
+    ["金融庁「インサイダー取引規制に関するQ&A」", ""]
   ]
 }
 );

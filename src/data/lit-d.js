@@ -100,7 +100,7 @@ LESSONS.push(
   sources: [
     ["J. & W. Grimm, Kinder- und Hausmärchen (Berlin, 1812/1815; 第7版 1857)", "金田鬼一訳『完訳 グリム童話集』（岩波文庫）、吉原高志・吉原素子訳『初版 グリム童話集』（白水社）"],
     ["UNESCO Memory of the World, “Kinder- und Hausmärchen (Children's and Household Tales)”（2005年登録）", ""],
-    ["H. Rölleke, Die Märchen der Brüder Grimm (Reclam)", ""],
+    ["H. Rölleke, Die Märchen der Brüder Grimm: Eine Einführung (Reclam, 2004)", ""],
     ["小澤俊夫『グリム童話の誕生』（朝日選書, 1992年）", ""]
   ]
 },
@@ -134,7 +134,7 @@ LESSONS.push(
   sources: [
     ["D. Defoe, The Life and Strange Surprizing Adventures of Robinson Crusoe (London, 1719)", "武田将明訳『ロビンソン・クルーソー』（河出文庫）、平井正穂訳（岩波文庫）"],
     ["W. Rogers, A Cruising Voyage Round the World (London, 1712)", "セルカークの救出の記録"],
-    ["増田義郎『ロビンソン・クルーソーを探して』（新潮選書, 1999年）", ""]
+    ["高橋大輔『ロビンソン・クルーソーを探して』（新潮文庫, 2002年）", ""]
   ]
 },
 {
@@ -340,8 +340,7 @@ LESSONS.push(
     ["紀貫之『土佐日記』（935年ごろ）", "鈴木知太郎校注（岩波文庫）"],
     ["『古今和歌集』仮名序（905年）", ""],
     ["小学校令施行規則（明治33年文部省令第14号）", ""],
-    ["築島裕『仮名』（日本語の世界5, 中央公論社, 1981年）", ""],
-    ["国立国語研究所「日本語の文字と表記」の解説", ""]
+    ["築島裕『仮名』（日本語の世界5, 中央公論社, 1981年）", ""]
   ]
 }
 );

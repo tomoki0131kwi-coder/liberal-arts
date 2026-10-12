@@ -161,8 +161,8 @@ LESSONS.push(
   think: "一つの問題（円高不況）への対策が、別の問題（バブル）の種になることがあります。あなたの身の回りで、解決策が新しい問題を生んだ例はありますか。",
   sources: [
     ["Announcement of the Ministers of Finance and Central Bank Governors of France, Germany, Japan, the United Kingdom, and the United States（Plaza Accord）", "1985年9月22日"],
-    ["財務省「外国為替相場の推移」", ""],
-    ["日本銀行「バブル期の金融政策とその反省」", ""],
+    ["日本銀行「時系列統計データ検索サイト」（東京市場 ドル・円 スポット相場）", ""],
+    ["翁邦雄・白川方明・白塚重典「資産価格バブルと金融政策：1980年代後半の日本の経験とその教訓」IMES Discussion Paper No. 2000-J-11", "日本銀行金融研究所, 2000年"],
     ["船橋洋一『通貨烈烈』", "朝日新聞社, 1988年"]
   ]
 },
@@ -194,7 +194,8 @@ LESSONS.push(
   ],
   think: "無理のある約束は、いつか市場に試されます。守り続けるべき約束と、見直すべき約束を、あなたはどう見分けますか。",
   sources: [
-    ["Bank of England, \"Black Wednesday\"（イングランド銀行の歴史解説）", ""],
+    ["Bank of England, \"History\"（1992年9月16日の項）", ""],
+    ["Bank of England, \"Operation of monetary policy\", Quarterly Bulletin", "1992年11月"],
     ["HM Treasury, \"The ERM crisis\" 関係文書（2005年公開）", "2005年"],
     ["Sebastian Mallaby, More Money Than God: Hedge Funds and the Making of a New Elite", "Penguin Press, 2010"]
   ]

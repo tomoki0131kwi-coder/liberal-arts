@@ -199,7 +199,7 @@ LESSONS.push(
   sources: [
     ["Steve H. Hanke and Nicholas Krus, \"World Hyperinflations\", Cato Working Paper No. 8", "2012年"],
     ["Phillip Cagan, \"The Monetary Dynamics of Hyperinflation\", in M. Friedman (ed.), Studies in the Quantity Theory of Money", "University of Chicago Press, 1956"],
-    ["日本銀行金融研究所貨幣博物館「戦後のインフレと新円切替」", ""]
+    ["金融緊急措置令", "1946年2月17日施行"]
   ]
 },
 {
@@ -267,7 +267,7 @@ LESSONS.push(
     ["貨幣法（明治30年法律第16号）", "1897年"],
     ["Barry Eichengreen, Golden Fetters: The Gold Standard and the Great Depression, 1919–1939", "Oxford University Press, 1992"],
     ["John Maynard Keynes, A Tract on Monetary Reform", "1923年"],
-    ["日本銀行「金解禁と昭和恐慌」（日本銀行の歴史）", ""]
+    ["日本銀行百年史編纂委員会編『日本銀行百年史』第3巻（第6章「世界不況下の金解禁」）", "日本銀行, 1982〜86年（全7巻）"]
   ]
 },
 {
