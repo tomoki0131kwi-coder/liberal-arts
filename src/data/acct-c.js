@@ -30,7 +30,7 @@ LESSONS.push(
   sources: [
     ["Leonardo Pisano (Fibonacci), Liber Abaci, trans. L. E. Sigler", "Springer, 2002（原著1202年）"],
     ["Georges Ifrah, The Universal History of Numbers", "Wiley, 2000"],
-    ["全国銀行協会「手形・小切手の金額の記載」", ""]
+    ["戸籍法施行規則（昭和22年司法省令第94号）第31条第2項（年月日の記載に「壱、弐、参、拾」の文字を用いる定め）", ""]
   ]
 },
 {

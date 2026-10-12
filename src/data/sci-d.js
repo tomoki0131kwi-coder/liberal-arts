@@ -242,7 +242,7 @@ LESSONS.push(
     ["K. Schwarzschild, Sitzungsberichte der Königlich Preussischen Akademie der Wissenschaften (1916)", ""],
     ["The Event Horizon Telescope Collaboration, Astrophysical Journal Letters 875, L1 (2019)", ""],
     ["B. P. Abbott et al. (LIGO/Virgo), Physical Review Letters 116, 061102 (2016)", "重力波の初観測"],
-    ["国立天文台「ブラックホールの撮影に初めて成功」（2019年）", ""]
+    ["国立天文台・EHT 日本チームによる2019年4月10日の記者発表（M87 の巨大ブラックホールの撮影）", ""]
   ]
 },
 {
@@ -309,7 +309,7 @@ LESSONS.push(
   sources: [
     ["K. Karikó et al., “Suppression of RNA Recognition by Toll-like Receptors: The Impact of Nucleoside Modification and the Evolutionary Origin of RNA,” Immunity 23, 165–175 (2005)", ""],
     ["The Nobel Prize in Physiology or Medicine 2023（nobelprize.org）", ""],
-    ["K. Karikó, Breaking Through: My Life in Science (Crown, 2023)", "邦訳『ブレイクスルー』（日経BP）"],
+    ["K. Karikó, Breaking Through: My Life in Science (Crown, 2023)", "邦訳『ブレイクスルー：ノーベル賞科学者カタリン・カリコ自伝』（笹山裕子訳、河出書房新社）"],
     ["厚生労働省「新型コロナワクチンについて」", ""]
   ]
 },
