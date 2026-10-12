@@ -291,7 +291,7 @@ LESSONS.push(
     type: "引用（拙訳）",
     text: "ある物体がエネルギー L を放射の形で放出するとき、その質量は L/c² だけ減少する。",
     orig: "A. Einstein, “Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig?” Annalen der Physik 18 (1905)",
-    note: "E＝mc² の関係が最初に示された形です。この論文では、エネルギーを E ではなく L で表しています。"
+    note: "E＝mc² の関係が最初に示された形です。この論文では、エネルギーを E ではなく L で、光の速さを c ではなく V で表しています（訳では c としました）。"
   },
   quiz: [
     { q: "1905年当時、アインシュタインの職業は。", c: ["大学教授", "特許局の審査官", "高校の教師"], a: 1, e: "ベルンの特許局で技術職員として働いていました。" },

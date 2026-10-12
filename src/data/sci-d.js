@@ -207,7 +207,7 @@ LESSONS.push(
     ["R. Descartes, Les Météores (1637), 第8講", "『デカルト著作集』第1巻（白水社）"],
     ["I. Newton, Philosophical Transactions 6, 3075–3087 (1672)", ""],
     ["I. Newton, Opticks (1704)", "島尾永康訳『光学』（岩波文庫）"],
-    ["気象庁「虹」の解説", ""]
+    ["青森地方気象台「あおぞら彩時記」（2023年）", "虹のしくみの解説"]
   ]
 },
 {
