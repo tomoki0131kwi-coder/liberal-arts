@@ -10,7 +10,7 @@ LESSONS.push(
     "このころから1100年ごろまでの英語を<b>古英語</b>と呼びます。古英語は、現代のドイツ語のように名詞に性と格があり、語尾が細かく変化する言語で、現代の英語話者が読んでもほとんど理解できません。",
     "古英語で書かれた最も有名な作品が、英雄叙事詩『<b>ベーオウルフ</b>』です。怪物グレンデルと戦うスカンジナビアの英雄の物語で、3182行からなります。現存する写本は1000年ごろに書かれたもの一つだけで、大英図書館が所蔵しています。この写本は1731年の火災で焼けかけ、今も縁に焦げ跡が残っています。",
     "国名の England は、古英語の Englaland、つまり「<b>アングル人の土地</b>」に由来します。また、the、is、water、house、day など、現代英語で最もよく使われる基本的な単語の多くは、この古英語にさかのぼります。",
-    "一方、先住のブリトン人が話していたケルト系の言葉は、英語にはほとんど単語を残しませんでした。ただし、ロンドン（London）、テムズ川（Thames）、エイヴォン川（Avon、ケルト語で「川」の意味）など、地名には多く残っています。"
+    "一方、先住のブリトン人が話していたケルト系の言葉は、英語にはほとんど単語を残しませんでした。ただし、ロンドン（London。ケルト系とされますが、語源の細部には諸説があります）、テムズ川（Thames）、エイヴォン川（Avon、ケルト語で「川」の意味）など、地名には多く残っています。"
   ],
   interp: [
     "ベーダの記す449年という年代や、王に招かれたという経緯は、後世の伝承を含むと考えられており、実際の移住はもっと長い期間にわたって段階的に進んだとみるのが現在の一般的な理解です。",
@@ -300,7 +300,7 @@ LESSONS.push(
   ],
   quote: {
     type: "要旨",
-    text: "国民が自らの言語を捨てることは、その国民の過去とのつながりを断ち切ることである。日本は母語を保ちながら、英語を学問と交流の言葉として学ぶべきだ。",
+    text: "日本全国で英語を教えることは歓迎する。しかし言語学の立場から見て、日本語を英語に置き換えることはできないし、そうすべきでもない。日本語を保ちながら英語を学ぶべきである。",
     orig: "W. D. ホイットニーから森有礼への返信（1872年）",
     note: "森の英語採用論に対するホイットニーの返答の趣旨をまとめたもので、原文の直訳ではありません。"
   },
@@ -313,7 +313,8 @@ LESSONS.push(
   sources: [
     ["Ethnologue: Languages of the World（SIL International）“English”の項", "話者数の推計"],
     ["B. B. Kachru, “Standards, codification and sociolinguistic realism: the English language in the outer circle,” in R. Quirk & H. G. Widdowson (eds.), English in the World (Cambridge University Press, 1985)", ""],
-    ["森有礼 編 Education in Japan (New York, 1873)", "ホイットニーらとの書簡を収録"],
+    ["森有礼 編 Education in Japan (New York, 1873)", "序文で英語採用論を述べる"],
+    ["J. E. Joseph, “‘The Unilingual Republic of the World’: Reactions to the 1872 Proposal to Make English the National Language of Japan,” Revista argentina de historiografía lingüística 3(1), 53–65 (2011)", "森とホイットニーの書簡の解説"],
     ["R. Phillipson, Linguistic Imperialism (Oxford University Press, 1992)", "解釈・諸説欄"]
   ]
 },
