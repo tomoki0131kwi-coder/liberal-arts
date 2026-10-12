@@ -31,7 +31,7 @@ LESSONS.push(
     ["Pablo Librado et al., \"The origins and spread of domestic horses from the Western Eurasian steppes\", Nature 598, 634–640", "2021年"],
     ["Charleen Gaunitz et al., \"Ancient genomes revisit the ancestry of domestic and Przewalski's horses\", Science 360, 111–114", "2018年"],
     ["David W. Anthony, The Horse, the Wheel, and Language", "Princeton University Press, 2007"],
-    ["馬の博物館（日本中央競馬会）「日本の馬の歴史」", ""]
+    ["馬の博物館（公益財団法人 馬事文化財団）「日本の馬の歴史」", ""]
   ]
 },
 {
@@ -325,8 +325,8 @@ LESSONS.push(
   ],
   quote: {
     type: "要旨",
-    text: "野生のトウガラシの実を与えると、サボテンミソサザイなどの鳥は食べたが、ネズミなどの哺乳類は避けた。鳥が排出した種は発芽したが、哺乳類に食べられた種は発芽しなかった。",
-    orig: "Tewksbury and Nabhan, \"Directed deterrence by capsaicin in chilies\", Nature 412 (2001) の要旨",
+    text: "野生のトウガラシの実を与えると、マネシツグミの仲間の鳥は食べたが、ネズミなどの哺乳類は避けた。鳥が排出した種は発芽したが、哺乳類に食べられた種は発芽しなかった。",
+    orig: "Tewksbury and Nabhan, \"Directed deterrence by capsaicin in chillies\", Nature 412 (2001) の要旨",
     note: "カプサイシンが、種を運ぶ動物を「選んでいる」可能性を示した研究です。"
   },
   quiz: [
@@ -337,7 +337,7 @@ LESSONS.push(
   think: "同じものが、相手によって「毒」にも「ごちそう」にもなります。あなたの周りで、受け取る人によって意味がまったく変わるものは何でしょうか。",
   sources: [
     ["Michael J. Caterina et al., \"The capsaicin receptor: a heat-activated ion channel in the pain pathway\", Nature 389, 816–824", "1997年"],
-    ["Joshua J. Tewksbury and Gary P. Nabhan, \"Directed deterrence by capsaicin in chilies\", Nature 412, 403–404", "2001年"],
+    ["Joshua J. Tewksbury and Gary P. Nabhan, \"Directed deterrence by capsaicin in chillies\", Nature 412, 403–404", "2001年"],
     ["The Nobel Prize in Physiology or Medicine 2021（NobelPrize.org）", "2021年"],
     ["李睟光『芝峰類説』", "1614年"]
   ]

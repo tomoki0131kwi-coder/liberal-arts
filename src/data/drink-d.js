@@ -52,10 +52,10 @@ LESSONS.push(
     "一升瓶がいつから日本酒の容器として使われるようになったかについては、明治時代の終わりごろから大正時代にかけて、ガラス瓶の機械生産が進んで普及したと考えられていますが、最初の時期については諸説があります。"
   ],
   quote: {
-    type: "要旨",
-    text: "升は、立方尺の二千四百一分の六十四とする。",
-    orig: "度量衡法（明治24年＝1891年 法律第3号）による升の定義の要旨",
-    note: "メートル法に換算すると、1升は約1.8039リットルになります。"
+    type: "原文（抄）",
+    text: "合　升ノ十分ノ一／升　六萬四千八百二十七立方分／斗　十升／石　百升",
+    orig: "度量衡法（明治24年＝1891年 法律第3号）第3条「量」の項",
+    note: "「立方分」は、1分（1尺の100分の1）を一辺とする立方体の体積です。同法第5条では、1升は「十三萬三千一百分ノ二十四萬〇一百」リットル、つまり約1.80391リットルと定められています。"
   },
   quiz: [
     { q: "1升は何合か。", c: ["5合", "10合", "100合"], a: 1, e: "1升は10合です。" },
@@ -171,7 +171,7 @@ LESSONS.push(
     ["APCOR（ポルトガル・コルク協会）", "コルクの生産と特性"],
     ["R. Hooke, Micrographia (London, 1665)", ""],
     ["S. Henshall, 英国特許 No. 2061（1795年）", "コルク抜き"],
-    ["H. Tanner et al., “Investigation of the cork taint in wine” (1981)", "TCA"]
+    ["H.-R. Buser, C. Zanier & H. Tanner, “Identification of 2,4,6-trichloroanisole as a potent compound causing cork taint in wine,” Journal of Agricultural and Food Chemistry 30, 359–362 (1982)", "TCA"]
   ]
 },
 {
