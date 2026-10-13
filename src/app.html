@@ -120,7 +120,7 @@ details.panel > div { margin-top: 8px; }
 
 /* 本文 */
 main { display: grid; gap: 40px; min-width: 0; }
-.lesson-head { display: grid; gap: 10px; }
+.lesson-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; min-width: 0; }
 .eyebrow { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: .8rem; color: var(--ink-2); }
 .chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 10px; font-size: .78rem; font-weight: 700; color: var(--fc); border: 1px solid var(--fc); }
 .lesson-head h1 { font-size: clamp(1.7rem, 4.4vw, 2.5rem); font-weight: 900; }
@@ -128,7 +128,7 @@ main { display: grid; gap: 40px; min-width: 0; }
 /* ふりがな：本文の行間を崩さない小さめの rt */
 ruby { ruby-position: over; }
 rt { font-family: var(--f-body); font-size: .5em; font-weight: 400; letter-spacing: 0; color: var(--ink-2); }
-.lesson-head h1 { line-height: 1.5; }
+.lesson-head h1 { line-height: 1.5; overflow-wrap: anywhere; }
 .plan { display: flex; flex-wrap: wrap; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--sheet); width: fit-content; max-width: 100%; }
 .plan button { padding: 6px 12px; font-size: .8rem; background: none; border: 0; border-right: 1px solid var(--rule); white-space: nowrap; }
 .plan button:hover { background: var(--ai-soft); }
@@ -422,7 +422,9 @@ function ruby(html, seen, id) {
     if (seen.has(w) || (e.only && !e.only.has(id)) || (e.bound && !standsAlone(text, at, w.length))) return w;
     seen.add(w);
     if (/^（[ぁ-ゖァ-ヺー・]+）/.test(text.slice(at + w.length))) return w;
-    return e.r[0] === "=" ? e.r.slice(1) : `<ruby>${w}<rt>${e.r}</rt></ruby>`;
+    // 句読点の直後の ruby の前では Chromium が改行しないため、改行位置を明示する
+    const wbr = /[、。，）」』！？]/.test(text[at - 1] || "") ? "<wbr>" : "";
+    return wbr + (e.r[0] === "=" ? e.r.slice(1) : `<ruby>${w}<rt>${e.r}</rt></ruby>`);
   }));
 }
 const rqCache = new Map();
