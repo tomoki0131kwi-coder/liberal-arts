@@ -1,0 +1,4412 @@
+[
+{
+"id": "acct-tokens",
+"files": [
+{
+"title": "File:Clay accounting tokens Susa Louvre n2.jpg",
+"caption": "スーサ出土の粘土製の計算用トークン（ウルク期）、ルーヴル美術館蔵"
+}
+],
+"alt": "メソポタミア・スーサ出土の、円錐や球などの形をした小さな粘土のトークン。"
+},
+{
+"id": "acct-pacioli",
+"files": [
+{
+"title": "File:Jacopo de' Barbari - Portrait of Fra Luca Pacioli and an Unknown Young Man - WGA1269.jpg",
+"caption": "ルカ・パチョーリと若者の肖像（ヤコポ・デ・バルバリに帰属）、カポディモンテ美術館蔵"
+}
+],
+"alt": "修道服を着たルカ・パチョーリが、机の上の書物と幾何学の模型を前に図形を説明している肖像画。"
+},
+{
+"id": "acct-meiji-bookkeeping",
+"files": [
+{
+"title": "File:Fukuzawa Yukichi.jpg",
+"caption": "福沢諭吉の肖像写真"
+}
+],
+"alt": "和服姿の福沢諭吉の肖像写真。"
+},
+{
+"id": "acct-edo-chiai",
+"files": [
+{
+"title": "File:Accounting in Japan, Taisho era - Man with an Abacus and an Account Book, beside Irori (1914 by Elstner Hilton).jpg",
+"caption": "囲炉裏の横でそろばんと和綴じの帳簿を使う男性（1914年、エルストナー・ヒルトン撮影）"
+}
+],
+"alt": "囲炉裏のそばで、そろばんをはじきながら和綴じの帳簿をつける男性の写真。"
+},
+{
+"id": "acct-tally-sticks",
+"files": [
+{
+"title": "File:Medieval tally sticks.jpg",
+"caption": "中世イングランドの割り符（タリー・スティック）"
+}
+],
+"alt": "刻み目の入った中世イングランドの木の割り符。"
+},
+{
+"id": "anime-choju-giga",
+"files": [
+{
+"title": "File:Chouju sumou.jpg",
+"caption": "『鳥獣人物戯画』甲巻（部分）、ウサギとカエルの相撲"
+}
+],
+"alt": "墨線だけで描かれた『鳥獣人物戯画』で、ウサギとカエルが相撲をとっている場面。"
+},
+{
+"id": "anime-punch",
+"files": [
+{
+"title": "File:Japan Korea China Russia.jpg",
+"caption": "ビゴーの風刺画（朝鮮をめぐる日本・清・ロシアを描いたもの）"
+}
+],
+"alt": "明治期に来日したフランス人画家ビゴーの風刺画。"
+},
+{
+"id": "anime-sazae",
+"files": [
+{
+"title": "File:Hasegawa Machiko 1952.JPG",
+"caption": "長谷川町子（1952年）"
+}
+],
+"alt": "『サザエさん』の作者、長谷川町子の肖像写真。"
+},
+{
+"id": "anime-shintakarajima",
+"files": [
+{
+"title": "File:Osamu Tezuka 1951 Scan10008-2.JPG",
+"caption": "手塚治虫（1951年）"
+}
+],
+"alt": "『新宝島』の作画を手がけた若き日の手塚治虫の写真。"
+},
+{
+"id": "hokusai-wave",
+"files": [
+{
+"title": "File:Katsushika Hokusai - Thirty-Six Views of Mount Fuji- The Great Wave Off the Coast of Kanagawa - Google Art Project.jpg",
+"caption": "葛飾北斎《冨嶽三十六景 神奈川沖浪裏》"
+}
+],
+"alt": "鉤爪のように砕ける大波が3艘の舟に覆いかぶさり、波の谷間の向こうに小さな富士山が見える木版画。"
+},
+{
+"id": "temperament",
+"files": [
+{
+"title": "File:Gaffurio Pythagoras.png",
+"caption": "ガッフーリオ『音楽の理論』（1492年）の木版画。鐘・モノコード・笛で音程を調べるピタゴラス"
+}
+],
+"alt": "ピタゴラスが鐘や弦、笛を使って音の高さと数の関係を調べる様子を描いた古い木版画。"
+},
+{
+"id": "vermeer-pearl",
+"files": [
+{
+"title": "File:Johannes Vermeer - Girl with a Pearl Earring - 670 - Mauritshuis.jpg",
+"caption": "フェルメール《真珠の耳飾りの少女》（1665年ごろ）、マウリッツハイス美術館蔵"
+}
+],
+"alt": "青と黄色のターバンを巻いた少女が振り返り、耳に大きな真珠の耳飾りを光らせている油彩画。"
+},
+{
+"id": "linear-perspective",
+"files": [
+{
+"title": "File:Masaccio - Trinity - Santa Maria Novella.jpg",
+"caption": "マザッチオ《三位一体》、フィレンツェ、サンタ・マリア・ノヴェッラ聖堂"
+}
+],
+"alt": "格子模様の天井の線が奥の一点へ集まる礼拝堂の中に、十字架のキリストと人々を描いた壁画。"
+},
+{
+"id": "beethoven-ninth",
+"files": [
+{
+"title": "File:Joseph Karl Stieler's Beethoven mit dem Manuskript der Missa solemnis.jpg",
+"caption": "シュティーラー《《ミサ・ソレムニス》の楽譜を持つベートーヴェン》（1820年）、ボン、ベートーヴェン・ハウス蔵"
+}
+],
+"alt": "赤いスカーフを巻いたベートーヴェンが、楽譜を手にこちらを見つめる肖像画。"
+},
+{
+"id": "rikyu-wabi",
+"files": [
+{
+"title": "File:Sen no Rikyu JPN.jpg",
+"caption": "長谷川等伯筆、春屋宗園賛の千利休像"
+}
+],
+"alt": "黒い頭巾をかぶり、扇を持って座る千利休の肖像画。"
+},
+{
+"id": "zeami-fushikaden",
+"files": [
+{
+"title": "File:Sousetsubon fushikaden 7 part.PNG",
+"caption": "観世宗節による『風姿花伝』第七「別紙口伝」写本の奥書（1578年）"
+}
+],
+"alt": "毛筆で書かれた『風姿花伝』の古い写本の一部。"
+},
+{
+"id": "impressionism",
+"files": [
+{
+"title": "File:Monet - Impression, Sunrise.jpg",
+"caption": "モネ《印象、日の出》（1872年）、パリ、マルモッタン・モネ美術館蔵"
+}
+],
+"alt": "青い朝もやの港に赤い太陽が浮かび、手前に小舟が描かれた油彩画。"
+},
+{
+"id": "golden-ratio",
+"files": [
+{
+"title": "File:Parthenon in Athens 2023.jpg",
+"caption": "アテネのアクロポリスに建つパルテノン神殿"
+}
+],
+"alt": "丘の上に大理石の列柱が並ぶ古代ギリシアのパルテノン神殿。"
+},
+{
+"id": "van-gogh-letters",
+"files": [
+{
+"title": "File:Letter from Vincent Van Gogh to Theo Van Gogh 9 April 1885.jpeg",
+"caption": "ゴッホが弟テオに宛てた手紙（1885年4月9日）、《ジャガイモを食べる人々》のスケッチ入り"
+}
+],
+"alt": "びっしりと書かれた文字の中に、食卓を囲む人々のスケッチが描き込まれたゴッホの手紙。"
+},
+{
+"id": "lascaux",
+"files": [
+{
+"title": "File:Lascaux2.jpg",
+"caption": "ラスコー洞窟の壁画に描かれた馬"
+}
+],
+"alt": "岩肌に黒と赤茶色で描かれた馬の壁画。"
+},
+{
+"id": "venus-de-milo",
+"files": [
+{
+"title": "File:Vénus de Milo - Musée du Louvre AGER LL 299 ; N 527 ; Ma 399.jpg",
+"caption": "ミロのヴィーナス、ルーヴル美術館蔵"
+}
+],
+"alt": "両腕の失われた大理石の女神像が、腰に衣をまとって立っている。"
+},
+{
+"id": "mona-lisa-theft",
+"files": [
+{
+"title": "File:Mona Lisa stolen-1911.jpg",
+"caption": "盗難後、《モナ・リザ》が消えたルーヴル美術館サロン・カレの壁（1911年）"
+}
+],
+"alt": "額を掛けるための金具だけが残り、絵がなくなったルーヴル美術館の展示壁。"
+},
+{
+"id": "sistine-ceiling",
+"files": [
+{
+"title": "File:CAPPELLA SISTINA Ceiling.jpg",
+"caption": "システィーナ礼拝堂の天井画の全景"
+}
+],
+"alt": "礼拝堂の細長い天井一面に、旧約聖書の場面や預言者たちが描かれた壁画。"
+},
+{
+"id": "unkei-kongorikishi",
+"files": [
+{
+"title": "File:Nio Ungyo at Todaiji Nandaimon.jpg",
+"caption": "東大寺南大門の金剛力士像（吽形）"
+}
+],
+"alt": "口を閉じ、筋肉を盛り上がらせて立つ巨大な木造の仁王像。"
+},
+{
+"id": "sesshu",
+"files": [
+{
+"title": "File:Autumn and Winter Landscape.jpg",
+"caption": "雪舟《秋冬山水図》（国宝）、東京国立博物館蔵"
+}
+],
+"alt": "鋭い墨の線で、切り立った岩山と寺院を描いた水墨の山水画。"
+},
+{
+"id": "sharaku",
+"files": [
+{
+"title": "File:The actor Otani Oniji II as Yakko Edobei - Sharaku - TNM.jpg",
+"caption": "東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》（1794年）、東京国立博物館蔵"
+}
+],
+"alt": "黒い背景に、両手を突き出して睨みつける歌舞伎役者の上半身を大きく描いた浮世絵。"
+},
+{
+"id": "mozart-requiem",
+"files": [
+{
+"title": "File:Manuscript of the last page of Requiem.jpg",
+"caption": "モーツァルト《レクイエム》自筆譜の「ラクリモサ」冒頭（オーストリア国立図書館蔵）"
+}
+],
+"alt": "五線譜に手書きの音符が並ぶ、未完に終わった《レクイエム》の自筆楽譜。"
+},
+{
+"id": "mendelssohn-bach",
+"files": [
+{
+"title": "File:Johann Sebastian Bach.jpg",
+"caption": "ハウスマンによるヨハン・ゼバスティアン・バッハの肖像"
+}
+],
+"alt": "かつらをかぶり、楽譜を手にしたバッハの肖像画。"
+},
+{
+"id": "chopin-heart",
+"files": [
+{
+"title": "File:Frederic Chopin photo.jpeg",
+"caption": "晩年のショパンの写真"
+}
+],
+"alt": "晩年のショパンを写した肖像写真。"
+},
+{
+"id": "rite-of-spring",
+"files": [
+{
+"title": "File:Igor Stravinsky LOC 32392u.jpg",
+"caption": "イーゴリ・ストラヴィンスキーの写真（アメリカ議会図書館蔵）"
+}
+],
+"alt": "作曲家ストラヴィンスキーの肖像写真。"
+},
+{
+"id": "photography",
+"files": [
+{
+"title": "File:View from the Window at Le Gras, Joseph Nicéphore Niépce.jpg",
+"caption": "ニエプス《ル・グラの窓からの眺め》（1826〜27年ごろ）"
+}
+],
+"alt": "ぼんやりとした明暗で建物の屋根が写る、世界最古の写真。"
+},
+{
+"id": "lumiere-cinema",
+"files": [
+{
+"title": "File:Cinématographe Lumière.jpg",
+"caption": "リュミエール兄弟のシネマトグラフ"
+}
+],
+"alt": "木箱にレンズとハンドルがついたシネマトグラフ。"
+},
+{
+"id": "guernica",
+"files": [
+{
+"title": "File:Bundesarchiv Bild 183-H25224, Guernica, Ruinen.jpg",
+"caption": "爆撃で廃墟となったゲルニカの町（1937年）"
+}
+],
+"alt": "爆撃で破壊され、瓦礫が積み重なったゲルニカの町並み。"
+},
+{
+"id": "duchamp-fountain",
+"files": [
+{
+"title": "File:Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg",
+"caption": "アルフレッド・スティーグリッツが撮影した《泉》（1917年）"
+}
+],
+"alt": "横倒しにされ「R. Mutt 1917」と署名された男性用小便器の写真。"
+},
+{
+"id": "notre-dame",
+"files": [
+{
+"title": "File:Notre-Dame de Paris 2013-07-24.jpg",
+"caption": "パリのノートルダム大聖堂の西正面"
+}
+],
+"alt": "二つの塔がそびえるノートルダム大聖堂の西正面。"
+},
+{
+"id": "bio-dog",
+"files": [
+{
+"title": "File:YellowLabradorLooking new.jpg",
+"caption": "ラブラドール・レトリバー"
+}
+],
+"alt": "こちらを見上げる黄色いラブラドール・レトリバー。"
+},
+{
+"id": "bio-cat",
+"files": [
+{
+"title": "File:Cat November 2010-1a.jpg",
+"caption": "イエネコ"
+}
+],
+"alt": "こちらを見つめるイエネコ。"
+},
+{
+"id": "bio-tulip",
+"files": [
+{
+"title": "File:Semper Augustus Tulip 17th century.jpg",
+"caption": "17世紀の高価なチューリップ「センペル・アウグストゥス」の絵"
+}
+],
+"alt": "赤と白の縞模様の花びらをもつチューリップの絵。"
+},
+{
+"id": "bio-potato",
+"files": [
+{
+"title": "File:Patates.jpg",
+"caption": "ジャガイモ"
+}
+],
+"alt": "収穫されたジャガイモ。"
+},
+{
+"id": "bio-linnaeus",
+"files": [
+{
+"title": "File:Carl von Linné.jpg",
+"caption": "カール・フォン・リンネの肖像（アレクサンダー・ロスリン画）"
+}
+],
+"alt": "カール・フォン・リンネの肖像画。"
+},
+{
+"id": "bio-photosynthesis",
+"files": [
+{
+"title": "File:Leaf 1 web.jpg",
+"caption": "光に透ける緑の葉"
+}
+],
+"alt": "光を受けて葉脈が透けて見える緑の葉。"
+},
+{
+"id": "bio-extinction",
+"files": [
+{
+"title": "File:Frohawk Dodo.png",
+"caption": "ドードーの復元図（フローホーク画）"
+}
+],
+"alt": "絶滅した鳥ドードーの復元図。"
+},
+{
+"id": "bio-horse",
+"files": [
+{
+"title": "File:Nokota Horses cropped.jpg",
+"caption": "草原を走るウマの群れ"
+}
+],
+"alt": "草原を駆けるウマ。"
+},
+{
+"id": "bio-bee-dance",
+"files": [
+{
+"title": "File:Bee dance.svg",
+"caption": "ミツバチの8の字ダンスの図"
+}
+],
+"alt": "ミツバチの尻振りダンスの向きと餌場の方向の関係を示す図。"
+},
+{
+"id": "bio-tea",
+"files": [
+{
+"title": "File:Camellia sinensis - Köhler–s Medizinal-Pflanzen-025.jpg",
+"caption": "チャノキの植物画（『ケーラーの薬用植物』）"
+}
+],
+"alt": "チャノキの葉と花を描いた植物画。"
+},
+{
+"id": "bio-rice",
+"files": [
+{
+"title": "File:Oryza sativa - Köhler–s Medizinal-Pflanzen-232.jpg",
+"caption": "イネの植物画（『ケーラーの薬用植物』）"
+}
+],
+"alt": "穂をつけたイネを描いた植物画。"
+},
+{
+"id": "bio-tomato",
+"files": [
+{
+"title": "File:Bright red tomato and cross section02.jpg",
+"caption": "トマトとその断面"
+}
+],
+"alt": "赤いトマトと、種の詰まった断面。"
+},
+{
+"id": "bio-chili",
+"files": [
+{
+"title": "File:Capsaicin.svg",
+"caption": "カプサイシンの構造式"
+}
+],
+"alt": "辛味成分カプサイシンの構造式。"
+},
+{
+"id": "bio-ginkgo",
+"files": [
+{
+"title": "File:Ginkgo Biloba Leaves - Black Background.jpg",
+"caption": "イチョウの葉"
+}
+],
+"alt": "扇形のイチョウの葉。"
+},
+{
+"id": "bio-old-trees",
+"files": [
+{
+"title": "File:Gnarly Bristlecone Pine.jpg",
+"caption": "ねじれた幹のブリッスルコーンパイン"
+}
+],
+"alt": "白くねじれた幹をもつブリッスルコーンパインの古木。"
+},
+{
+"id": "bio-carnivorous",
+"files": [
+{
+"title": "File:Venus Flytrap showing trigger hairs.jpg",
+"caption": "感覚毛が見えるハエトリグサの捕虫葉"
+}
+],
+"alt": "内側に感覚毛のあるハエトリグサの葉。"
+},
+{
+"id": "bio-peppered-moth",
+"files": [
+{
+"title": "File:Biston.betularia.7200.jpg",
+"caption": "オオシモフリエダシャクの白い型"
+}
+],
+"alt": "白っぽい翅に黒い斑点のあるオオシモフリエダシャク。"
+},
+{
+"id": "bio-hachiko",
+"files": [
+{
+"title": "File:Hachiko.JPG",
+"caption": "渋谷駅前のハチ公像"
+}
+],
+"alt": "渋谷駅前の忠犬ハチ公の銅像。"
+},
+{
+"id": "bio-carrot",
+"files": [
+{
+"title": "File:Carrots of many colors.jpg",
+"caption": "紫・黄・オレンジなど色とりどりのニンジン"
+}
+],
+"alt": "紫、黄色、オレンジ色などさまざまな色のニンジン。"
+},
+{
+"id": "bio-panda",
+"files": [
+{
+"title": "File:Grosser Panda.JPG",
+"caption": "ジャイアントパンダ"
+}
+],
+"alt": "ジャイアントパンダ。"
+},
+{
+"id": "drink-origins",
+"files": [
+{
+"title": "File:Neolithic pottery jar, Peiligang Culture, Xinzheng, Henan, 1978.JPG",
+"caption": "裴李崗文化の新石器時代の土器壺（河南省新鄭）"
+}
+],
+"alt": "中国の新石器時代（裴李崗文化）の素焼きの土器の壺。"
+},
+{
+"id": "drink-mesopotamia-beer",
+"files": [
+{
+"title": "File:Cylinder seal and modern impression- banquet scene with seated figures drinking a liquid through straws MET ss56 157 1.jpg",
+"caption": "ストローで飲み物を飲む饗宴の場面を刻んだ円筒印章と印影（メトロポリタン美術館）"
+}
+],
+"alt": "座った人々が長いストローで壺から飲み物を飲む様子を刻んだ、古代メソポタミアの円筒印章とその印影。"
+},
+{
+"id": "drink-nihonshu",
+"files": [
+{
+"title": "File:1669年（寛文9年）の酒造り絵馬（米洗い部分）.jpg",
+"caption": "寛文9年（1669年）の酒造り絵馬（米洗いの部分）"
+}
+],
+"alt": "江戸時代前期の絵馬に描かれた、酒造りのために米を洗う人々。"
+},
+{
+"id": "drink-pasteur",
+"files": [
+{
+"title": "File:Albert Edelfelt - Louis Pasteur - 1885.jpg",
+"caption": "エーデルフェルト『ルイ・パスツールの肖像』（1885年）"
+}
+],
+"alt": "実験室で試料の入った瓶を手に考え込むルイ・パスツールを描いた油彩画。"
+},
+{
+"id": "drink-distillation",
+"files": [
+{
+"title": "File:Shochu-rakugaki.jpg",
+"caption": "郡山八幡神社に残る「焼酎」の落書き（1559年）"
+}
+],
+"alt": "神社の木材に墨で書かれた、焼酎についての大工の落書き。"
+},
+{
+"id": "drink-prohibition",
+"files": [
+{
+"title": "File:5 Prohibition Disposal(9).jpg",
+"caption": "ニューヨーク市警副本部長ジョン・A・リーチ（右）の立ち会いで押収した酒を下水に流す取締官"
+}
+],
+"alt": "禁酒法時代、取締官たちが押収した酒を樽から下水に流している写真。"
+},
+{
+"id": "drink-champagne",
+"files": [
+{
+"title": "File:Dom Perignon statue in Epernay.jpg",
+"caption": "エペルネのモエ・エ・シャンドンの酒蔵前に立つドン・ペリニヨン像"
+}
+],
+"alt": "エペルネにある修道士ドン・ペリニヨンの立像。"
+},
+{
+"id": "drink-symposion",
+"files": [
+{
+"title": "File:Tomb of the Diver symposium.jpg",
+"caption": "パエストゥム「飛び込む人の墓」北壁の饗宴図（前475〜470年ごろ）"
+}
+],
+"alt": "寝椅子に横たわり杯を手に語り合う古代ギリシアの男たちを描いた壁画。"
+},
+{
+"id": "drink-tax",
+"files": [
+{
+"title": "File:Meiji Jingu Shrine. Saki Barrels. (27915377617).jpg",
+"caption": "明治神宮に奉納された酒樽"
+}
+],
+"alt": "神社に奉納されて積み上げられた日本酒の菰樽。"
+},
+{
+"id": "drink-reinheitsgebot",
+"files": [
+{
+"title": "File:Reinheitsgebot München Viktualienmarkt wiki.JPG",
+"caption": "ミュンヘンのヴィクトゥアーリエンマルクトにあるビール純粋令の記念碑"
+}
+],
+"alt": "ミュンヘンの市場にある、ビール純粋令を記念する銘板。"
+},
+{
+"id": "drink-pilsner",
+"files": [
+{
+"title": "File:Joseph-Groll-Büste in Vilshofen an der Donau.JPG",
+"caption": "フィルスホーフェン・アン・デア・ドナウにあるヨーゼフ・グロルの胸像"
+}
+],
+"alt": "ピルスナーを初めて醸造したバイエルンの醸造家ヨーゼフ・グロルの胸像。"
+},
+{
+"id": "drink-gin-craze",
+"files": [
+{
+"title": "File:William Hogarth - Gin Lane.jpg",
+"caption": "ホガース『ジン横丁』（1751年作の後年の再刻版）"
+}
+],
+"alt": "ジンに酔った人々で荒れ果てたロンドンの街を描いたホガースの版画。"
+},
+{
+"id": "fin-first-coins",
+"files": [
+{
+"title": "File:Electrum trite, Alyattes, Lydia, 620-563 BC.jpg",
+"caption": "獅子の頭が刻まれたリュディアのエレクトラム貨（アリュアッテス王時代）"
+}
+],
+"alt": "獅子の頭が刻まれた、金と銀の自然合金でできた古代リュディアの硬貨。"
+},
+{
+"id": "fin-wadokaiho",
+"files": [
+{
+"title": "File:Wadokaichin coin 8th century Japan.jpg",
+"caption": "和同開珎（8世紀）"
+}
+],
+"alt": "中央に四角い穴があき、「和同開珎」の四文字が刻まれた銅銭。"
+},
+{
+"id": "fin-paper-money",
+"files": [
+{
+"title": "File:Jiao zi.jpg",
+"caption": "北宋の紙幣「交子」の図"
+}
+],
+"alt": "中国・北宋の時代に使われた紙幣「交子」の図。"
+},
+{
+"id": "fin-boj",
+"files": [
+{
+"title": "File:Bank of Japan 2010.jpg",
+"caption": "日本銀行本店本館（辰野金吾設計、1896年竣工）"
+}
+],
+"alt": "石造りの重厚な洋風建築である日本銀行本店本館。"
+},
+{
+"id": "fin-south-sea",
+"files": [
+{
+"title": "File:William Hogarth - The South Sea Scheme.png",
+"caption": "ホガース「南海計画の寓意画」（1721年）"
+}
+],
+"alt": "南海会社の投機に熱狂するロンドンの人々を風刺したホガースの版画。"
+},
+{
+"id": "fin-bretton-woods",
+"files": [
+{
+"title": "File:The Gold Room - Bretton Woods Mount Washington Hotel.jpg",
+"caption": "ブレトンウッズ協定が調印されたマウント・ワシントン・ホテルの「ゴールド・ルーム」"
+}
+],
+"alt": "1944年のブレトンウッズ会議で協定が調印された、マウント・ワシントン・ホテルの一室。"
+},
+{
+"id": "fin-great-depression",
+"files": [
+{
+"title": "File:Crowd outside nyse.jpg",
+"caption": "1929年の株価暴落の際、ニューヨーク証券取引所の前に集まった群衆"
+}
+],
+"alt": "1929年の株価暴落の日、ウォール街の証券取引所前を埋めつくす群衆。"
+},
+{
+"id": "fin-showa-panic",
+"files": [
+{
+"title": "File:Bank run during the Showa Financial Crisis.JPG",
+"caption": "昭和金融恐慌時の取り付け騒ぎ（1927年）"
+}
+],
+"alt": "1927年の昭和金融恐慌で、預金を引き出そうと銀行の前に押し寄せた人々。"
+},
+{
+"id": "fin-rule-of-72",
+"files": [
+{
+"title": "File:Jacopo de' Barbari (attributed to) Portrait of Luca Pacioli (1445 1517) with a student (Guidobaldo da Montefeltro) (2).jpg",
+"caption": "ルカ・パチョーリの肖像（ヤコポ・デ・バルバリ作とされる）"
+}
+],
+"alt": "幾何学の模型や書物を前に、数学を説くルカ・パチョーリを描いた肖像画。"
+},
+{
+"id": "fin-ryogae",
+"files": [
+{
+"title": "File:Keicho gold coinage Oban Koban Ichibuban 1601 1695.jpg",
+"caption": "慶長大判・小判・一分判"
+}
+],
+"alt": "江戸時代の金貨である大判・小判・一分判を並べた写真。"
+},
+{
+"id": "fin-medici",
+"files": [
+{
+"title": "File:Pontormo - Ritratto di Cosimo il Vecchio - Google Art Project.jpg",
+"caption": "ポントルモ「コジモ・デ・メディチ（老コジモ）の肖像」（ウフィツィ美術館）"
+}
+],
+"alt": "赤い衣をまとい横向きに座るコジモ・デ・メディチを描いた肖像画。"
+},
+{
+"id": "fin-boe",
+"files": [
+{
+"title": "File:Bank of England Threadneedle St. (12565194585).jpg",
+"caption": "スレッドニードル街のイングランド銀行"
+}
+],
+"alt": "ロンドンのスレッドニードル街に面したイングランド銀行の建物。"
+},
+{
+"id": "fin-fed",
+"files": [
+{
+"title": "File:Marriner S. Eccles Federal Reserve Board Building.jpg",
+"caption": "連邦準備制度理事会の本部（エクルズ・ビル、ワシントンD.C.）"
+}
+],
+"alt": "ワシントンD.C.にある連邦準備制度理事会の白い石造りの本部ビル。"
+},
+{
+"id": "fin-hyperinflation",
+"files": [
+{
+"title": "File:HUP 100Mmil 1946 obverse.jpg",
+"caption": "ハンガリーの100兆ペンゲー紙幣（1946年）"
+}
+],
+"alt": "1946年にハンガリーで発行された、100兆ペンゲーという巨額の紙幣。"
+},
+{
+"id": "fin-mississippi",
+"files": [
+{
+"title": "File:John Law-Casimir Balthazar.jpg",
+"caption": "ジョン・ローの肖像（カシミール・バルタザール画、1843年）"
+}
+],
+"alt": "ミシシッピ計画を主導したスコットランド人ジョン・ローの肖像画。"
+},
+{
+"id": "fin-banknote-portraits",
+"files": [
+{
+"title": "File:Series A 1 Yen Bank of Japan note - front.jpeg",
+"caption": "日本銀行券A号1円券（表面）"
+}
+],
+"alt": "肖像が描かれた、戦前・戦後まもなくの日本銀行券。"
+},
+{
+"id": "goseibai",
+"files": [
+{
+"title": "File:Goseibai Shikimoku Toyo Bunko.jpg",
+"caption": "御成敗式目の写本（東洋文庫所蔵）"
+}
+],
+"alt": "御成敗式目の写本と、それを定めた北条泰時の図像。"
+},
+{
+"id": "meiji-calendar",
+"files": [
+{
+"title": "File:Briefly Abridged Calendar of 1873, Hiroshige Museum of Art.JPG",
+"caption": "1873年（明治6年）頃の略暦、那珂川町馬頭広重美術館蔵"
+}
+],
+"alt": "明治6年ごろに配られた一枚刷りの暦。"
+},
+{
+"id": "hammurabi",
+"files": [
+{
+"title": "File:Code of Hammurabi (Louvre Sb 8)-31434550325.jpg",
+"caption": "ハンムラビ法典碑、ルーヴル美術館蔵"
+}
+],
+"alt": "楔形文字の条文がびっしり刻まれた黒い玄武岩の石碑。"
+},
+{
+"id": "seventeen-articles",
+"files": [
+{
+"title": "File:Prince Shotoku.jpg",
+"caption": "聖徳太子の肖像"
+}
+],
+"alt": "十七条憲法をつくったとされる聖徳太子の肖像画。"
+},
+{
+"id": "magna-carta",
+"files": [
+{
+"title": "File:Magna Carta (British Library Cotton MS Augustus II.106).jpg",
+"caption": "1215年のマグナ・カルタ、大英図書館蔵（Cotton MS Augustus II.106）"
+}
+],
+"alt": "ラテン語でびっしり書かれた羊皮紙のマグナ・カルタ。"
+},
+{
+"id": "black-death",
+"files": [
+{
+"title": "File:The Triumph of Death by Pieter Bruegel the Elder.jpg",
+"caption": "ブリューゲル《死の勝利》、プラド美術館蔵"
+}
+],
+"alt": "骸骨の軍勢が人々を襲う、ブリューゲルの《死の勝利》。"
+},
+{
+"id": "onin-war",
+"files": [
+{
+"title": "File:Shinnyodō engi, vol.3 (part).jpg",
+"caption": "『真如堂縁起』に描かれた応仁の乱の場面（部分）"
+}
+],
+"alt": "応仁の乱で戦う足軽たちを描いた絵巻の一場面。"
+},
+{
+"id": "sakoku",
+"files": [
+{
+"title": "File:志筑忠雄訳「鎖国論」.jpg",
+"caption": "志筑忠雄訳『鎖国論』上巻の内題"
+}
+],
+"alt": "「鎖国論」と書かれた写本の題の部分。"
+},
+{
+"id": "rights-of-man",
+"files": [
+{
+"title": "File:Declaration of the Rights of Man and of the Citizen in 1789.jpg",
+"caption": "ル・バルビエ《人間と市民の権利の宣言》、カルナヴァレ博物館蔵"
+}
+],
+"alt": "石板の形に条文が書かれた人権宣言の寓意画。"
+},
+{
+"id": "watt-steam",
+"files": [
+{
+"title": "File:SteamEngine Boulton&Watt 1784.png",
+"caption": "ボールトン＆ワット式蒸気機関の図（1784年）"
+}
+],
+"alt": "ワットが改良した蒸気機関の構造を描いた図。"
+},
+{
+"id": "rosetta-stone",
+"files": [
+{
+"title": "File:Rosetta Stone in British Museum.jpg",
+"caption": "ロゼッタ・ストーン、大英博物館"
+}
+],
+"alt": "三種類の文字が刻まれた黒い石碑、ロゼッタ・ストーン。"
+},
+{
+"id": "great-wall",
+"files": [
+{
+"title": "File:The Mutianyu section of the Great Wall of China.jpg",
+"caption": "万里の長城の慕田峪区間"
+}
+],
+"alt": "山の尾根に沿ってのびる明代の万里の長城。"
+},
+{
+"id": "pompeii",
+"files": [
+{
+"title": "File:Forum in Pompeii.jpg",
+"caption": "ポンペイのフォルムとユピテル神殿、背後にヴェスヴィオ山"
+}
+],
+"alt": "遺跡となったポンペイの広場と、その奥にそびえるヴェスヴィオ山。"
+},
+{
+"id": "kentoshi",
+"files": [
+{
+"title": "File:Kentoshi Ship in Nara Palace Site Historical Park.jpg",
+"caption": "平城宮跡に復元された遣唐使船"
+}
+],
+"alt": "平城宮跡に復元された、帆を張った遣唐使船。"
+},
+{
+"id": "mongol-invasions",
+"files": [
+{
+"title": "File:Mōko Shūrai Ekotoba Mongol Invasion Takezaki Suenaga 2 Page 5-7.jpg",
+"caption": "『蒙古襲来絵詞』文永の役で竹崎季長が蒙古軍に突撃する場面"
+}
+],
+"alt": "馬上の武士が蒙古の兵に向かって突撃する絵巻の場面。"
+},
+{
+"id": "magellan",
+"files": [
+{
+"title": "File:Detail from a map of Ortelius - Magellan's ship Victoria.png",
+"caption": "オルテリウスの地図に描かれたマゼランの船ビクトリア号"
+}
+],
+"alt": "古地図の海に描かれた帆船ビクトリア号。"
+},
+{
+"id": "gutenberg",
+"files": [
+{
+"title": "File:Gutenberg Bible on display at the U.S. Library of Congress.jpg",
+"caption": "米国議会図書館に展示されたグーテンベルク聖書"
+}
+],
+"alt": "二段組みのラテン語の活字が並ぶグーテンベルク聖書の見開き。"
+},
+{
+"id": "luther-95",
+"files": [
+{
+"title": "File:Lucas Cranach d.Ä. - Martin Luther, 1528 (Veste Coburg).jpg",
+"caption": "クラーナハ（父）《マルティン・ルター》、コーブルク城"
+}
+],
+"alt": "黒い服を着たマルティン・ルターの肖像画。"
+},
+{
+"id": "sekigahara",
+"files": [
+{
+"title": "File:Battle of Sekigahara folding screen.jpg",
+"caption": "関ヶ原合戦図屏風"
+}
+],
+"alt": "関ヶ原で東西の大軍がぶつかり合う様子を描いた屏風絵。"
+},
+{
+"id": "us-declaration",
+"files": [
+{
+"title": "File:Declaration of Independence (1819), by John Trumbull.jpg",
+"caption": "トランブル《独立宣言》"
+}
+],
+"alt": "独立宣言の草案を提出する起草委員たちを描いたトランブルの絵。"
+},
+{
+"id": "code-napoleon",
+"files": [
+{
+"title": "File:Code Civil 1804.png",
+"caption": "『フランス人の民法典』初版（1804年）の扉"
+}
+],
+"alt": "1804年に出版されたフランス民法典の扉ページ。"
+},
+{
+"id": "perry",
+"files": [
+{
+"title": "File:Commodore-Perry-Visit-Kanagawa-1854.jpg",
+"caption": "1854年、横浜に上陸するペリー一行（石版画）"
+}
+],
+"alt": "黒船を背景に横浜に上陸するペリー提督の一行。"
+},
+{
+"id": "iwakura-mission",
+"files": [
+{
+"title": "File:Iwakura mission.jpg",
+"caption": "岩倉使節団の首脳（木戸孝允・山口尚芳・岩倉具視・伊藤博文・大久保利通）"
+}
+],
+"alt": "洋装の使節団員に囲まれて和装の岩倉具視が座る記念写真。"
+},
+{
+"id": "fin-dojima",
+"files": [
+{
+"title": "File:Dojima-Rice-Exchange-Osaka-by-Yoshimitsu-Sasaki.png",
+"caption": "大坂・堂島米会所を描いた錦絵"
+}
+],
+"alt": "川沿いに建つ大坂の堂島米会所と、そこに集まる人々を描いた錦絵。"
+},
+{
+"id": "spanish-flu",
+"files": [
+{
+"title": "File:Emergency hospital during Influenza epidemic, Camp Funston, Kansas - NCP 1603.jpg",
+"caption": "スペインかぜ流行時のカンザス州キャンプ・ファンストンの臨時病棟（1918年）"
+}
+],
+"alt": "簡易ベッドがずらりと並ぶ1918年の臨時病棟。"
+},
+{
+"id": "berlin-wall",
+"files": [
+{
+"title": "File:West and East Germans at the Brandenburg Gate in 1989.jpg",
+"caption": "1989年、ブランデンブルク門の前の壁に集まる東西ドイツの人々"
+}
+],
+"alt": "壁の上に人々がのぼる、1989年のブランデンブルク門前。"
+},
+{
+"id": "apollo11",
+"files": [
+{
+"title": "File:Aldrin Apollo 11 original.jpg",
+"caption": "月面に立つバズ・オルドリン（1969年、アポロ11号）"
+}
+],
+"alt": "宇宙服を着て月面に立つアポロ11号の宇宙飛行士。"
+},
+{
+"id": "hamlet",
+"files": [
+{
+"title": "File:Shakespeare.jpg",
+"caption": "ウィリアム・シェイクスピアの肖像（チャンドス肖像画）"
+}
+],
+"alt": "口ひげをたくわえ、金の耳飾りをつけたシェイクスピアの肖像画。"
+},
+{
+"id": "okuno-hosomichi",
+"files": [
+{
+"title": "File:Basho by Buson.jpg",
+"caption": "与謝蕪村が描いた松尾芭蕉の肖像"
+}
+],
+"alt": "旅装の松尾芭蕉を描いた肖像画。"
+},
+{
+"id": "iliad",
+"files": [
+{
+"title": "File:Homer British Museum.jpg",
+"caption": "ホメロスの胸像（大英博物館）"
+}
+],
+"alt": "ひげをたくわえた盲目の詩人ホメロスの大理石の胸像。"
+},
+{
+"id": "robinson-crusoe",
+"files": [
+{
+"title": "File:Robinson Crusoe 1719 1st edition.jpg",
+"caption": "『ロビンソン・クルーソー』初版（1719年）の扉と口絵"
+}
+],
+"alt": "毛皮の服を着たロビンソンの口絵がついた初版本の扉。"
+},
+{
+"id": "frankenstein",
+"files": [
+{
+"title": "File:Frankenstein.1831.inside-cover.jpg",
+"caption": "『フランケンシュタイン』1831年版の口絵と扉"
+}
+],
+"alt": "実験室で目覚めた怪物と、驚くフランケンシュタインを描いた1831年版の口絵。"
+},
+{
+"id": "euclid-primes",
+"files": [
+{
+"title": "File:P. Oxy. I 29.jpg",
+"caption": "エウクレイデス『原論』の断片を記したオクシリンコス・パピルス"
+}
+],
+"alt": "古代ギリシアの数学書『原論』の図と文字が書かれたパピルスの断片。"
+},
+{
+"id": "pythagoras",
+"files": [
+{
+"title": "File:Plimpton 322.jpg",
+"caption": "直角三角形の辺の比に関わる数が並ぶバビロニアの粘土板「プリンプトン322」"
+}
+],
+"alt": "楔形文字の数が表の形で刻まれた古代バビロニアの粘土板。"
+},
+{
+"id": "sqrt2",
+"files": [
+{
+"title": "File:Ybc7289-bw.jpg",
+"caption": "正方形の対角線と√2の近似値が刻まれたバビロニアの粘土板YBC 7289"
+}
+],
+"alt": "正方形とその対角線が描かれ、楔形文字の数が刻まれた小さな円い粘土板。"
+},
+{
+"id": "normal-distribution",
+"files": [
+{
+"title": "File:Normal Distribution PDF.svg",
+"caption": "平均と分散の異なる正規分布の確率密度曲線"
+}
+],
+"alt": "左右対称の釣鐘形をした正規分布の曲線のグラフ。"
+},
+{
+"id": "konigsberg",
+"files": [
+{
+"title": "File:Konigsberg bridges.png",
+"caption": "プレーゲル川と七つの橋が描かれたケーニヒスベルクの地図"
+}
+],
+"alt": "川の中州と両岸を七つの橋が結ぶケーニヒスベルクの町の地図。"
+},
+{
+"id": "logarithm",
+"files": [
+{
+"title": "File:John Napier.jpg",
+"caption": "ジョン・ネイピアの肖像"
+}
+],
+"alt": "対数の発明者ジョン・ネイピアの肖像画。"
+},
+{
+"id": "pascal-fermat",
+"files": [
+{
+"title": "File:Pierre de Fermat.jpg",
+"caption": "ピエール・ド・フェルマーの肖像"
+}
+],
+"alt": "17世紀の数学者フェルマーの肖像画。"
+},
+{
+"id": "fibonacci",
+"files": [
+{
+"title": "File:Liber abbaci magliab f124r.jpg",
+"caption": "フィボナッチ『算盤の書』写本のウサギの問題のページ（フィレンツェ国立中央図書館蔵）"
+}
+],
+"alt": "欄外にフィボナッチ数列が書き込まれた中世の写本のページ。"
+},
+{
+"id": "imaginary-numbers",
+"files": [
+{
+"title": "File:Complex number illustration.svg",
+"caption": "複素数 a＋bi を平面上の点として表した図"
+}
+],
+"alt": "横軸に実部、縦軸に虚部をとった複素数平面の図。"
+},
+{
+"id": "euler-identity",
+"files": [
+{
+"title": "File:Euler's formula.svg",
+"caption": "オイラーの公式 e^{iφ}＝cos φ＋i sin φ を単位円で表した図"
+}
+],
+"alt": "複素数平面の単位円上の点で、オイラーの公式を表した図。"
+},
+{
+"id": "gauss",
+"files": [
+{
+"title": "File:Carl Friedrich Gauss 1840 by Jensen.jpg",
+"caption": "クリスティアン・アルブレヒト・イェンセン『カール・フリードリヒ・ガウス』（1840年）"
+}
+],
+"alt": "黒い帽子をかぶった晩年のガウスの肖像画。"
+},
+{
+"id": "fermat-last",
+"files": [
+{
+"title": "File:Diophantus-II-8-Fermat.jpg",
+"caption": "フェルマーの書き込みを収めたディオファントス『算術』1670年版の第2巻問題8のページ"
+}
+],
+"alt": "ラテン語で注釈が印刷された17世紀の数学書のページ。"
+},
+{
+"id": "goedel",
+"files": [
+{
+"title": "File:1925 kurt gödel.png",
+"caption": "学生時代のクルト・ゲーデル（1925年ごろ）"
+}
+],
+"alt": "眼鏡をかけた若いクルト・ゲーデルの肖像写真。"
+},
+{
+"id": "monty-hall",
+"files": [
+{
+"title": "File:Monty open door.svg",
+"caption": "3つのドアのうち1つが開いてヤギが見えている、モンティ・ホール問題の図"
+}
+],
+"alt": "3つのドアのうち1つが開き、中にヤギがいる様子を描いた図。"
+},
+{
+"id": "simpson-paradox",
+"files": [
+{
+"title": "File:Simpson's paradox continuous.svg",
+"caption": "グループごとの傾向と全体の傾向が逆になる、シンプソンのパラドックスの散布図"
+}
+],
+"alt": "グループ内では右上がりなのに、全体では右下がりになる散布図。"
+},
+{
+"id": "turing",
+"files": [
+{
+"title": "File:Alan Turing Aged 16.jpg",
+"caption": "16歳のアラン・チューリング"
+}
+],
+"alt": "学生時代のアラン・チューリングの肖像写真。"
+},
+{
+"id": "binary",
+"files": [
+{
+"title": "File:Leibniz binary system 1703.png",
+"caption": "ライプニッツの二進法に関する論文（1703年）のページ"
+}
+],
+"alt": "易経の六十四卦を円形と方形に並べた図に、ライプニッツの書き込みがあるもの。"
+},
+{
+"id": "metric-system",
+"files": [
+{
+"title": "File:Platinum-Iridium meter bar.jpg",
+"caption": "白金イリジウム製の国際メートル原器の複製"
+}
+],
+"alt": "断面がX字形をした金属製のメートル原器。"
+},
+{
+"id": "literary-digest",
+"files": [
+{
+"title": "File:FDR 1944 Color Portrait.jpg",
+"caption": "フランクリン・ローズヴェルトのカラー肖像写真（1944年）"
+}
+],
+"alt": "アメリカ大統領フランクリン・ローズヴェルトの肖像写真。"
+},
+{
+"id": "fractal",
+"files": [
+{
+"title": "File:Britain-fractal-coastline-combined.jpg",
+"caption": "物差しの長さを変えてイギリスの海岸線を測った比較図"
+}
+],
+"alt": "異なる長さの物差しでイギリスの海岸線をなぞった多角形の比較図。"
+},
+{
+"id": "descartes-cogito",
+"files": [
+{
+"title": "File:Frans Hals - Portret van René Descartes.jpg",
+"caption": "フランス・ハルス（に基づく）『ルネ・デカルトの肖像』、ルーヴル美術館蔵"
+}
+],
+"alt": "黒い服に白い襟をつけた、口ひげのあるデカルトの肖像画。"
+},
+{
+"id": "socrates-apology",
+"files": [
+{
+"title": "File:David - The Death of Socrates.jpg",
+"caption": "ジャック＝ルイ・ダヴィッド『ソクラテスの死』（1787年）、メトロポリタン美術館蔵"
+}
+],
+"alt": "毒杯に手を伸ばしながら弟子たちに語りかけるソクラテスを描いた絵画。"
+},
+{
+"id": "aristotle-mean",
+"files": [
+{
+"title": "File:Aristotle Altemps Inv8575.jpg",
+"caption": "アリストテレスの胸像（リュシッポスのブロンズ原作に基づくローマ時代の模刻）、ローマ国立博物館アルテンプス宮蔵"
+}
+],
+"alt": "ひげをたくわえたアリストテレスの大理石の胸像。"
+},
+{
+"id": "epictetus",
+"files": [
+{
+"title": "File:Epicteti Enchiridion Latinis versibus adumbratum (Oxford 1715) frontispiece.jpg",
+"caption": "『エンケイリディオン』ラテン語韻文訳（オックスフォード、1715年）の口絵に描かれたエピクテトスの想像図"
+}
+],
+"alt": "哲学者エピクテトスを想像して描いた古い版画の肖像。"
+},
+{
+"id": "zhuangzi-butterfly",
+"files": [
+{
+"title": "File:Dschuang-Dsi-Schmetterlingstraum-Zhuangzi-Butterfly-Dream.jpg",
+"caption": "陸治『荘周夢蝶図』（明代、16世紀中ごろ）"
+}
+],
+"alt": "眠る荘子のそばを蝶が舞う様子を描いた中国の絵画。"
+},
+{
+"id": "kant-imperative",
+"files": [
+{
+"title": "File:Immanuel Kant - Gemaelde 1.jpg",
+"caption": "ヨハン・ゴットリープ・ベッカー『イマヌエル・カントの肖像』（1768年）"
+}
+],
+"alt": "18世紀の服装をした哲学者カントの肖像画。"
+},
+{
+"id": "mill-liberty",
+"files": [
+{
+"title": "File:John Stuart Mill by London Stereoscopic Company, c1870.jpg",
+"caption": "ジョン・スチュアート・ミルの肖像写真（1870年ごろ、ロンドン・ステレオスコピック社撮影）"
+}
+],
+"alt": "19世紀の哲学者ジョン・スチュアート・ミルの肖像写真。"
+},
+{
+"id": "analects-shu",
+"files": [
+{
+"title": "File:Confucius Tang Dynasty.jpg",
+"caption": "呉道子に帰される孔子像"
+}
+],
+"alt": "長い衣をまとい両手を胸の前で組む孔子の肖像。"
+},
+{
+"id": "zeno-paradox",
+"files": [
+{
+"title": "File:Race between Achilles and the tortoise.svg",
+"caption": "アキレスと亀の競走を表した距離と時間のグラフ"
+}
+],
+"alt": "アキレスと亀の位置が時間とともにどう変わるかを示した図。"
+},
+{
+"id": "epicurus",
+"files": [
+{
+"title": "File:Epikouros Met 11.90.jpg",
+"caption": "エピクロスの大理石頭部（2世紀のローマ時代の模刻）、メトロポリタン美術館蔵"
+}
+],
+"alt": "ひげをたくわえたエピクロスの大理石の頭部像。"
+},
+{
+"id": "mencius",
+"files": [
+{
+"title": "File:Half Portraits of the Great Sage and Virtuous Men of Old - Meng Ke (孟軻).jpg",
+"caption": "『至聖先賢半身像』の孟子（孟軻）像（元代）"
+}
+],
+"alt": "古代中国の思想家・孟子の肖像画。"
+},
+{
+"id": "xunzi",
+"files": [
+{
+"title": "File:Portrait of Xun Zi.jpg",
+"caption": "荀子の肖像（清代）、中国国家博物館蔵"
+}
+],
+"alt": "古代中国の思想家・荀子の肖像画。"
+},
+{
+"id": "laozi",
+"files": [
+{
+"title": "File:Zhang Lu-Laozi Riding an Ox.jpg",
+"caption": "張路『老子騎牛図』（明代）、台北・国立故宮博物院蔵"
+}
+],
+"alt": "牛の背に乗って西へ向かう老子を描いた中国の掛軸。"
+},
+{
+"id": "four-noble-truths",
+"files": [
+{
+"title": "File:Buddha in Sarnath Museum (Dhammajak Mutra).jpg",
+"caption": "転法輪印を結ぶ仏陀坐像、サールナート考古博物館蔵"
+}
+],
+"alt": "説法の手の形を結んで座る仏陀の石像。"
+},
+{
+"id": "augustine-time",
+"files": [
+{
+"title": "File:Sandro Botticelli - St Augustine - WGA02709.jpg",
+"caption": "サンドロ・ボッティチェリ『書斎の聖アウグスティヌス』（1480年ごろ）、フィレンツェ、オニサンティ聖堂"
+}
+],
+"alt": "書斎で胸に手を当てて天を仰ぐ聖アウグスティヌスを描いたフレスコ画。"
+},
+{
+"id": "machiavelli",
+"files": [
+{
+"title": "File:Portrait of Niccolò Machiavelli by Santi di Tito.jpg",
+"caption": "サンティ・ディ・ティート『ニッコロ・マキャヴェリの肖像』、フィレンツェ、ヴェッキオ宮殿"
+}
+],
+"alt": "黒い服を着たマキャヴェリの肖像画。"
+},
+{
+"id": "pascal-reed",
+"files": [
+{
+"title": "File:Blaise Pascal Versailles.JPG",
+"caption": "ブレーズ・パスカルの肖像（1690年ごろ、ケネル作の模写）、ヴェルサイユ宮殿美術館蔵"
+}
+],
+"alt": "17世紀フランスの思想家パスカルの肖像画。"
+},
+{
+"id": "locke-white-paper",
+"files": [
+{
+"title": "File:Godfrey Kneller - Portrait of John Locke (Hermitage).jpg",
+"caption": "ゴドフリー・ネラー『ジョン・ロックの肖像』（1697年）、エルミタージュ美術館蔵"
+}
+],
+"alt": "長い髪の哲学者ジョン・ロックの肖像画。"
+},
+{
+"id": "bentham",
+"files": [
+{
+"title": "File:Jeremy Bentham by Henry William Pickersgill.jpg",
+"caption": "ヘンリー・ウィリアム・ピカーズギル『ジェレミー・ベンサム』（1829年出品）、ロンドン・ナショナル・ポートレート・ギャラリー蔵"
+}
+],
+"alt": "功利主義の哲学者ジェレミー・ベンサムの肖像画。"
+},
+{
+"id": "nietzsche-god-dead",
+"files": [
+{
+"title": "File:Nietzsche1882.jpg",
+"caption": "フリードリヒ・ニーチェ（1882年、グスタフ・シュルツェ撮影）"
+}
+],
+"alt": "大きな口ひげをたくわえたニーチェの肖像写真。"
+},
+{
+"id": "sartre-existence",
+"files": [
+{
+"title": "File:Jean-Paul Sartre FP.JPG",
+"caption": "ジャン＝ポール・サルトル（1950年ごろ）"
+}
+],
+"alt": "眼鏡をかけた哲学者サルトルの写真。"
+},
+{
+"id": "trolley-problem",
+"files": [
+{
+"title": "File:Trolley Problem.svg",
+"caption": "トロッコ問題の図解：分岐器の先の線路に5人と1人"
+}
+],
+"alt": "暴走するトロッコの進む先に5人、分岐した線路の先に1人がいる状況を描いた図。"
+},
+{
+"id": "blue-sky",
+"files": [
+{
+"title": "File:Rayleigh sunlight scattering.png",
+"caption": "大気によるレイリー散乱の強さを波長ごとに示した図"
+}
+],
+"alt": "太陽光の青い光ほど大気で強く散乱されることを示す図。"
+},
+{
+"id": "dna-helix",
+"files": [
+{
+"title": "File:DNA Model Crick-Watson.jpg",
+"caption": "クリックとワトソンが1953年に組み立てたDNA模型（ロンドン科学博物館）"
+}
+],
+"alt": "ワトソンとクリックが組み立てた金属製のDNA二重らせん模型。"
+},
+{
+"id": "newton-gravity",
+"files": [
+{
+"title": "File:GodfreyKneller-IsaacNewton-1689.jpg",
+"caption": "アイザック・ニュートンの肖像（ゴドフリー・ネラー画、1689年）"
+}
+],
+"alt": "かつらをつけた46歳のニュートンの肖像画。"
+},
+{
+"id": "darwin-origin",
+"files": [
+{
+"title": "File:Darwin Tree 1837.png",
+"caption": "ダーウィンのノートに描かれた「生命の樹」のスケッチ（1837年）"
+}
+],
+"alt": "「I think」と書かれた横に枝分かれする樹形図が描かれたダーウィンのノート。"
+},
+{
+"id": "mendel-peas",
+"files": [
+{
+"title": "File:Gregor Mendel.jpg",
+"caption": "グレゴール・メンデルの肖像写真"
+}
+],
+"alt": "修道士グレゴール・メンデルの肖像写真。"
+},
+{
+"id": "wegener-drift",
+"files": [
+{
+"title": "File:Alfred Wegener ca.1924-30.jpg",
+"caption": "アルフレート・ヴェーゲナーの肖像写真"
+}
+],
+"alt": "大陸移動説を唱えたアルフレート・ヴェーゲナーの肖像写真。"
+},
+{
+"id": "penicillin",
+"files": [
+{
+"title": "File:Synthetic Production of Penicillin TR1468.jpg",
+"caption": "研究室で作業するアレクサンダー・フレミング"
+}
+],
+"alt": "研究室の机でシャーレを手にするアレクサンダー・フレミング。"
+},
+{
+"id": "periodic-table",
+"files": [
+{
+"title": "File:Mendeleev's 1869 periodic table.png",
+"caption": "メンデレーエフの1869年の周期表"
+}
+],
+"alt": "メンデレーエフが1869年に発表した周期表。"
+},
+{
+"id": "copernicus",
+"files": [
+{
+"title": "File:Copernican heliocentrism diagram-2.jpg",
+"caption": "『天球回転論』に描かれた太陽中心の宇宙図"
+}
+],
+"alt": "太陽を中心に惑星の軌道が同心円で描かれたコペルニクスの宇宙図。"
+},
+{
+"id": "kepler",
+"files": [
+{
+"title": "File:Portrait of Johannes Kepler.jpg",
+"caption": "ヨハネス・ケプラーの肖像（1620年）"
+}
+],
+"alt": "ヨハネス・ケプラーの肖像画。"
+},
+{
+"id": "harvey-circulation",
+"files": [
+{
+"title": "File:William Harvey (1578-1657) Venenbild.jpg",
+"caption": "ハーヴェイ『心臓の運動について』の腕の静脈弁の図"
+}
+],
+"alt": "腕をしばって静脈の弁の位置を示したハーヴェイの著書の挿絵。"
+},
+{
+"id": "jenner-vaccine",
+"files": [
+{
+"title": "File:Jenner phipps 01.jpg",
+"caption": "少年ジェームズ・フィップスに種痘をするジェンナー（アーネスト・ボード画）"
+}
+],
+"alt": "少年の腕に牛痘を接種するエドワード・ジェンナーを描いた絵。"
+},
+{
+"id": "faraday",
+"files": [
+{
+"title": "File:M Faraday Th Phillips oil 1842.jpg",
+"caption": "マイケル・ファラデーの肖像（トーマス・フィリップス画、1842年）"
+}
+],
+"alt": "マイケル・ファラデーの肖像画。"
+},
+{
+"id": "maxwell-hertz",
+"files": [
+{
+"title": "File:James Clerk Maxwell big.jpg",
+"caption": "ジェームズ・クラーク・マクスウェル"
+}
+],
+"alt": "ジェームズ・クラーク・マクスウェルの肖像写真。"
+},
+{
+"id": "curie-radioactivity",
+"files": [
+{
+"title": "File:Marie Curie c1920.jpg",
+"caption": "マリー・キュリー（1920年ごろ）"
+}
+],
+"alt": "マリー・キュリーの肖像写真。"
+},
+{
+"id": "hubble-expansion",
+"files": [
+{
+"title": "File:Hubble ultra deep field high rez edit1.jpg",
+"caption": "ハッブル・ウルトラ・ディープ・フィールドに写る無数の銀河"
+}
+],
+"alt": "ハッブル宇宙望遠鏡が撮影した、遠方の多数の銀河。"
+},
+{
+"id": "kitasato",
+"files": [
+{
+"title": "File:Kitasato Shibasaburo.jpg",
+"caption": "北里柴三郎"
+}
+],
+"alt": "北里柴三郎の肖像写真。"
+},
+{
+"id": "yukawa",
+"files": [
+{
+"title": "File:Hideki Yukawa 1951.jpg",
+"caption": "湯川秀樹（1951年）"
+}
+],
+"alt": "湯川秀樹の肖像写真。"
+},
+{
+"id": "rainbow",
+"files": [
+{
+"title": "File:Double-alaskan-rainbow.jpg",
+"caption": "アラスカの二重の虹"
+}
+],
+"alt": "草原の上空にかかる二重の虹。"
+},
+{
+"id": "black-hole",
+"files": [
+{
+"title": "File:Black hole - Messier 87 crop max res.jpg",
+"caption": "イベント・ホライズン・テレスコープが撮影したM87のブラックホール"
+}
+],
+"alt": "明るいリングの中に暗い影が見えるM87のブラックホールの画像。"
+},
+{
+"id": "helium",
+"files": [
+{
+"title": "File:Helium spectra.jpg",
+"caption": "ヘリウムのスペクトル線"
+}
+],
+"alt": "ヘリウムの輝線スペクトル。"
+},
+{
+"id": "dinosaur-impact",
+"files": [
+{
+"title": "File:Chicxulub impact - artist impression.jpg",
+"caption": "チクシュルーブ衝突の想像図（NASA）"
+}
+],
+"alt": "巨大な隕石が地球に衝突する瞬間の想像図。"
+},
+{
+"id": "ricardo",
+"files": [
+{
+"title": "File:Portrait of David Ricardo by Thomas Phillips.jpg",
+"caption": "デヴィッド・リカードの肖像（トマス・フィリップス画）"
+}
+],
+"alt": "比較優位の理論を示した経済学者デヴィッド・リカードの肖像画。"
+},
+{
+"id": "commons",
+"files": [
+{
+"title": "File:Nobel Prize 2009-Press Conference KVA-30.jpg",
+"caption": "エリノア・オストロム（2009年ノーベル経済学賞の記者会見）"
+}
+],
+"alt": "共有資源の自主管理を研究したエリノア・オストロム。"
+},
+{
+"id": "social-contract",
+"files": [
+{
+"title": "File:Leviathan frontispiece cropped British Library.jpg",
+"caption": "ホッブズ『リヴァイアサン』（1651年）の扉絵"
+}
+],
+"alt": "無数の人々でできた巨人が描かれた『リヴァイアサン』の扉絵。"
+},
+{
+"id": "durkheim-suicide",
+"files": [
+{
+"title": "File:Émile Durkheim.jpg",
+"caption": "エミール・デュルケームの肖像写真"
+}
+],
+"alt": "社会学者エミール・デュルケームの肖像写真。"
+},
+{
+"id": "keynes",
+"files": [
+{
+"title": "File:John Maynard Keynes.jpg",
+"caption": "ジョン・メイナード・ケインズ"
+}
+],
+"alt": "大恐慌のさなか、無料食堂の前に長い列をつくる失業者たち。"
+},
+{
+"id": "condorcet-arrow",
+"files": [
+{
+"title": "File:Nicolas de Condorcet.PNG",
+"caption": "コンドルセの肖像"
+}
+],
+"alt": "投票のパラドックスを指摘したコンドルセの肖像。"
+},
+{
+"id": "milgram",
+"files": [
+{
+"title": "File:Milgram Experiment v2.png",
+"caption": "ミルグラムの服従実験の配置図（実験者・教師役・生徒役）"
+}
+],
+"alt": "実験者、教師役、生徒役の位置関係を示したミルグラム実験の図。"
+},
+{
+"id": "marx-capital",
+"files": [
+{
+"title": "File:Karl Marx 001.jpg",
+"caption": "カール・マルクスの肖像写真（1875年）"
+}
+],
+"alt": "豊かなひげをたくわえたカール・マルクスの肖像写真。"
+},
+{
+"id": "weber-protestant",
+"files": [
+{
+"title": "File:Max Weber 1894.jpg",
+"caption": "マックス・ヴェーバー（1894年）"
+}
+],
+"alt": "社会学者マックス・ヴェーバーの肖像写真。"
+},
+{
+"id": "veblen",
+"files": [
+{
+"title": "File:Veblen3a.jpg",
+"caption": "ソースティン・ヴェブレンの肖像写真"
+}
+],
+"alt": "「見せびらかしの消費」を論じたヴェブレンの肖像写真。"
+},
+{
+"id": "pareto",
+"files": [
+{
+"title": "File:Vilfredo Pareto 1870s2.jpg",
+"caption": "ヴィルフレド・パレート（1870年代）"
+}
+],
+"alt": "経済学者ヴィルフレド・パレートの肖像写真。"
+},
+{
+"id": "weimar-hyperinflation",
+"files": [
+{
+"title": "File:Bundesarchiv Bild 102-00104, Inflation, Tapezieren mit Geldscheinen.jpg",
+"caption": "紙幣を壁紙として貼る男性（1923年、ドイツ連邦公文書館）"
+}
+],
+"alt": "価値を失った紙幣を壁紙代わりに貼る1923年のドイツの男性。"
+},
+{
+"id": "prospect-theory",
+"files": [
+{
+"title": "File:Daniel Kahneman (3283955327) (cropped).jpg",
+"caption": "ダニエル・カーネマン"
+}
+],
+"alt": "損失側で傾きが急になる、プロスペクト理論の価値関数のグラフ。"
+},
+{
+"id": "asch-conformity",
+"files": [
+{
+"title": "File:Asch experiment.svg",
+"caption": "アッシュの同調実験で使われた線分のカード（基準線と3本の比較線）"
+}
+],
+"alt": "基準線と、長さの違う3本の比較線を並べたアッシュの実験カード。"
+},
+{
+"id": "maslow",
+"files": [
+{
+"title": "File:Maslow's hierarchy of needs.svg",
+"caption": "マズローの欲求階層を表した五段のピラミッド図"
+}
+],
+"alt": "生理的欲求から自己実現まで五段に分けたピラミッドの図。"
+},
+{
+"id": "small-world",
+"files": [
+{
+"title": "File:Six degrees of separation.svg",
+"caption": "知り合いをたどって人と人がつながる「六次の隔たり」の図"
+}
+],
+"alt": "知人のつながりをたどると6段階ほどで誰とでもつながることを示す図。"
+},
+{
+"id": "nudge",
+"files": [
+{
+"title": "File:Urinal Fly.JPG",
+"caption": "狙いの的としてハエの絵が描かれた小便器"
+}
+],
+"alt": "ハエの絵がついた小便器"
+},
+{
+"id": "hawthorne",
+"files": [
+{
+"title": "File:Hawthorne, Illinois Works of the Western Electric Company, 1925.jpg",
+"caption": "ウェスタン・エレクトリック社ホーソン工場（イリノイ州、1925年）"
+}
+],
+"alt": "広大な工場群を見渡す古い写真"
+},
+{
+"id": "broken-windows",
+"files": [
+{
+"title": "File:Broken window in Broberg 2.jpg",
+"caption": "放置された建物の割れた窓（スウェーデン、リーセシール）"
+}
+],
+"alt": "廃屋の割れた窓ガラス"
+},
+{
+"id": "duverger-law",
+"files": [
+{
+"title": "File:Maurice Duverger - Honoris Causa UAB.jpg",
+"caption": "名誉博士号授与式でのモーリス・デュヴェルジェ"
+}
+],
+"alt": "式典に臨む年配の男性"
+},
+{
+"id": "cage-433",
+"files": [
+{
+"title": "File:Componist John Cage , kop, Bestanddeelnr 934-3585.jpg",
+"caption": "作曲家ジョン・ケージ（1988年）"
+}
+],
+"alt": "白髪の男性の顔写真"
+},
+{
+"id": "izumo-okuni",
+"files": [
+{
+"title": "File:国女歌舞妓絵詞・12頁.png",
+"caption": "『国女歌舞妓絵詞』より、舞台に立つ出雲阿国"
+}
+],
+"alt": "舞台で踊る阿国を描いた絵巻"
+},
+{
+"id": "yohen-tenmoku",
+"files": [
+{
+"title": "File:Yōhen Tenmoku (Seikadō Bunko Art Museum) 02.jpg",
+"caption": "曜変天目（稲葉天目、静嘉堂文庫美術館蔵）"
+}
+],
+"alt": "青く光る斑紋が浮かぶ黒い茶碗"
+},
+{
+"id": "fin-lehman",
+"files": [
+{
+"title": "File:Lehman Brothers-NYC-20080915.jpg",
+"caption": "ニューヨークのリーマン・ブラザーズ本社（2008年9月15日）"
+}
+],
+"alt": "電光表示のある高層ビルの外観"
+},
+{
+"id": "fin-nobel-econ",
+"files": [
+{
+"title": "File:Sveriges Riksbanks huvudkontor vid Brunkebergstorg.jpg",
+"caption": "ストックホルムのスウェーデン国立銀行（リクスバンク）本店"
+}
+],
+"alt": "広場に面した石造りの銀行建物"
+},
+{
+"id": "kuku",
+"files": [
+{
+"title": "File:Liye Qing Slips, multiplication table.jpg",
+"caption": "九九の表を記したとみられる里耶秦簡の木簡"
+}
+],
+"alt": "文字が書かれた古代の木簡"
+},
+{
+"id": "acct-income-tax",
+"files": [
+{
+"title": "File:George-Romney-xx-William-Pitt-the-Younger-xx-Tate-Britain.jpg",
+"caption": "ウィリアム・ピット（小ピット）の肖像（ジョージ・ロムニー画、テート・ブリテン）"
+}
+],
+"alt": "18世紀の男性政治家の肖像画"
+},
+{
+"id": "eng-tyndale-kjv",
+"files": [
+{
+"title": "File:KJV-King-James-Version-Bible-first-edition-title-page-1611.jpg",
+"caption": "欽定訳聖書初版（1611年）の扉絵"
+}
+],
+"alt": "十二使徒やモーセ、アロンに囲まれた聖書の扉絵"
+},
+{
+"id": "eng-japan-english",
+"files": [
+{
+"title": "File:HMS Phaeton.jpg",
+"caption": "長崎港に入ったフェートン号を描いた日本の絵（長崎歴史文化博物館蔵）"
+}
+],
+"alt": "長崎港の西洋の軍艦を描いた日本の絵"
+},
+{
+"id": "eng-weekdays",
+"files": [
+{
+"title": "File:Wodan heilt Balders Pferd by Emil Doepler.jpg",
+"caption": "バルドルの傷ついた馬を癒やすウォーデン（エミール・デープラー画）"
+}
+],
+"alt": "馬の脚に手を当てる神と、座る女神たち"
+},
+{
+"id": "eng-new-words",
+"files": [
+{
+"title": "File:Nelson's Column during the Great Smog of 1952.jpg",
+"caption": "1952年のロンドン大スモッグの中のネルソン記念柱"
+}
+],
+"alt": "濃い霧にかすむ記念柱と街並み"
+},
+{
+"id": "eng-oed",
+"files": [
+{
+"title": "File:James Murray in a scriptorium.jpg",
+"caption": "スクリプトリウムで作業するジェームズ・マレー"
+}
+],
+"alt": "作業場で辞書の仕事をするジェームズ・マレー"
+},
+{
+"id": "ent-phonograph",
+"files": [
+{
+"title": "File:Edison's 1877 Cylinder Tinfoil Phonograph (photo 1 of 2) (5cc2641d-1dd8-b71b-0b6c-0871a45fb59a).jpg",
+"caption": "エジソンの錫箔円筒式蓄音機（1877年）"
+}
+],
+"alt": "ハンドル付きの円筒を備えた初期の蓄音機"
+},
+{
+"id": "ent-benshi",
+"files": [
+{
+"title": "File:Tokugawa Musei - July 16 1952 - Kimura Ihei.png",
+"caption": "徳川夢声（1952年7月16日、木村伊兵衛撮影）"
+}
+],
+"alt": "徳川夢声の肖像写真"
+},
+{
+"id": "ent-circus",
+"files": [
+{
+"title": "File:Houghton 57-1633 - Astley's Amphitheatre, 1808 - cropped.jpg",
+"caption": "アストリーの円形劇場（『ミクロコズム・オブ・ロンドン』の彩色図版、1808年）"
+}
+],
+"alt": "円形の舞台で馬の曲芸を見る観客"
+},
+{
+"id": "bio-bird-migration",
+"files": [
+{
+"title": "File:Rostocker Pfeilstorch.jpg",
+"caption": "ロストックの「矢のコウノトリ（Pfeilstorch）」"
+}
+],
+"alt": "首に矢が刺さったコウノトリの標本"
+},
+{
+"id": "bio-great-auk",
+"files": [
+{
+"title": "File:Robert Havell after John James Audubon, Great Auk, 1836, NGA 32482.jpg",
+"caption": "オーデュボン原画によるオオウミガラスの図（ロバート・ハベル作、1836年）"
+}
+],
+"alt": "岩場に立つ白黒の海鳥の版画"
+},
+{
+"id": "drink-bordeaux-1855",
+"files": [
+{
+"title": "File:Château Margaux - Charles Lallemand.jpg",
+"caption": "シャトー・マルゴーの挿絵（シャルル・ラルマン画、1868年刊の書籍より）"
+}
+],
+"alt": "並木の奥に建つ古典様式の館"
+},
+{
+"id": "drink-japanese-whisky",
+"files": [
+{
+"title": "File:Masataka and Rita Taketsuru.jpg",
+"caption": "竹鶴政孝（左）と妻リタ（ジェシー・ロバータ・カウン、右）"
+}
+],
+"alt": "並んで写る和装と洋装の夫婦"
+},
+{
+"id": "trad-kimono-migimae",
+"files": [
+{
+"title": "File:Khalili Collection Kimono 02.jpg",
+"caption": "若い女性用の振袖（ハリリ・コレクション）"
+}
+],
+"alt": "舟や松・梅・紅葉を描いた振袖"
+},
+{
+"id": "trad-tatami",
+"files": [
+{
+"title": "File:Japanese room with tatami mats.jpg",
+"caption": "畳を敷き詰めた和室"
+}
+],
+"alt": "畳と障子のある和室"
+},
+{
+"id": "maejima-post",
+"files": [
+{
+"title": "File:Maejima Hisoka.jpg",
+"caption": "前島密の肖像写真"
+}
+],
+"alt": "日本の近代郵便を創設した前島密の肖像写真。"
+},
+{
+"id": "genji",
+"files": [
+{
+"title": "File:Genji emaki 01003 012.jpg",
+"caption": "国宝『源氏物語絵巻』の一場面"
+}
+],
+"alt": "吹抜屋台の構図で宮廷の人々を描いた源氏物語絵巻の一場面。"
+},
+{
+"id": "hyakunin-isshu",
+"files": [
+{
+"title": "File:Meigetsuki 明月記 - Fujiwara no Teika 藤原定家筆 (Tokyo National Museum).jpg",
+"caption": "藤原定家自筆の日記『明月記』、東京国立博物館"
+}
+],
+"alt": "藤原定家が自ら筆で書き記した日記『明月記』の一部。"
+},
+{
+"id": "wagahai-neko",
+"files": [
+{
+"title": "File:Natsume Soseki photo.jpg",
+"caption": "夏目漱石の肖像写真"
+}
+],
+"alt": "口ひげをたくわえた夏目漱石の肖像写真。"
+},
+{
+"id": "divine-comedy",
+"files": [
+{
+"title": "File:Michelino DanteAndHisPoem.jpg",
+"caption": "ドメニコ・ディ・ミケリーノ《ダンテと『神曲』》（フィレンツェ大聖堂）"
+}
+],
+"alt": "赤い衣のダンテが『神曲』の本を手に、地獄の門とフィレンツェの町の間に立つ絵。"
+},
+{
+"id": "don-quixote",
+"files": [
+{
+"title": "File:El ingenioso hidalgo don Quijote de la Mancha.jpg",
+"caption": "『ドン・キホーテ』前編初版（1605年）の扉"
+}
+],
+"alt": "『ドン・キホーテ』初版本の扉ページ。"
+},
+{
+"id": "sherlock-holmes",
+"files": [
+{
+"title": "File:Strand paget.jpg",
+"caption": "シドニー・パジェットによる「最後の事件」の挿絵（ライヘンバッハの滝の格闘）"
+}
+],
+"alt": "滝の縁でホームズとモリアーティ教授が組み合う挿絵。"
+},
+{
+"id": "kana-origin",
+"files": [
+{
+"title": "File:Hiragana origin.svg",
+"caption": "ひらがなの字源となった漢字の一覧図"
+}
+],
+"alt": "それぞれのひらがなと、そのもとになった漢字の草書体を並べた図。"
+},
+{
+"id": "bayes",
+"files": [
+{
+"title": "File:Bayes' Theorem MMB 01.jpg",
+"caption": "ベイズの定理の式をかたどった青いネオンサイン"
+}
+],
+"alt": "ベイズの定理の数式を光る文字で表したネオンサイン。"
+},
+{
+"id": "zero",
+"files": [
+{
+"title": "File:Bakhshali numerals 2.jpg",
+"caption": "バクシャーリー写本に見られる数字（ゼロを表す点を含む）"
+}
+],
+"alt": "古いインドの写本に書かれた、ゼロの点を含む数字。"
+},
+{
+"id": "pi",
+"files": [
+{
+"title": "File:Archimedes pi.svg",
+"caption": "円に内接・外接する正多角形で円周に迫るアルキメデスの方法の図"
+}
+],
+"alt": "円の内側と外側に正多角形を描き、円周の長さを挟み込む図。"
+},
+{
+"id": "four-color",
+"files": [
+{
+"title": "File:Four Colour Map Example.svg",
+"caption": "4色で塗り分けた地図の例"
+}
+],
+"alt": "隣り合う領域が異なる色になるよう4色で塗り分けた地図の例。"
+},
+{
+"id": "nightingale-stats",
+"files": [
+{
+"title": "File:Nightingale-mortality.jpg",
+"caption": "ナイチンゲールが作成した、クリミア戦争の死因を示す鶏頭図（バラ図）"
+}
+],
+"alt": "月ごとの死者数を扇形の大きさで表した、ナイチンゲールの円形のグラフ。"
+},
+{
+"id": "birthday-paradox",
+"files": [
+{
+"title": "File:Birthday Paradox.svg",
+"caption": "人数と、同じ誕生日の組がいる確率の関係を示したグラフ"
+}
+],
+"alt": "人数が増えるにつれ、誕生日が一致する確率が急に高くなることを示すグラフ。"
+},
+{
+"id": "benford",
+"files": [
+{
+"title": "File:Rozklad benforda.svg",
+"caption": "ベンフォードの法則による最初の桁の数字の出現割合の棒グラフ"
+}
+],
+"alt": "最初の桁が1の割合が最も高く、9に向かって低くなる棒グラフ。"
+},
+{
+"id": "plato-cave",
+"files": [
+{
+"title": "File:Jan Pietersz Saenredam after Cornelis Cornelisz van Haarlem, Plato's Cave, 1604, NGA 62542.jpg",
+"caption": "ヤン・サーンレダム『プラトンの洞窟』（1604年、コルネリス・ファン・ハールレム原画の銅版画）、ワシントン・ナショナル・ギャラリー蔵"
+}
+],
+"alt": "洞窟の中で壁に映る影を見つめる人々を描いた17世紀初めの銅版画。"
+},
+{
+"id": "hume-induction",
+"files": [
+{
+"title": "File:Allan Ramsay - David Hume, 1711 - 1776. Historian and philosopher - Google Art Project.jpg",
+"caption": "アラン・ラムジー『デイヴィッド・ヒューム』（1766年）、スコットランド国立肖像画美術館蔵"
+}
+],
+"alt": "赤い服を着たデイヴィッド・ヒュームの肖像画。"
+},
+{
+"id": "heraclitus",
+"files": [
+{
+"title": "File:Johannes Moreelse - Heraclitus - Google Art Project.jpg",
+"caption": "ヨハネス・モレールセ『ヘラクレイトス』（1630年ごろ）"
+}
+],
+"alt": "「泣く哲学者」として憂いを帯びた表情で描かれたヘラクレイトスの絵画。"
+},
+{
+"id": "ockham-razor",
+"files": [
+{
+"title": "File:William of Occam - Sketch - Frater Occham iste, 1341.jpg",
+"caption": "「フラテル・オッカム・イステ」と記されたオッカムのスケッチ（1341年の『論理学大全』写本より）"
+}
+],
+"alt": "修道士の姿で描かれたウィリアム・オブ・オッカムの中世写本のスケッチ。"
+},
+{
+"id": "wittgenstein",
+"files": [
+{
+"title": "File:Ludwig Wittgenstein.jpg",
+"caption": "ルートヴィヒ・ウィトゲンシュタイン（1930年、モーリッツ・ネーア撮影）"
+}
+],
+"alt": "ジャケット姿の若いウィトゲンシュタインの肖像写真。"
+},
+{
+"id": "nishida",
+"files": [
+{
+"title": "File:Kitaro Nishidain in Feb. 1943.jpg",
+"caption": "西田幾多郎（1943年2月）"
+}
+],
+"alt": "晩年の哲学者・西田幾多郎の肖像写真。"
+},
+{
+"id": "norinaga-mononoaware",
+"files": [
+{
+"title": "File:Motoori Norinaga self portrait.jpg",
+"caption": "本居宣長四十四歳自画自賛像（1773年、部分）"
+}
+],
+"alt": "着物姿で座る本居宣長の自画像。"
+},
+{
+"id": "galileo-fall",
+"files": [
+{
+"title": "File:Galileo Galilei by Ottavio Leoni Marucelliana.jpg",
+"caption": "ガリレオ・ガリレイの肖像（オッタヴィオ・レオーニ画）"
+}
+],
+"alt": "ガリレオ・ガリレイの肖像画。"
+},
+{
+"id": "entropy",
+"files": [
+{
+"title": "File:Tombe de Boltzmann, à Vienne..jpg",
+"caption": "S = k log W が刻まれたボルツマンの墓（ウィーン中央墓地）"
+}
+],
+"alt": "エントロピーの式が刻まれたボルツマンの胸像付きの墓。"
+},
+{
+"id": "leeuwenhoek",
+"files": [
+{
+"title": "File:Jan Verkolje - Antonie van Leeuwenhoek.jpg",
+"caption": "アントニ・ファン・レーウェンフックの肖像（ヤン・フェルコリエ画）"
+}
+],
+"alt": "手にした書類を見せるアントニ・ファン・レーウェンフックの肖像画。"
+},
+{
+"id": "einstein-1905",
+"files": [
+{
+"title": "File:Einstein patentoffice.jpg",
+"caption": "ベルンの特許局時代のアインシュタイン"
+}
+],
+"alt": "特許局の机に座る若いアインシュタイン。"
+},
+{
+"id": "takamine",
+"files": [
+{
+"title": "File:Jokichi Takamine.jpg",
+"caption": "高峰譲吉"
+}
+],
+"alt": "高峰譲吉の肖像写真。"
+},
+{
+"id": "kakke",
+"files": [
+{
+"title": "File:Takaki Kanehiro.jpg",
+"caption": "高木兼寛"
+}
+],
+"alt": "海軍軍医の高木兼寛の肖像写真。"
+},
+{
+"id": "franklin-kite",
+"files": [
+{
+"title": "File:Benjamin West, English (born America) - Benjamin Franklin Drawing Electricity from the Sky - Google Art Project.jpg",
+"caption": "「空から電気を引き出すベンジャミン・フランクリン」（ベンジャミン・ウェスト画）"
+}
+],
+"alt": "雷雲の中で凧から電気を引き出すフランクリンを描いた絵。"
+},
+{
+"id": "montesquieu",
+"files": [
+{
+"title": "File:Montesquieu 1.png",
+"caption": "モンテスキューの肖像"
+}
+],
+"alt": "権力分立を説いたモンテスキューの横顔の肖像。"
+},
+{
+"id": "smith-pins",
+"files": [
+{
+"title": "File:Adam Smith The Muir portrait.jpg",
+"caption": "アダム・スミスの肖像（ミュア肖像）"
+}
+],
+"alt": "分業の利益を説いたアダム・スミスの肖像。"
+},
+{
+"id": "prisoners-dilemma",
+"files": [
+{
+"title": "File:Prisoner's Dilemma briefcase exchange (colorized).svg",
+"caption": "囚人のジレンマを鞄の交換で表した図"
+}
+],
+"alt": "協力と裏切りの組み合わせを示す囚人のジレンマの図。"
+},
+{
+"id": "malthus",
+"files": [
+{
+"title": "File:Thomas Robert Malthus Wellcome L0069037 -crop.jpg",
+"caption": "トマス・ロバート・マルサスの肖像（ウェルカム・コレクション）"
+}
+],
+"alt": "『人口論』を著したマルサスの肖像。"
+},
+{
+"id": "tocqueville",
+"files": [
+{
+"title": "File:Alexis de tocqueville cropped.jpg",
+"caption": "アレクシ・ド・トクヴィルの肖像（シャセリオー画）"
+}
+],
+"alt": "『アメリカのデモクラシー』を書いたトクヴィルの肖像画。"
+},
+{
+"id": "japan-constitution",
+"files": [
+{
+"title": "File:Nihon-Koku Kenpo 1.png",
+"caption": "日本国憲法の原本（1ページ目）"
+}
+],
+"alt": "天皇の署名と御璽が押された日本国憲法の原本。"
+},
+{
+"id": "gresham",
+"files": [
+{
+"title": "File:Portretten van Sir Thomas Gresham en Anne Fernely Rijksmuseum SK-A-3118.jpeg",
+"caption": "トマス・グレシャムの肖像（アムステルダム国立美術館蔵）"
+}
+],
+"alt": "黒衣の男性を描いた16世紀の肖像画"
+},
+{
+"id": "yap-stone-money",
+"files": [
+{
+"title": "File:Community house of Yorlap (Yap Islands) with stone money made in Palau NOAA.jpg",
+"caption": "ヤップ島ヨーラップの集会所と、パラオで切り出された石貨"
+}
+],
+"alt": "集会所の前に並ぶ大きな円形の石貨"
+},
+{
+"id": "shosoin",
+"files": [
+{
+"title": "File:Shosin-shouso.jpg",
+"caption": "外構公開時の正倉院正倉"
+}
+],
+"alt": "高床の校倉造の大きな木造倉庫"
+},
+{
+"id": "fin-gold-standard",
+"files": [
+{
+"title": "File:Junnosuke Inoue.jpg",
+"caption": "井上準之助（1869〜1932）の肖像"
+}
+],
+"alt": "口ひげの男性の肖像写真"
+},
+{
+"id": "fin-bitcoin",
+"files": [
+{
+"title": "File:Bitcoin-whitepaper-poster page-0001.jpg",
+"caption": "サトシ・ナカモトによる2008年のビットコイン論文（ポスター版）"
+}
+],
+"alt": "英文論文の紙面"
+},
+{
+"id": "fin-microfinance",
+"files": [
+{
+"title": "File:Muhammad Yunus-Schlachthof Wiesbaden.jpg",
+"caption": "講演するムハマド・ユヌス（ドイツ・ヴィースバーデン）"
+}
+],
+"alt": "聴衆に語りかける年配の男性"
+},
+{
+"id": "fin-plaza",
+"files": [
+{
+"title": "File:Plaza Hotel New York January 2016.jpg",
+"caption": "ニューヨークのプラザホテル（2016年1月）"
+}
+],
+"alt": "雪の街に建つ古風な高層ホテル"
+},
+{
+"id": "fin-lloyds",
+"files": [
+{
+"title": "File:Lloyds-coffee-house-london-by-william-holland.jpg",
+"caption": "ロンドンのエドワード・ロイドのコーヒーハウス（ウィリアム・ホランド画、1789年）"
+}
+],
+"alt": "客でにぎわう18世紀の喫茶店の版画"
+},
+{
+"id": "ako-ronin",
+"files": [
+{
+"title": "File:Utagawa Hiroshige-Chushingura Act XI-IMG 9283.JPG",
+"caption": "歌川広重『忠臣蔵』十一段目・夜討の場面"
+}
+],
+"alt": "屋敷に討ち入る浪士たちの浮世絵"
+},
+{
+"id": "christmas-truce",
+"files": [
+{
+"title": "File:Christmas Truce 1914 IWM Q 50719.jpg",
+"caption": "非公式の休戦中、無人地帯で顔を合わせる英独の兵士（1914年）"
+}
+],
+"alt": "野原に集まる英独の兵士たちの白黒写真"
+},
+{
+"id": "great-kanto-earthquake",
+"files": [
+{
+"title": "File:Theosakamainichi-earthquakepictorialedition-1923-page8.jpg",
+"caption": "迫る火災を逃れ上野公園へ向かう避難者（1923年9月1日午後3時）"
+}
+],
+"alt": "大勢の避難者が詰めかける白黒写真"
+},
+{
+"id": "wasan-sangaku",
+"files": [
+{
+"title": "File:Sangaku of Konnoh Hachimangu 1850.jpg",
+"caption": "金王八幡宮（東京・渋谷）に奉納された算額（1850年）"
+}
+],
+"alt": "図形と文字が描かれた奉納額"
+},
+{
+"id": "acct-enron-sox",
+"files": [
+{
+"title": "File:Enron Complex.jpg",
+"caption": "テキサス州ヒューストンのエンロン本社ビル群"
+}
+],
+"alt": "並び建つ高層オフィスビル"
+},
+{
+"id": "acct-consumption-tax",
+"files": [
+{
+"title": "File:Masayoshi Ohira in USA.jpg",
+"caption": "訪米した大平正芳首相"
+}
+],
+"alt": "出迎えを受ける眼鏡の男性"
+},
+{
+"id": "acct-japan-scandals",
+"files": [
+{
+"title": "File:Kayabacho Tower.jpg",
+"caption": "山一證券の旧本社、茅場町タワー（東京都中央区）"
+}
+],
+"alt": "都心に建つ高層オフィスビル"
+},
+{
+"id": "acct-numerals",
+"files": [
+{
+"title": "File:Lorenzo Ghiberti, Saint Matthew, 1419-20, copy, Orsanmichele, Florence.jpg",
+"caption": "両替商組合のためのギベルティ作《聖マタイ》像（複製、フィレンツェ、オルサンミケーレ）"
+}
+],
+"alt": "壁龕に立つ聖人のブロンズ像"
+},
+{
+"id": "acct-wedgwood",
+"files": [
+{
+"title": "File:Josiah Wedgwood by George Stubbs, 1780, enamel on a Wedgwood ceramic tablet - Wedgwood Museum - Barlaston, Stoke-on-Trent, England - DSC09537.jpg",
+"caption": "ジョサイア・ウェッジウッドの肖像（ジョージ・スタッブス作、1780年、ウェッジウッド博物館）"
+}
+],
+"alt": "陶板に描かれた男性の肖像"
+},
+{
+"id": "acct-relevance-lost",
+"files": [
+{
+"title": "File:Robert S. Kaplan.jpg",
+"caption": "ロバート・キャプラン（2017年、ロンドンでの講演）"
+}
+],
+"alt": "講演する男性"
+},
+{
+"id": "acct-zeirishi",
+"files": [
+{
+"title": "File:Nihon-Zeirishi-Kaikan.JPG",
+"caption": "東京の日本税理士会館"
+}
+],
+"alt": "税理士会館のビル外観"
+},
+{
+"id": "eng-anglo-saxon",
+"files": [
+{
+"title": "File:Bede, Ecclesiastical History, Cotton Tiberius C II, fol. 87v.jpg",
+"caption": "ベーダ『イングランド教会史』の写本（大英図書館、コットン・ティベリウスC II）"
+}
+],
+"alt": "古英語の文字が並ぶ中世の写本"
+},
+{
+"id": "eng-norman",
+"files": [
+{
+"title": "File:Bayeux Tapestry scene55 William Hastings battlefield.jpg",
+"caption": "バイユーのタペストリー：ヘイスティングズの戦場で兜を上げるギヨーム公"
+}
+],
+"alt": "刺繍で描かれた馬上の騎士たち"
+},
+{
+"id": "eng-caxton",
+"files": [
+{
+"title": "File:Geoffrey Chaucer, Tale of Melibee, Ellesmere Chaucer, mssEL 26 C 9, folio 153v.jpg",
+"caption": "エルズミア写本『カンタベリー物語』に描かれた巡礼姿のチョーサー"
+}
+],
+"alt": "馬に乗る巡礼姿のチョーサーを描いた写本の挿絵"
+},
+{
+"id": "eng-johnson-dictionary",
+"files": [
+{
+"title": "File:A Dictionary of the English Language 1755.jpg",
+"caption": "サミュエル・ジョンソン『英語辞典』（1755年、ロンドン刊）"
+}
+],
+"alt": "ジョンソン『英語辞典』の古い印刷ページ"
+},
+{
+"id": "eng-webster",
+"files": [
+{
+"title": "File:Webster Orthography 1828 (4-14).png",
+"caption": "ノア・ウェブスター『アメリカ英語辞典』1828年版の扉（カリフォルニア州立図書館蔵）"
+}
+],
+"alt": "開かれた古い辞書の扉ページ"
+},
+{
+"id": "eng-world-englishes",
+"files": [
+{
+"title": "File:English-speaking countries.png",
+"caption": "国ごとの英語話者の割合を色分けした世界地図"
+}
+],
+"alt": "緑の濃淡で国々を塗り分けた世界地図"
+},
+{
+"id": "eng-alphabet",
+"files": [
+{
+"title": "File:Canaanite-abjad.png",
+"caption": "フェニキア文字の字形"
+}
+],
+"alt": "フェニキア文字の字形を並べた図"
+},
+{
+"id": "eng-thorn-ye",
+"files": [
+{
+"title": "File:Latin thorn with stroke.png",
+"caption": "ソーンに横線を加えた略字 Ꝥ（大文字と小文字）"
+}
+],
+"alt": "横線の入ったソーン文字の大文字と小文字"
+},
+{
+"id": "eng-months",
+"files": [
+{
+"title": "File:Fasti Antiates, Palazzo Massimo alle Terme, Rome..jpg",
+"caption": "ローマの暦「ファスティ・アンティアテス」（アンツィオ出土、ローマ、パラッツォ・マッシモ）"
+}
+],
+"alt": "文字の列が並ぶ古代ローマの暦の断片"
+},
+{
+"id": "eng-hello",
+"files": [
+{
+"title": "File:Edison and phonograph edit2 cr.jpg",
+"caption": "初期の蓄音機とトーマス・エジソン"
+}
+],
+"alt": "蓄音機のそばに座るエジソン"
+},
+{
+"id": "eng-eponyms",
+"files": [
+{
+"title": "File:John Montagu, 4th Earl of Sandwich by Johann Zoffany.jpg",
+"caption": "第4代サンドイッチ伯爵ジョン・モンタギューの肖像（ヨハン・ゾファニー画）"
+}
+],
+"alt": "かつらをつけた18世紀の貴族の肖像画"
+},
+{
+"id": "eng-ampersand-at",
+"files": [
+{
+"title": "File:EsperluetteOppenord.jpg",
+"caption": "トリトンを添えたアンパサンドの素描（ジル＝マリ・オプノール、18世紀半ば）"
+}
+],
+"alt": "海神トリトンと組み合わせた装飾的な＆の素描"
+},
+{
+"id": "eng-spelling-reform",
+"files": [
+{
+"title": "File:Spelling Reform Association Fonetic Alfabet in Spelling, December 1931, vol. 2, nr. 4, p. 50.jpg",
+"caption": "綴り字改革協会の「Fonetic Alfabet」（『Spelling』誌1931年12月号）"
+}
+],
+"alt": "音声記号の表が印刷された雑誌のページ"
+},
+{
+"id": "eng-gairaigo-layers",
+"files": [
+{
+"title": "File:Portuguese traders landing in Japan.jpg",
+"caption": "南蛮屏風に描かれた、日本に上陸するポルトガル商人（部分）"
+}
+],
+"alt": "屏風に描かれた上陸するポルトガル人の一行"
+},
+{
+"id": "eng-singular-they",
+"files": [
+{
+"title": "File:Madden F. 1832 The ancient English Romance of William and the Werewolf manuscript.png",
+"caption": "『ウィリアムと人狼』唯一の写本の冒頭7行の複製（1832年）"
+}
+],
+"alt": "中英語の手書き文字が並ぶ写本の複製"
+},
+{
+"id": "eng-etymology-myths",
+"files": [
+{
+"title": "File:Gedenktafel Friedrich-Ebert-Platz (Mitte) Morse-Notzeichen.jpg",
+"caption": "モールス符号の遭難信号を記念する銘板（ベルリン、フリードリヒ・エーベルト広場）"
+}
+],
+"alt": "モールス符号が刻まれた記念の銘板"
+},
+{
+"id": "ent-sakuden",
+"files": [
+{
+"title": "File:Seigan-ji Kyoto HDSR IMG 5147.jpg",
+"caption": "京都の誓願寺、通りに面した入口"
+}
+],
+"alt": "京都の街なかにある寺の入口"
+},
+{
+"id": "ent-yose",
+"files": [
+{
+"title": "File:Ueno Suzumoto Entertainment Hall IMG 3222.jpg",
+"caption": "東京・上野の寄席、鈴本演芸場"
+}
+],
+"alt": "演芸場の建物の正面"
+},
+{
+"id": "ent-encho",
+"files": [
+{
+"title": "File:San'yūtei Enchō.jpg",
+"caption": "三遊亭圓朝（1839〜1900）"
+}
+],
+"alt": "落語家・三遊亭圓朝の肖像写真"
+},
+{
+"id": "ent-manzai",
+"files": [
+{
+"title": "File:Entatsu Achako 1935.JPG",
+"caption": "横山エンタツ（左）と花菱アチャコ（右）（1935年）"
+}
+],
+"alt": "並んで写る漫才コンビの二人"
+},
+{
+"id": "ent-bunraku",
+"files": [
+{
+"title": "File:Ōmi no kuni Shiga monogatari - Takemoto Gidayū - btv1b10878888q (01 of 19).jpg",
+"caption": "竹本義太夫の浄瑠璃本『近江国志賀物語』（大坂・山本九兵衛版）"
+}
+],
+"alt": "竹本義太夫の浄瑠璃本のページ"
+},
+{
+"id": "ent-kabuki",
+"files": [
+{
+"title": "File:Okuni kabuki byobu-zu cropped.jpg",
+"caption": "『阿国歌舞伎図屏風』に描かれた出雲の阿国（京都国立博物館蔵）"
+}
+],
+"alt": "屏風絵に描かれた男装の阿国"
+},
+{
+"id": "ent-takarazuka",
+"files": [
+{
+"title": "File:Ichizo Kobayashi later years.jpg",
+"caption": "小林一三（1873〜1957）"
+}
+],
+"alt": "晩年の小林一三の肖像写真"
+},
+{
+"id": "ent-noh",
+"files": [
+{
+"title": "File:Scene uit het Noh theaterstuk Nue Nue (titel op object) Honderd Noh spelen (serietitel) Nogaku hyakuban (serietitel op object), RP-P-2003-277.jpg",
+"caption": "能『鵺』の一場面（版画集『能楽百番』より）"
+}
+],
+"alt": "能装束の役者を描いた木版画"
+},
+{
+"id": "ent-kamishibai",
+"files": [
+{
+"title": "File:Kamishibai.jpg",
+"caption": "自転車のそばで紙芝居を演じる男性（山口県下関）"
+}
+],
+"alt": "自転車に載せた紙芝居の舞台と語り手"
+},
+{
+"id": "ent-radio-1925",
+"files": [
+{
+"title": "File:Shimpei Gotō.jpg",
+"caption": "後藤新平（1857〜1929）の肖像"
+}
+],
+"alt": "後藤新平の肖像写真"
+},
+{
+"id": "ent-tv-1953",
+"files": [
+{
+"title": "File:Kohaku1953.jpg",
+"caption": "1953年の第4回NHK紅白歌合戦"
+}
+],
+"alt": "記念として残るテレビ放送用の鉄塔"
+},
+{
+"id": "ent-katyusha",
+"files": [
+{
+"title": "File:Sumako Matsui cropped.jpg",
+"caption": "松井須磨子（1886〜1919）の肖像"
+}
+],
+"alt": "女優・松井須磨子の肖像写真"
+},
+{
+"id": "ent-chaplin-1932",
+"files": [
+{
+"title": "File:Chaplin in Japan 1932.jpg",
+"caption": "1932年の訪日時、横浜で日本料理を味わうチャップリン"
+}
+],
+"alt": "日本料理を前にするチャップリン"
+},
+{
+"id": "ent-godzilla",
+"files": [
+{
+"title": "File:Daigo Fukuryū Maru 01.JPG",
+"caption": "第五福竜丸の船首と船名"
+}
+],
+"alt": "船名が書かれた木造漁船の船首"
+},
+{
+"id": "ent-oscar",
+"files": [
+{
+"title": "File:1stOscars 1929.jpg",
+"caption": "第1回アカデミー賞授賞式（1929年5月16日）"
+}
+],
+"alt": "第1回アカデミー賞授賞式の会場の様子"
+},
+{
+"id": "ent-asakusa-opera",
+"files": [
+{
+"title": "File:Enoken Ichiza-June-1937.png",
+"caption": "日劇に初登場したときのエノケン一座（1937年6月）"
+}
+],
+"alt": "映画で近藤勇に扮する榎本健一"
+},
+{
+"id": "ent-thespis",
+"files": [
+{
+"title": "File:Marmor Parium, AM of Paros, 247452.jpg",
+"caption": "パロス島大理石碑文の断片（パロス考古学博物館）"
+}
+],
+"alt": "ギリシア文字が刻まれた大理石の断片"
+},
+{
+"id": "ent-commedia",
+"files": [
+{
+"title": "File:Jacques Callot, Frontispiece for \"Balli di Sfessania\", c. 1622, NGA 51561.jpg",
+"caption": "ジャック・カロ『スフェッサニアの踊り』の扉絵（1622年ごろ）"
+}
+],
+"alt": "仮面の喜劇役者たちを描いた版画"
+},
+{
+"id": "ent-globe",
+"files": [
+{
+"title": "File:The Globe Theatre from the Long Antwerp View of London.jpg",
+"caption": "「ロング・アントワープ・ビュー」に描かれたロンドンのグローブ座"
+}
+],
+"alt": "テムズ川南岸の円形劇場を描いた古い版画"
+},
+{
+"id": "ent-opera",
+"files": [
+{
+"title": "File:Jacopo Peri's Euridice.jpg",
+"caption": "ペーリ『エウリディーチェ』（1600年）のプロローグの楽譜"
+}
+],
+"alt": "古い印刷楽譜の頁"
+},
+{
+"id": "ent-ballet",
+"files": [
+{
+"title": "File:Louis XIV en soleil (ballet de la nuit).jpeg",
+"caption": "『夜のバレエ』（1653年）で太陽に扮したルイ14世の衣装の素描"
+}
+],
+"alt": "太陽の装飾をまとった踊り手の素描"
+},
+{
+"id": "ent-magic",
+"files": [
+{
+"title": "File:HQ photo of Robert-Houdin.jpg",
+"caption": "奇術師ジャン＝ウジェーヌ・ロベール＝ウーダンの肖像写真"
+}
+],
+"alt": "燕尾服姿の男性の古い肖像写真"
+},
+{
+"id": "ent-idol",
+"files": [
+{
+"title": "File:SylvieVartan-Italie-1967.png",
+"caption": "歌手シルヴィ・ヴァルタン（1967年、イタリア）"
+}
+],
+"alt": "短髪の若い女性歌手の写真"
+},
+{
+"id": "ent-karaoke",
+"files": [
+{
+"title": "File:Karaoke-Box.jpg",
+"caption": "カラオケボックス"
+}
+],
+"alt": "カラオケボックスの室内"
+},
+{
+"id": "ent-beatles-budokan",
+"files": [
+{
+"title": "File:Eiga-Joho-1966-September-1.png",
+"caption": "日本武道館で演奏するビートルズ（『映画情報』1966年9月号より）"
+}
+],
+"alt": "ステージで演奏する4人のバンド"
+},
+{
+"id": "bio-eel",
+"files": [
+{
+"title": "File:Anguilla anguilla France 1.jpg",
+"caption": "ヨーロッパウナギ（Anguilla anguilla）。フランス、カーニュ＝シュル＝メールにて"
+}
+],
+"alt": "水中の細長いウナギ"
+},
+{
+"id": "bio-sakura",
+"files": [
+{
+"title": "File:Cherry blossoms (Somei Yoshino), Nagai Botanical Garden, April 2026 -1488.jpg",
+"caption": "長居植物園のソメイヨシノ（2026年4月）"
+}
+],
+"alt": "満開の淡い桃色の桜"
+},
+{
+"id": "bio-shorui-awaremi",
+"files": [
+{
+"title": "File:Tsunyaoshi.jpg",
+"caption": "徳川綱吉の肖像（徳川美術館蔵）"
+}
+],
+"alt": "衣冠姿の将軍の肖像画"
+},
+{
+"id": "bio-silkworm",
+"files": [
+{
+"title": "File:Larva silk worm.jpg",
+"caption": "カイコの幼虫"
+}
+],
+"alt": "白いカイコの幼虫"
+},
+{
+"id": "bio-elephant-1729",
+"files": [
+{
+"title": "File:Japanese - Kozuka with an Elephant - Walters 51693.jpg",
+"caption": "ゾウを描いた小柄（刀装具、ウォルターズ美術館蔵）"
+}
+],
+"alt": "ゾウの姿を刻んだ細長い金工品"
+},
+{
+"id": "bio-makino",
+"files": [
+{
+"title": "File:Makino Tomitaro.jpg",
+"caption": "牧野富太郎の肖像"
+}
+],
+"alt": "年配の男性の肖像写真"
+},
+{
+"id": "bio-humongous-fungus",
+"files": [
+{
+"title": "File:Sombere honingzwam (Armillaria ostoyae). Locatie, Sauerland Duitsland 03.jpg",
+"caption": "オニナラタケ（Armillaria ostoyae）のキノコ（ドイツ・ザウアーラント）"
+}
+],
+"alt": "倒木に群生する茶色のキノコ"
+},
+{
+"id": "mrna-vaccine",
+"files": [
+{
+"title": "File:Katalin Karikó in 2024 by Christopher Michel 02.jpg",
+"caption": "カタリン・カリコ（2024年）"
+}
+],
+"alt": "女性科学者の肖像写真"
+},
+{
+"id": "drink-beaujolais",
+"files": [
+{
+"title": "File:Beaujolais wine region.jpg",
+"caption": "ブルゴーニュの南に広がるワイン産地、ボジョレー地区の風景"
+}
+],
+"alt": "丘に広がるブドウ畑"
+},
+{
+"id": "drink-phylloxera",
+"files": [
+{
+"title": "File:Reblaeuse an Wurzel.JPG",
+"caption": "ブドウの根に付いたフィロキセラ（ブドウネアブラムシ）"
+}
+],
+"alt": "ブドウの根に付く小さな黄色い虫"
+},
+{
+"id": "drink-navy-rum",
+"files": [
+{
+"title": "File:Rum Ration Aboard HMS King George V, 1940 A1777.jpg",
+"caption": "英艦キング・ジョージ5世の艦内でラムの配給に並ぶ水兵（1940年）"
+}
+],
+"alt": "容器を手に列をつくる水兵たち"
+},
+{
+"id": "drink-tequila",
+"files": [
+{
+"title": "File:Agave fields hill.jpg",
+"caption": "メキシコ・テキーラのアガベ畑"
+}
+],
+"alt": "丘に広がる青いアガベの畑"
+},
+{
+"id": "drink-mead",
+"files": [
+{
+"title": "File:Beowulf Manuscript.jpg",
+"caption": "『ベーオウルフ』の写本（ロンドン、大英図書館）"
+}
+],
+"alt": "古英語が書かれた古い写本"
+},
+{
+"id": "drink-sho-go",
+"files": [
+{
+"title": "File:Sake Flask (tokkuri) with Landscape Design LACMA AC1998.115.27.jpg",
+"caption": "平戸三川内焼の染付徳利（18世紀後半〜19世紀前半、ロサンゼルス・カウンティ美術館）"
+}
+],
+"alt": "青い山水文の白磁の徳利"
+},
+{
+"id": "drink-cork",
+"files": [
+{
+"title": "File:Cork oak forest with harvested bark.jpg",
+"caption": "樹皮を収穫したコルクガシの林（サルデーニャ島、2000年6月）"
+}
+],
+"alt": "樹皮をはがれ幹が赤茶色の木々"
+},
+{
+"id": "drink-proof",
+"files": [
+{
+"title": "File:Hydrometer (AM 1982.121-1).jpg",
+"caption": "サイクス式比重計（1949年、ロンドン製）"
+}
+],
+"alt": "木箱に収めた真鍮の比重計"
+},
+{
+"id": "drink-hangover",
+"files": [
+{
+"title": "File:William Hogarth - A Midnight Modern Conversation - B1981.25.1409 - Yale Center for British Art.jpg",
+"caption": "ホガース『真夜中の現代的会話』（イェール英国美術センター）"
+}
+],
+"alt": "酔いつぶれた男たちの宴会の版画"
+},
+{
+"id": "drink-sake-gods",
+"files": [
+{
+"title": "File:Omiwa-jinja Torii 001.jpg",
+"caption": "大神神社（奈良県）の二の鳥居"
+}
+],
+"alt": "森の中に立つ神社の鳥居"
+},
+{
+"id": "drink-poetry",
+"files": [
+{
+"title": "File:Wakayama Bokusui 1910.jpg",
+"caption": "若山牧水（1910年7月撮影）"
+}
+],
+"alt": "和装の青年の肖像写真"
+},
+{
+"id": "drink-angels-share",
+"files": [
+{
+"title": "File:Jura Distillery casks at warehouse - panoramio.jpg",
+"caption": "ジュラ蒸溜所の貯蔵庫に並ぶウイスキー樽"
+}
+],
+"alt": "貯蔵庫に積まれた木の樽"
+},
+{
+"id": "trad-shogatsu",
+"files": [
+{
+"title": "File:Pair gate with pine branches for the New Year,kadomatsu,katori-city,japan.JPG",
+"caption": "香取市の門松"
+}
+],
+"alt": "竹と松を組んだ一対の門松"
+},
+{
+"id": "trad-setsubun",
+"files": [
+{
+"title": "File:Setsubun mamemaki LCCN2009615226.jpg",
+"caption": "節分の豆まきを描いた木版画（米国議会図書館蔵）"
+}
+],
+"alt": "鬼に豆をまく人々の木版画"
+},
+{
+"id": "trad-hinamatsuri",
+"files": [
+{
+"title": "File:Nagashi Bina.JPG",
+"caption": "流し雛（福岡県うきは市）"
+}
+],
+"alt": "紙の人形を乗せた小さな舟"
+},
+{
+"id": "trad-gosekku",
+"files": [
+{
+"title": "File:稚遊五節句之内 端午.jpg",
+"caption": "『稚遊五節句之内 端午』"
+}
+],
+"alt": "端午の節句を祝う子どもの浮世絵"
+},
+{
+"id": "trad-tanabata",
+"files": [
+{
+"title": "File:Hiroshige, The city flourishing, Tanabata festival, 1857.jpg",
+"caption": "歌川広重『名所江戸百景』より「市中繁栄七夕祭」（1857年）"
+}
+],
+"alt": "笹竹の飾りが空に揺れる江戸の町"
+},
+{
+"id": "trad-hanami",
+"files": [
+{
+"title": "File:Daigo no hanami.jpg",
+"caption": "『醍醐花見図屏風』の一部（秀吉と北政所）"
+}
+],
+"alt": "桜の下を行く人々を描いた屏風"
+},
+{
+"id": "trad-obon",
+"files": [
+{
+"title": "File:Gozanokuribi Daimonji2.jpg",
+"caption": "京都・五山送り火の「大」の字（船岡山公園から）"
+}
+],
+"alt": "夜の山に浮かぶ「大」の火文字"
+},
+{
+"id": "trad-tsukimi",
+"files": [
+{
+"title": "File:Tsukimi,moon-viewing-party,japan.JPG",
+"caption": "月見の供え物（団子、栗、里芋、ススキ）"
+}
+],
+"alt": "団子とススキを供えた月見の飾り"
+},
+{
+"id": "trad-hanabi",
+"files": [
+{
+"title": "File:名所江戶百景 両国花火-Fireworks at Ryōgoku Bridge, from the series One Hundred Famous Views of Edo MET DP121524.jpg",
+"caption": "『名所江戸百景』「両国花火」（メトロポリタン美術館蔵）"
+}
+],
+"alt": "夜の隅田川に上がる花火の浮世絵"
+},
+{
+"id": "trad-nengajo",
+"files": [
+{
+"title": "File:Japanese New year post card in 1949.JPG",
+"caption": "1949年の年賀はがき"
+}
+],
+"alt": "古い年賀はがき"
+},
+{
+"id": "trad-furoshiki",
+"files": [
+{
+"title": "File:Wrapping Cloth (furoshiki) (Japan), 19th century (CH 18399509).jpg",
+"caption": "家紋の入った19世紀の風呂敷"
+}
+],
+"alt": "家紋と花を染めた紺地の布"
+},
+{
+"id": "trad-washi",
+"files": [
+{
+"title": "File:Washi(Sugihara paper).JPG",
+"caption": "和紙（杉原紙）"
+}
+],
+"alt": "繊維の見える白い和紙"
+},
+{
+"id": "trad-urushi",
+"files": [
+{
+"title": "File:Kakinoshima Site (distant view) 02.jpg",
+"caption": "垣ノ島遺跡の遠景（北海道函館市）"
+}
+],
+"alt": "緑の草地が広がる遺跡の遠景"
+},
+{
+"id": "trad-katana",
+"files": [
+{
+"title": "File:Hamon 12.jpg",
+"caption": "日本刀の刀身に浮かぶ刃文"
+}
+],
+"alt": "刀身に波打つ白い刃文の接写"
+},
+{
+"id": "trad-maneki-neko",
+"files": [
+{
+"title": "File:Shelves of maneki-neko in Gotokuji.jpg",
+"caption": "豪徳寺の棚に並ぶ招き猫（東京都世田谷区）"
+}
+],
+"alt": "棚にぎっしり並ぶ白い招き猫"
+},
+{
+"id": "trad-bonsai",
+"files": [
+{
+"title": "File:Kasuga Gongen Genki E.jpg",
+"caption": "『春日権現験記絵』に描かれた鉢植え（盆景）"
+}
+],
+"alt": "絵巻に描かれた縁先の鉢植え"
+},
+{
+"id": "trad-ikebana",
+"files": [
+{
+"title": "File:2018 Ikenobō Autumn Tanabata Exhibition 60.jpg",
+"caption": "池坊の展覧会に出品された立花（2018年）"
+}
+],
+"alt": "道場に飾られた大きな立花"
+},
+{
+"id": "trad-kodo",
+"files": [
+{
+"title": "File:RanJyaTai Shosoin.JPG",
+"caption": "正倉院に伝わる名香「蘭奢待」"
+}
+],
+"alt": "横長の香木の塊"
+},
+{
+"id": "trad-sumo",
+"files": [
+{
+"title": "File:Nomi no Sukune Wrestling with Taima no Kehaya LACMA M.84.31.87.jpg",
+"caption": "月岡芳年が描いた野見宿禰と当麻蹶速（1885年、ロサンゼルス・カウンティ美術館蔵）"
+}
+],
+"alt": "組み合う二人の力士を描いた浮世絵"
+},
+{
+"id": "trad-judo",
+"files": [
+{
+"title": "File:Kano Jigoro, director of the Tokyo Higher Normal School.jpg",
+"caption": "東京高等師範学校長のころの嘉納治五郎"
+}
+],
+"alt": "口ひげの男性の白黒肖像写真"
+},
+{
+"id": "trad-toshiya",
+"files": [
+{
+"title": "File:Kyoto Sanjusangen-do Haupthalle 06.jpg",
+"caption": "京都・三十三間堂の本堂"
+}
+],
+"alt": "横に長く延びる寺の本堂"
+},
+{
+"id": "trad-sanpitsu",
+"files": [
+{
+"title": "File:Huushincho 1.jpg",
+"caption": "空海の書「風信帖」（京都・東寺蔵）"
+}
+],
+"alt": "墨で書かれた行書の手紙"
+},
+{
+"id": "trad-washoku",
+"files": [
+{
+"title": "File:Japanese Home Dinner 1Soup and Many Dishes.jpg",
+"caption": "一汁三菜を基本とした家庭の夕食の献立例"
+}
+],
+"alt": "ご飯と汁物、おかずが並ぶ食卓"
+},
+{
+"id": "trad-sushi",
+"files": [
+{
+"title": "File:Funazushi 鮒寿司 Maibara City Shiga Japan 2022-10-06.jpg",
+"caption": "滋賀県米原市のすし店で出された鮒ずし"
+}
+],
+"alt": "皿に盛られた鮒ずしの切り身"
+},
+{
+"id": "trad-soba",
+"files": [
+{
+"title": "File:Two bowls of soba noodles with chopsticks 2.jpg",
+"caption": "二杯のそばと箸"
+}
+],
+"alt": "器に盛られた二杯のそば"
+},
+{
+"id": "trad-onsen",
+"files": [
+{
+"title": "File:Arima Onsen Tenjin Sengen.JPG",
+"caption": "有馬温泉の泉源の一つ「天神泉源」"
+}
+],
+"alt": "湯気を噴き上げる温泉の泉源"
+},
+{
+"id": "trad-sanpai",
+"files": [
+{
+"title": "File:Worship for Japanese shrine.png",
+"caption": "二礼二拍手一礼の参拝の手順を示す図"
+}
+],
+"alt": "神社の前で礼と拍手をする少女の図"
+},
+{
+"id": "trad-gengo",
+"files": [
+{
+"title": "File:Yoshihide Suga announcing new imperial era Reiwa 2 (cropped).jpg",
+"caption": "新元号「令和」を発表する菅義偉"
+}
+],
+"alt": "「令和」の額を掲げる男性"
+},
+{
+"id": "anime-hokusai-manga",
+"files": [
+{
+"title": "File:HOKUSAI manga-IV.jpg",
+"caption": "葛飾北斎『北斎漫画』四編より（1819年）"
+}
+],
+"alt": "人物や風物を描いた木版の見開き"
+},
+{
+"id": "anime-tokiwaso",
+"files": [
+{
+"title": "File:Tokiwaso-Manga-Museum.jpg",
+"caption": "豊島区立トキワ荘マンガミュージアム（東京都豊島区）"
+}
+],
+"alt": "木造2階建てのアパート風の建物"
+},
+{
+"id": "anime-gekiga",
+"files": [
+{
+"title": "File:Yoshihiro Tatsumi 2010.JPG",
+"caption": "漫画家の辰巳ヨシヒロ（2010年、東京）"
+}
+],
+"alt": "眼鏡をかけた年配の男性"
+},
+{
+"id": "anime-comiket",
+"files": [
+{
+"title": "File:Comiket 83 - Tokyo Big Sight entrance.JPG",
+"caption": "コミックマーケット83開催時の東京ビッグサイト入口"
+}
+],
+"alt": "逆三角形の棟が並ぶ展示場"
+},
+{
+"id": "anime-1917",
+"files": [
+{
+"title": "File:Anime cell 1917.jpg",
+"caption": "日本に現存する最古のアニメ映画の一場面（2008年復元のフィルムより）"
+}
+],
+"alt": "刀を構える侍の白黒アニメの一場面"
+},
+{
+"id": "anime-momotaro",
+"files": [
+{
+"title": "File:MomotaroUminoShinpei01.jpg",
+"caption": "『桃太郎 海の神兵』の一場面"
+}
+],
+"alt": "動物の兵士を描いた白黒アニメの一場面"
+},
+{
+"id": "anime-hakujaden",
+"files": [
+{
+"title": "File:TOEI ANIMATION Oizumi Studio.JPG",
+"caption": "東映アニメーション大泉スタジオ（初代、1957〜2015年、東京都練馬区）"
+}
+],
+"alt": "スタジオの建物の外観"
+},
+{
+"id": "anime-gundam",
+"files": [
+{
+"title": "File:Yoshiyuki Tomino 20181205 (cropped).jpg",
+"caption": "アニメ監督の富野由悠季（2018年）"
+}
+],
+"alt": "スーツ姿の年配の男性"
+},
+{
+"id": "anime-cel",
+"files": [
+{
+"title": "File:US Patent 1143542 page 1.png",
+"caption": "アール・ハードが取得したセルアニメーション技術の特許（1915年）"
+}
+],
+"alt": "図と文字が並ぶ特許文書の1ページ"
+},
+{
+"id": "anime-seichi",
+"files": [
+{
+"title": "File:Washimiyajinja haiden.jpg",
+"caption": "鷲宮神社の拝殿"
+}
+],
+"alt": "木造の神社の拝殿"
+},
+{
+"id": "anime-pong",
+"files": [
+{
+"title": "File:Tennis For Two on a DuMont Lab Oscilloscope Type 304-A.jpg",
+"caption": "オシロスコープに映る『テニス・フォー・ツー』"
+}
+],
+"alt": "オシロスコープ画面上の光の軌跡"
+},
+{
+"id": "anime-invaders",
+"files": [
+{
+"title": "File:Space Invader in 2010.jpg",
+"caption": "テーブル型の『スペースインベーダー』のゲーム機"
+}
+],
+"alt": "天板が画面になったテーブル型筐体"
+},
+{
+"id": "anime-pacman",
+"files": [
+{
+"title": "File:Toru Iwatani, creator of Pac-Man, at GDC 2011.jpg",
+"caption": "『パックマン』を開発した岩谷徹（GDC 2011）"
+}
+],
+"alt": "講演会場に立つ眼鏡の男性"
+},
+{
+"id": "anime-famicom",
+"files": [
+{
+"title": "File:Nintendo-Famicom-Console-FL.jpg",
+"caption": "任天堂ファミリーコンピュータ（1983年発売）"
+}
+],
+"alt": "赤と白のゲーム機本体"
+},
+{
+"id": "anime-tetris",
+"files": [
+{
+"title": "File:Alexey Pajitnov GDC 2024 (cropped).jpg",
+"caption": "テトリスを作ったアレクセイ・パジトノフ（2024年）"
+}
+],
+"alt": "白髪の年配の男性"
+},
+{
+"id": "anime-dragonquest",
+"files": [
+{
+"title": "File:Yuji Horii (2).jpg",
+"caption": "ゲームデザイナーの堀井雄二"
+}
+],
+"alt": "サインをする眼鏡の男性"
+},
+{
+"id": "anime-pokemon",
+"files": [
+{
+"title": "File:Nintendo DMG-04 Game Link Cable.jpg",
+"caption": "ゲームボーイ用の通信ケーブル（任天堂 DMG-04）"
+}
+],
+"alt": "両端に端子のある灰色のケーブル"
+},
+{
+"id": "anime-esports",
+"files": [
+{
+"title": "File:Spacewar!-PDP-1-20070512.jpg",
+"caption": "PDP-1で動く『スペースウォー！』（コンピューター歴史博物館）"
+}
+],
+"alt": "古い大型コンピューターと丸い画面"
+},
+{
+"id": "anime-gamemusic",
+"files": [
+{
+"title": "File:Koichi Sugiyama 202011.jpg",
+"caption": "作曲家のすぎやまこういち（2020年）"
+}
+],
+"alt": "スーツ姿の年配の男性"
+},
+{
+"id": "anime-akihabara",
+"files": [
+{
+"title": "File:Akihajinja taitoku3.jpg",
+"caption": "秋葉神社の社殿（東京都台東区）"
+}
+],
+"alt": "小さな神社の社殿"
+},
+{
+"id": "hojoki",
+"files": [
+{
+"title": "File:Hojyoki codex Daifukukohji.jpg",
+"caption": "大福光寺に伝わる『方丈記』（13世紀、長明の自筆とされる）"
+}
+],
+"alt": "墨書きの古い写本"
+},
+{
+"id": "makura",
+"files": [
+{
+"title": "File:Pillow Book Illustrated1.JPG",
+"caption": "『枕草子絵詞』の一場面（13世紀、紙本墨画）"
+}
+],
+"alt": "墨で描かれた宮廷の室内の絵巻"
+},
+{
+"id": "manyoshu",
+"files": [
+{
+"title": "File:Ranshi-bon (Tokyo National Museum).jpg",
+"caption": "『万葉集』の写本「藍紙本」の断簡（東京国立博物館）"
+}
+],
+"alt": "古い写本の断簡に書かれた漢字の文字列"
+},
+{
+"id": "gilgamesh",
+"files": [
+{
+"title": "File:British Museum Flood Tablet.jpg",
+"caption": "ギルガメシュ叙事詩の第11書板「洪水粘土板」。前7世紀、アッシュルバニパルの図書館出土"
+}
+],
+"alt": "楔形文字が刻まれた粘土板"
+},
+{
+"id": "shuowen",
+"files": [
+{
+"title": "File:Shuowen Jiezi, by Xu Xuan.png",
+"caption": "徐鉉が校訂した『説文解字』の一頁"
+}
+],
+"alt": "篆書の見出し字と解説が並ぶ漢籍の頁"
+},
+{
+"id": "indo-european",
+"files": [
+{
+"title": "File:Sir William Jones Sitzporträt.jpg",
+"caption": "ガネーシャ像を置いた机につくウィリアム・ジョーンズの肖像"
+}
+],
+"alt": "机に向かって座るジョーンズの肖像画"
+},
+{
+"id": "kojiki-nihonshoki",
+"files": [
+{
+"title": "File:Shinpukuji-bon Kojiki (真福寺本古事記).png",
+"caption": "古事記の真福寺本（14世紀の写本）の一頁。1924〜25年刊行の複製より"
+}
+],
+"alt": "漢字で縦書きされた古い写本の頁"
+},
+{
+"id": "taketori",
+"files": [
+{
+"title": "File:Taketori monogatari and Mt. Fuji.jpg",
+"caption": "月へ帰るかぐや姫を天人が迎えに来る場面。『竹取物語』の最終場面を描いた屏風"
+}
+],
+"alt": "天人がかぐや姫を迎えに来る場面の屏風絵"
+},
+{
+"id": "heike",
+"files": [
+{
+"title": "File:Biwa-Hoshi-71-Shokunin-Uta-Awase-Picture-Scroll.png",
+"caption": "琵琶法師。『七十一番職人歌合絵巻』より"
+}
+],
+"alt": "琵琶法師を描いた絵巻の一場面"
+},
+{
+"id": "tsurezuregusa",
+"files": [
+{
+"title": "File:Kenko by Kano Tanyu.jpg",
+"caption": "兼好法師画像（狩野探幽筆、部分）"
+}
+],
+"alt": "兼好法師の肖像画"
+},
+{
+"id": "ame-nimo-makezu",
+"files": [
+{
+"title": "File:Miyazawa Kenji in a paddy field.jpg",
+"caption": "花巻農学校の教師時代、田んぼに立つ宮沢賢治"
+}
+],
+"alt": "田んぼに立つ宮沢賢治の写真"
+},
+{
+"id": "rashomon",
+"files": [
+{
+"title": "File:Akutagawa Ryunosuke photo.jpg",
+"caption": "芥川龍之介（1926年）"
+}
+],
+"alt": "芥川龍之介の肖像写真"
+},
+{
+"id": "arabian-nights",
+"files": [
+{
+"title": "File:Arabian nights manuscript.jpg",
+"caption": "ガラン写本の2ページ。のちにガランの『千夜一夜物語』に収められる物語を含む"
+}
+],
+"alt": "アラビア文字で書かれた写本の見開き"
+},
+{
+"id": "grimm-tales",
+"files": [
+{
+"title": "File:Alte Nationalgalerie-Jerichau-Baumann-Gebrüder Grimm DSC8174.jpg",
+"caption": "グリム兄弟の二人の肖像（ベルリン旧国立美術館）"
+}
+],
+"alt": "並んで描かれたグリム兄弟の肖像画"
+},
+{
+"id": "little-prince",
+"files": [
+{
+"title": "File:Antoine de Saint-Exupéry.jpg",
+"caption": "1942年5月、モントリオール近郊の湖で船に乗るサン＝テグジュペリ。映像の一コマ"
+}
+],
+"alt": "船上のサン＝テグジュペリの白黒写真"
+},
+{
+"id": "li-bai-du-fu",
+"files": [
+{
+"title": "File:Liang Kai - Li Bai Strolling.jpg",
+"caption": "梁楷筆「李白吟行図」"
+}
+],
+"alt": "歩く李白を描いた水墨画"
+},
+{
+"id": "sanguo",
+"files": [
+{
+"title": "File:RTK - 001.jpg",
+"caption": "桃園の誓いを立てる劉備・関羽・張飛。清代に描かれた挿絵"
+}
+],
+"alt": "桃園の誓いを立てる三人の武将の絵"
+},
+{
+"id": "stock-voc",
+"files": [
+{
+"title": "File:VOC aandeel 9 september 1606.jpg",
+"caption": "現存最古とされるVOCの株式（1606年9月9日付）。ホールンの西フリースラント文書館で発見"
+}
+],
+"alt": "17世紀の手書きの株式証書"
+},
+{
+"id": "stock-first-bank",
+"files": [
+{
+"title": "File:Portrait of Shibusawa Eiichi (cropped).jpg",
+"caption": "渋沢栄一の肖像"
+}
+],
+"alt": "渋沢栄一の肖像"
+},
+{
+"id": "stock-tse",
+"files": [
+{
+"title": "File:Stock Exchange at Kabutochō; Koizumi Kishio.jpg",
+"caption": "小泉癸巳男の木版画「兜町の株式取引所」"
+}
+],
+"alt": "兜町の取引所を描いた木版画"
+},
+{
+"id": "stock-buttonwood",
+"files": [
+{
+"title": "File:1792 Buttonwood Agreement.jpg",
+"caption": "1792年の「スズカケノキ協定」の文書。現在のニューヨーク証券取引所の起源"
+}
+],
+"alt": "手書きの協定文書"
+},
+{
+"id": "stock-black-monday",
+"files": [
+{
+"title": "File:Black Monday Dow Jones.png",
+"caption": "ダウ平均の推移（1987年7月19日〜1988年1月19日）"
+}
+],
+"alt": "急落を示すダウ平均の折れ線グラフ"
+},
+{
+"id": "stock-oldest-bonds",
+"files": [
+{
+"title": "File:20170420 Beinecke Rare Book Library Interior Yale University New Haven Connecticut.jpg",
+"caption": "イェール大学のバイネキ稀覯書・手稿図書館の内部"
+}
+],
+"alt": "イェール大学の図書館の内部"
+},
+{
+"id": "stock-war-bonds",
+"files": [
+{
+"title": "File:Portrait of Jacob Schiff.jpg",
+"caption": "ジェイコブ・シフの肖像"
+}
+],
+"alt": "銀行家ジェイコブ・シフの肖像"
+},
+{
+"id": "stock-nikkei-1989",
+"files": [
+{
+"title": "File:The Tokyo Stock Exchange - main room 2.jpg",
+"caption": "東京証券取引所のメインルーム"
+}
+],
+"alt": "東京証券取引所のメインルーム"
+},
+{
+"id": "stock-index-fund",
+"files": [
+{
+"title": "File:Photo of a John C. Bogle By Bill Cramer.jpg",
+"caption": "バンガードの創業者ジョン・ボーグル"
+}
+],
+"alt": "ジョン・ボーグルの写真"
+},
+{
+"id": "stock-railway-mania",
+"files": [
+{
+"title": "File:George Hudson (2).png",
+"caption": "「鉄道王」ジョージ・ハドソンを描いたリトグラフ「蒸気の上げ方を知る男」"
+}
+],
+"alt": "ジョージ・ハドソンを描いた版画"
+},
+{
+"id": "stock-ticker",
+"files": [
+{
+"title": "File:Thomas Edison stock ticker NMAH-JN2014-3625.jpg",
+"caption": "エジソンの株式ティッカー（スミソニアン国立アメリカ歴史博物館）"
+}
+],
+"alt": "エジソンの株式ティッカーの機械"
+},
+{
+"id": "stock-credit-rating",
+"files": [
+{
+"title": "File:Chicago, Danville & Vincennes Railroad 1873.jpg",
+"caption": "シカゴ・ダンヴィル・アンド・ヴィンセンズ鉄道会社の金貨債券（1873年1月1日付）"
+}
+],
+"alt": "19世紀の鉄道会社の債券証書"
+},
+{
+"id": "stock-jgb",
+"files": [
+{
+"title": "File:Sample of Unregistered Bond Certificates Exchangeable to Gold Bank Notes (100 Yen).jpg",
+"caption": "無記名国債証書の見本（100円）"
+}
+],
+"alt": "額面100円の古い公債証書"
+},
+{
+"id": "stock-yield-curve",
+"files": [
+{
+"title": "File:U.S. Treasury Yield Curves - v1.png",
+"caption": "アメリカ国債のイールドカーブ。赤線の2000年7月の曲線が逆転している"
+}
+],
+"alt": "時期ごとの国債利回り曲線を重ねたグラフ"
+},
+{
+"id": "stock-graham",
+"files": [
+{
+"title": "File:Benjamin Graham (1894-1976) portrait on 23 March 1950.jpg",
+"caption": "ベンジャミン・グレアム（1950年3月23日）"
+}
+],
+"alt": "ベンジャミン・グレアムの肖像写真"
+},
+{
+"id": "stock-buffett",
+"files": [
+{
+"title": "File:Warren Buffett at the 2015 SelectUSA Investment Summit (cropped).jpg",
+"caption": "ウォーレン・バフェット（2015年）"
+}
+],
+"alt": "ウォーレン・バフェットの写真"
+},
+{
+"id": "stock-tontine",
+"files": [
+{
+"title": "File:Cardinal Mazarin by Pierre Mignard (Musée Condé).jpg",
+"caption": "マザランの肖像（ピエール・ミニャール画、コンデ美術館）"
+}
+],
+"alt": "マザラン枢機卿の肖像画"
+},
+{
+"id": "stock-markowitz",
+"files": [
+{
+"title": "File:Markowitz frontier.jpg",
+"caption": "効率的フロンティアの図。双曲線は「マーコウィッツの弾丸」とも呼ばれる"
+}
+],
+"alt": "リスクと収益の関係を表す双曲線の図"
+},
+{
+"id": "stock-black-scholes",
+"files": [
+{
+"title": "File:SCHOLES02.jpg",
+"caption": "マイロン・ショールズ"
+}
+],
+"alt": "マイロン・ショールズの写真"
+},
+{
+"id": "stock-esg",
+"files": [
+{
+"title": "File:PRI opening at NYSE with UN Secretary General.jpg",
+"caption": "国連事務総長も出席した2006年ニューヨークでの責任投資原則（PRI）の発表"
+}
+],
+"alt": "責任投資原則の発表式の様子"
+},
+{
+"id": "stock-gamestop",
+"files": [
+{
+"title": "File:GameStop Retail Store - Vallejo - California (50906730711).jpg",
+"caption": "カリフォルニア州バレーホのゲームストップの店舗"
+}
+],
+"alt": "ゲームストップの店舗の外観"
+},
+{
+"id": "stock-arrowhead",
+"files": [
+{
+"title": "File:Market centre in Tokyo stock exchange.jpg",
+"caption": "東京証券取引所のマーケットセンター。1999年に閉鎖された立会場の跡"
+}
+],
+"alt": "東京証券取引所のマーケットセンター"
+},
+{
+"id": "acct-debit-credit",
+"files": [
+{
+"title": "File:Lucas de Burgo, Dedication page, \"Somma di aritmetica\" Wellcome L0006607.jpg",
+"caption": "パチョーリ『スンマ』1494年版の献辞のページ"
+}
+],
+"alt": "活字で組まれた古い書物のページ"
+},
+{
+"id": "bio-bamboo-flower",
+"files": [
+{
+"title": "File:Melocanna baccifera.jpg",
+"caption": "インド北東部などに生えるタケ、メロカンナ・バッキフェラ（Melocanna baccifera）"
+}
+],
+"alt": "メロカンナ・バッキフェラの竹"
+},
+{
+"id": "drink-izakaya",
+"files": [
+{
+"title": "File:豊島屋の白酒.jpg",
+"caption": "豊島屋の白酒"
+}
+],
+"alt": "豊島屋の白酒の瓶"
+},
+{
+"id": "eng-vikings",
+"files": [
+{
+"title": "File:Osebergskipet 2016.jpg",
+"caption": "オーセベリ船（オスロのヴァイキング船博物館）"
+}
+],
+"alt": "博物館に展示された木造のヴァイキング船"
+},
+{
+"id": "ent-musical",
+"files": [
+{
+"title": "File:Oklahoma 8e07916v.jpg",
+"caption": "『オクラホマ！』の舞台（1943〜44年、シアター・ギルド制作）"
+}
+],
+"alt": "舞台の上で演じる俳優たち"
+},
+{
+"id": "stanford-prison",
+"files": [
+{
+"title": "File:Philip Zimbardo (cropped).jpg",
+"caption": "フィリップ・ジンバルドー"
+}
+],
+"alt": "講演するジンバルドーの写真"
+},
+{
+"id": "acct-exchequer",
+"files": [
+{
+"title": "File:EB1911 Tally - tally stick.jpg",
+"caption": "財務府の割り符の図（『ブリタニカ百科事典』第11版）"
+}
+],
+"alt": "割り符（タリー・スティック）の図"
+},
+{
+"id": "drink-toji",
+"files": [
+{
+"title": "File:A Hakutsuru Sake Brewery Museum exhibit.jpg",
+"caption": "白鶴酒造資料館（神戸市東灘区）の展示"
+}
+],
+"alt": "酒蔵の作業を再現した展示"
+},
+{
+"id": "fin-boj-qe",
+"files": [
+{
+"title": "File:Bank of Japan headquarters in Tokyo, Japan.jpg",
+"caption": "東京・日本橋の日本銀行本店"
+}
+],
+"alt": "日本銀行本店の建物"
+},
+{
+"id": "fin-usury",
+"files": [
+{
+"title": "File:The Moneylender and his Wife by Quinten Massijs.jpg",
+"caption": "クエンティン・マセイス《両替商とその妻》"
+}
+],
+"alt": "金貨を量る商人と、その横で本をめくる妻"
+},
+{
+"id": "fin-black-wednesday",
+"files": [
+{
+"title": "File:Bank of England Building, City of London (Southwest View - 02).jpg",
+"caption": "南西から見たイングランド銀行の建物（ロンドン、シティ）"
+}
+],
+"alt": "イングランド銀行の石造りの建物"
+},
+{
+"id": "fin-yen",
+"files": [
+{
+"title": "File:Meiji-era coins-P8260160.JPG",
+"caption": "小判（円が導入される前に使われた金貨）"
+}
+],
+"alt": "楕円形の金色の小判"
+},
+{
+"id": "eng-thou-you",
+"files": [
+{
+"title": "File:Supposed portrait of George Fox, 1677.png",
+"caption": "クエーカーの創始者ジョージ・フォックスとされる肖像（1677年）"
+}
+],
+"alt": "17世紀の男性の肖像"
+},
+{
+"id": "calculus-priority",
+"files": [
+{
+"title": "File:Gottfried Wilhelm Leibniz, Bernhard Christoph Francke.jpg",
+"caption": "ゴットフリート・ヴィルヘルム・ライプニッツの肖像（クリストフ・ベルンハルト・フランケ画）"
+}
+],
+"alt": "かつらをつけたライプニッツの肖像画"
+},
+{
+"id": "drink-metabolism",
+"files": [
+{
+"title": "File:Ethanol to acetaldehyde.svg",
+"caption": "エタノールがアセトアルデヒドに酸化される反応の図"
+}
+],
+"alt": "エタノールとアセトアルデヒドの構造式"
+},
+{
+"id": "fin-gdp",
+"files": [
+{
+"title": "File:Simon Kuznets 1971.jpg",
+"caption": "サイモン・クズネッツ（1971年の報道写真）"
+}
+],
+"alt": "眼鏡をかけた男性の白黒写真"
+},
+{
+"id": "gyges-ring",
+"files": [
+{
+"title": "File:Politeia beginning. Codex Parisinus graecus 1807.jpg",
+"caption": "プラトン『国家』の冒頭のページ（パリ写本 Parisinus graecus 1807）"
+}
+],
+"alt": "ギリシア語の文字が並ぶ写本のページ"
+},
+{
+"id": "fin-mint",
+"files": [
+{
+"title": "File:Cherry-Blossom-Viewing through the \"Tunnel\" at Japan Mint in 201504 001.JPG",
+"caption": "造幣局（大阪）の「通り抜け」の由来を記した案内板（2015年）"
+}
+],
+"alt": "桜の通り抜けの由来を記した案内板"
+},
+{
+"id": "acct-railway-capital",
+"files": [
+{
+"title": "File:George Hudson (1b).JPG",
+"caption": "「鉄道王」ジョージ・ハドソンの肖像"
+}
+],
+"alt": "19世紀の男性の肖像"
+}
+]

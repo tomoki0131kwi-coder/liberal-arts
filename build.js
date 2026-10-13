@@ -51,7 +51,16 @@ for (const [id, im] of Object.entries(IMAGES)) {
   if (!ids.has(id)) errors.push(`図版の回 id が不明: ${id}`);
   else if (!fs.existsSync(path.join(ROOT, im.file))) errors.push(`図版のファイルがない: ${im.file}`);
 }
+// 画像のない回は、src/images-none.json に理由を書いておく（新しい回に画像を付け忘れないための検査）
+const nonePath = path.join(ROOT, "src/images-none.json");
+const NONE = fs.existsSync(nonePath) ? JSON.parse(fs.readFileSync(nonePath, "utf8")) : {};
+for (const id of Object.keys(NONE)) {
+  if (!ids.has(id)) errors.push(`images-none.json の回 id が不明: ${id}`);
+  else if (IMAGES[id]) errors.push(`図版があるのに images-none.json にも載っている: ${id}`);
+}
 if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
+const noImage = LESSONS.filter(L => !IMAGES[L.id] && !NONE[L.id]).map(L => L.id);
+if (noImage.length) console.warn(`図版がなく、images-none.json に理由もない回（tools/images/README.md の手順で画像を付ける）: ${noImage.join(" ")}`);
 const data = `<script>\nconst IMAGES_DATA = ${JSON.stringify(IMAGES)};\n</script>\n<script>\n${rubySrc}\n</script>\n` + files.map(f => `<script>\n${fs.readFileSync(path.join(dataDir, f), "utf8")}\n</script>`).join("\n");
 const html = fs.readFileSync(path.join(ROOT, "src/app.html"), "utf8").replace("<!--DATA-->", () => data);
 fs.writeFileSync(path.join(ROOT, "kyoyo-himekuri.html"), html);
