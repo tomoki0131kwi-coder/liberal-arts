@@ -146,6 +146,12 @@ section.step { display: grid; gap: 14px; scroll-margin-top: 16px; }
 .step-h .min { margin-left: auto; font-family: var(--f-mono); font-size: .78rem; color: var(--ink-2); white-space: nowrap; }
 .prose { display: grid; gap: 1em; max-width: 40em; font-size: 1.02rem; }
 .prose b { font-weight: 700; background: linear-gradient(transparent 62%, var(--ai-soft) 62%); }
+.lfig { margin: .4em 0; display: grid; gap: 6px; }
+.lfig .frame { background: var(--sheet); border: 1px solid var(--rule); display: grid; place-items: center; overflow: hidden; }
+.lfig img { display: block; width: 100%; height: auto; max-height: 26rem; object-fit: contain; }
+.lfig figcaption { font-size: .82rem; line-height: 1.6; color: var(--ink-2); display: grid; gap: 2px; }
+.lfig .credit { font-size: .74rem; overflow-wrap: anywhere; }
+.lfig .credit a { color: inherit; }
 
 .interp { max-width: 40em; border: 1px dashed var(--ink-2); border-radius: 4px; padding: 12px 16px; display: grid; gap: 8px; font-size: .94rem; }
 .interp-h { font-size: .75rem; letter-spacing: .1em; font-weight: 700; color: var(--ink-2); }
@@ -270,6 +276,9 @@ footer { font-size: .78rem; color: var(--ink-2); border-top: 1px solid var(--rul
 
 <script>
 const LESSONS = [];
+</script>
+<script>
+const IMAGES_DATA = {};
 </script>
 <script>
 /* 難読語のふりがな辞書：「語 よみ」を1行に1語。各回の各ステップで初出の語にだけ <ruby> を付ける。
@@ -19715,7 +19724,7 @@ function lessonHTML(L, mode) {
 
   <section class="step" id="s-read">
     <div class="step-h"><span class="n">1</span><h2>読む</h2><span class="min">目安 6分</span></div>
-    <div class="prose">${L.body.map(p => `<p>${ruby(p, sA, L.id)}</p>`).join("")}</div>
+    <div class="prose">${L.body.map((p, i) => `<p>${ruby(p, sA, L.id)}</p>` + (i === Math.min(1, L.body.length - 1) ? figureHTML(L) : "")).join("")}</div>
     <div class="interp">
       <div class="interp-h">解釈・諸説（原典に明記されていない内容）</div>
       <ul>${L.interp.map(x => `<li>${ruby(x, sA, L.id)}</li>`).join("")}</ul>
@@ -19959,6 +19968,15 @@ function route(keepScroll) {
   if (!keepScroll) window.scrollTo(0, 0);
 }
 addEventListener("hashchange", () => route(false));
+
+/* ───── 図版（Wikimedia Commons の自由ライセンス画像。img/<id>.webp を同梱） ───── */
+const IMAGES = typeof IMAGES_DATA === "object" ? IMAGES_DATA : {};
+function figureHTML(L) {
+  const im = IMAGES[L.id];
+  if (!im) return "";
+  const credit = [im.artist && `作者：${esc(im.artist)}`, im.license && (im.licenseUrl ? `<a href="${esc(im.licenseUrl)}" target="_blank" rel="noopener">${esc(im.license)}</a>` : esc(im.license)), `<a href="${esc(im.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>`].filter(Boolean).join("／");
+  return `<figure class="lfig"><div class="frame"><img src="${esc(im.file)}" width="${im.w}" height="${im.h}" alt="${esc(im.alt || "")}" loading="lazy" decoding="async"></div><figcaption><span>${esc(im.caption || "")}</span><span class="credit">${credit}</span></figcaption></figure>`;
+}
 
 /* ───── Claude と深める（sample 機能。使えない環境では欄ごと隠す） ───── */
 const samplePromise = window.claude?.use ? window.claude.use("sample").catch(() => null) : Promise.resolve(null);

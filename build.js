@@ -44,8 +44,16 @@ for (const line of RUBY_SRC.split("\n").map(s => s.trim()).filter(s => s && s[0]
 if (rubyErr.length) { console.error(rubyErr.join("\n")); process.exit(1); }
 if (unused.length) console.warn("ふりがな辞書で本文に出てこない語:", unused.join(" "));
 
-const data = `<script>\n${rubySrc}\n</script>\n` + files.map(f => `<script>\n${fs.readFileSync(path.join(dataDir, f), "utf8")}\n</script>`).join("\n");
+// 図版：src/images.json（回 id → 画像情報）。画像本体は img/ に置き、ページと一緒に公開する
+const imgPath = path.join(ROOT, "src/images.json");
+const IMAGES = fs.existsSync(imgPath) ? JSON.parse(fs.readFileSync(imgPath, "utf8")) : {};
+for (const [id, im] of Object.entries(IMAGES)) {
+  if (!ids.has(id)) errors.push(`図版の回 id が不明: ${id}`);
+  else if (!fs.existsSync(path.join(ROOT, im.file))) errors.push(`図版のファイルがない: ${im.file}`);
+}
+if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
+const data = `<script>\nconst IMAGES_DATA = ${JSON.stringify(IMAGES)};\n</script>\n<script>\n${rubySrc}\n</script>\n` + files.map(f => `<script>\n${fs.readFileSync(path.join(dataDir, f), "utf8")}\n</script>`).join("\n");
 const html = fs.readFileSync(path.join(ROOT, "src/app.html"), "utf8").replace("<!--DATA-->", () => data);
 fs.writeFileSync(path.join(ROOT, "kyoyo-himekuri.html"), html);
 const by = {}; for (const L of LESSONS) by[L.field] = (by[L.field] || 0) + 1;
-console.log(`OK: ${LESSONS.length} 回`, by, `${(Buffer.byteLength(html) / 1024).toFixed(0)} KB`);
+console.log(`OK: ${LESSONS.length} 回`, by, `図版 ${Object.keys(IMAGES).length} 枚`, `${(Buffer.byteLength(html) / 1024).toFixed(0)} KB`);
